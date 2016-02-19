@@ -370,15 +370,19 @@ var controller = {
             model.str_b_i1 === "";
         }
 
-        model.str_c_i1 = model.c_i1.toString();
-
-        if(model.c === 1 || model.b === 6){
+        /*if(model.c === 1 || model.b === 6){
             model.str_c_i1 = "";
-        }
+        }*/
         
         if(model.str_c_i1 === " "){
             model.str_c_i1 === "";
+        }else{
+            model.str_c_i1 = model.c_i1.toString();
         }
+        
+        /*if(model.c_i1 === 1){
+            model.str_c_i1 = "";
+        }*/
         
         //BASES
         model.str_d_j1 = model.d_j1.toString();
@@ -395,10 +399,6 @@ var controller = {
 
         if(model.e_k1 === " "){
             model.str_e_k1 = "";
-        }
-
-        if(model.c_i1 === 1){
-            model.str_c_i1 = "";
         }
         
         //EXPONENTES
