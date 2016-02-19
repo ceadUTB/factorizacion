@@ -374,7 +374,7 @@ var controller = {
             model.str_c_i1 = "";
         }*/
         
-        if(model.str_c_i1 === " "){
+        if(model.c_i1 === " "){
             model.str_c_i1 === "";
         }else{
             model.str_c_i1 = model.c_i1.toString();
