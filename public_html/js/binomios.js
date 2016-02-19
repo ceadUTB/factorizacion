@@ -600,14 +600,13 @@ var controller = {
     },
     
     //El tipo es t
-    validarTipoBinomio : function (){
-        if($("#cuadratico").is(":checked") ){ // check if the radio is checked
+    validarTipoBinomio : function (valor){
+        views.deshabilitarRadio();
+        if(valor === "cuadratico"){
             model.tipo = 2;
-        }
-        
-        if($("#cubico").is(":checked") ){ // check if the radio is checked
+        }else{
             model.tipo = 3; 
-        }
+        } 
         
         views.esconder("#ingresa_tipo a");
         if(model.tipo === model.t){

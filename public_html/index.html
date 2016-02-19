@@ -172,17 +172,15 @@
                             <div id="ingresa_tipo">
                                 <h6>¿El binomio es cuadrático o cúbico?</h6>
 
-                                <input type="radio" id="cuadratico" name="tipo">
+                                <input type="radio" id="cuadratico" name="tipo" onclick="controller.validarTipoBinomio('cuadratico');">
                                 <label for="cuadratico">Cuadrático</label>
-                                <input type="radio" id="cubico" name="tipo">
+                                <input type="radio" id="cubico" name="tipo" onclick="controller.validarTipoBinomio('cubico');">
                                 <label for="cubico">Cúbico</label> 
-                                <br><br>
-                                <a class="btn waves-effect waves-light orange" onclick="controller.validarTipoBinomio();">Aceptar</a>
+                                <br>
                             </div>
                             <div id="mensajes3" class="warning-box" style="display: none;">
                                 <p id="mensaje3"></p>
                             </div>
-                            <br>
                             <a id="continuar3" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('factores'); views.mostrarExplicaciones();" style="display: none;">Continuar</a>
                             <br>
                         </div>    
