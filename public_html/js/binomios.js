@@ -370,15 +370,19 @@ var controller = {
             model.str_b_i1 === "";
         }
 
-        model.str_c_i1 = model.c_i1.toString();
-
-        if(model.c === 1 || model.b === 6){
+        /*if(model.c === 1 || model.b === 6){
             model.str_c_i1 = "";
+        }*/
+        
+        if(model.c_i1 === " "){
+            model.str_c_i1 === "";
+        }else{
+            model.str_c_i1 = model.c_i1.toString();
         }
         
-        if(model.str_c_i1 === " "){
-            model.str_c_i1 === "";
-        }
+        /*if(model.c_i1 === 1){
+            model.str_c_i1 = "";
+        }*/
         
         //BASES
         model.str_d_j1 = model.d_j1.toString();
@@ -395,10 +399,6 @@ var controller = {
 
         if(model.e_k1 === " "){
             model.str_e_k1 = "";
-        }
-
-        if(model.c_i1 === 1){
-            model.str_c_i1 = "";
         }
         
         //EXPONENTES
@@ -438,7 +438,12 @@ var controller = {
         console.log(model.primer_factor);
         //$('#binomio_resolver').html(model.str_primer_factor);
 
-        this.construirSegundoFactorCuadrados();
+        if(model.t === 2){
+            this.construirSegundoFactorCuadrados();
+        }else{
+            this.calcularb2();
+        }
+        
     },
 
     construirSegundoFactorCuadrados : function () {
@@ -456,7 +461,9 @@ var controller = {
         console.log(model.str_g);
         console.log(model.segundo_factor_cuadrados);
         //$('#binomio_resolver').html(model.str_segundo_factor_cuadrados);
-        this.calcularb2();
+        
+        this.mostrarBinomio();
+        
     },
 
     calcularb2 : function () {
@@ -511,7 +518,7 @@ var controller = {
     calcularg2 : function () {
         model.g2 = (2 * model.g).toString();
 
-        if (model.g2 === "" || model.g2 === "1"){
+        if (model.g2 === "" || model.g2 === "1" || model.g2 === "0"){
             model.expo2 = "";
         }else{
             model.expo2 = model.g2;
@@ -523,7 +530,7 @@ var controller = {
     construirSegundoFactorCubos : function () {
         //Segundo factor: b2 + str_d_j1 + f2 + str(h2) + bc + str_d_j1 + str_f + str_e_k1 + str_g + "+" + c2 + str_e_k1 + g2
         model.segundo_factor_cubos = model.b2.concat(model.str_d_j1, model.f2, model.h2.toString(), model.bc, model.str_d_j1,
-                                     model.str_f, model.str_e_k1, model.str_g, "+", model.c2, model.str_e_k1, model.g2);
+                                     model.str_f, model.str_e_k1, model.str_g, "+", model.c2, model.str_e_k1, model.expo2);
         model.str_segundo_factor_cubos = model.b2 + model.str_d_j1 + "<sup>" + model.expo1 + "</sup>" + model.h2.toString()+ 
                                          model.bc + model.str_d_j1 + "<sup>"+ model.str_f + "</sup>" + model.str_e_k1 + "<sup>" 
                                          + model.str_g + "</sup>" + "+" + model.c2 + model.str_e_k1 + "<sup>"+ model.expo2 + "</sup>" + "<br>";
@@ -540,7 +547,7 @@ var controller = {
         console.log("+");
         console.log(model.c2);
         console.log(model.str_e_k1);
-        console.log(model.g2);
+        console.log(model.expo2);
         console.log(model.segundo_factor_cubos);
         //$('#binomio_resolver').html(model.str_segundo_factor_cubos);
         
@@ -672,20 +679,5 @@ $(document).ready(function() {
     //Modal
     $('.modal-trigger').leanModal();
     
-    $("#binomios").click(function() {
-        views.comenzar();
-    });
-
-    //Niveles de dificultad
-    $("#bajo").click(function() {
-      controller.establecerNivel(1);
-    });
-
-    $("#medio").click(function() {
-      controller.establecerNivel(2);
-    });
-
-    $("#alto").click(function() {
-      controller.establecerNivel(3);
-    });
+    views.comenzar();
 });
