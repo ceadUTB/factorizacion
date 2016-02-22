@@ -51,7 +51,7 @@ var model = { //Variables
     factor_comun : 0
 };
 
-var views = {
+var views_binomio = {
     mostrar : function (elemento){
         $(elemento).show();
     },
@@ -163,10 +163,10 @@ var views = {
     }
 };
 
-var controller = {
+var controller_binomio = {
     establecerNivel : function (niv) {
         model.nivel = niv;
-        views.esconderNiveles();
+        views_binomio.esconderNiveles();
         this.inicializarVariables();
     },
 
@@ -560,28 +560,28 @@ var controller = {
         console.log("Binomio");
         console.log(model.binomio);
         
-        views.reemplazarHTML("#binomio_resolver", model.str_binomio);
+        views_binomio.reemplazarHTML("#binomio_resolver", model.str_binomio);
         
     },
     
     validarExistenciaFC : function (valor){
-        views.deshabilitarRadio();
+        views_binomio.deshabilitarRadio();
         if(valor === "si"){
             if(model.a === 1 ){
-                views.mostrarMensaje("#mensajes", "#mensaje",  "No amigo, debiste verificar. No hay factor común");
-                views.mostrar("#continuar");
+                views_binomio.mostrarMensaje("#mensajes", "#mensaje",  "No amigo, debiste verificar. No hay factor común");
+                views_binomio.mostrar("#continuar");
             }
             if(model.a !== 1 ){
-                views.mostrarIngresaFC();
+                views_binomio.mostrarIngresaFC();
             }
         }else{
             if(model.a === 1 ){
-                views.mostrarMensaje("#mensajes", "#mensaje",  "¡Correcto!");
-                views.mostrar("#continuar");
+                views_binomio.mostrarMensaje("#mensajes", "#mensaje",  "¡Correcto!");
+                views_binomio.mostrar("#continuar");
             }
             if(model.a !== 1 ){
-                views.mostrarMensaje("#mensajes", "#mensaje", "No amigo. Sí hay factor común. Revisa y ubícalo");
-                views.mostrarIngresaFC();
+                views_binomio.mostrarMensaje("#mensajes", "#mensaje", "No amigo. Sí hay factor común. Revisa y ubícalo");
+                views_binomio.mostrarIngresaFC();
             }
         }
     },
@@ -591,35 +591,35 @@ var controller = {
         model.factor_comun = parseInt($("#fc").val());
         
         if(model.factor_comun === model.a){
-            views.esconder("#ingresa_fc");
-            views.mostrarMensaje("#mensajes2", "#mensaje2",  "¡Correcto!");
-            views.mostrar("#continuar2");
+            views_binomio.esconder("#ingresa_fc");
+            views_binomio.mostrarMensaje("#mensajes2", "#mensaje2",  "¡Correcto!");
+            views_binomio.mostrar("#continuar2");
         }else{
-            views.mostrarMensaje("#mensajes2", "#mensaje2",  "Error. Ingrese nuevamente el factor común");
+            views_binomio.mostrarMensaje("#mensajes2", "#mensaje2",  "Error. Ingrese nuevamente el factor común");
         }
     },
     
     //El tipo es t
     validarTipoBinomio : function (valor){
-        views.deshabilitarRadio();
+        views_binomio.deshabilitarRadio();
         if(valor === "cuadratico"){
             model.tipo = 2;
         }else{
             model.tipo = 3; 
         } 
         
-        views.esconder("#ingresa_tipo a");
+        views_binomio.esconder("#ingresa_tipo a");
         if(model.tipo === model.t){
-            views.mostrarMensaje("#mensajes3", "#mensaje3",  "¡Correcto!");
+            views_binomio.mostrarMensaje("#mensajes3", "#mensaje3",  "¡Correcto!");
         }else{
             if(model.tipo === 2){
-                views.mostrarMensaje("#mensajes3", "#mensaje3",  "Error. El binomio es cúbico");
+                views_binomio.mostrarMensaje("#mensajes3", "#mensaje3",  "Error. El binomio es cúbico");
             }else{
-                views.mostrarMensaje("#mensajes3", "#mensaje3",  "Error. El binomio es cuadrático");
+                views_binomio.mostrarMensaje("#mensajes3", "#mensaje3",  "Error. El binomio es cuadrático");
             }
         }
         
-        views.mostrar("#continuar3");
+        views_binomio.mostrar("#continuar3");
     },
     
     validarFactores : function (){
@@ -646,18 +646,18 @@ var controller = {
         console.log("model.s_factor" + s_factor);*/
         
         if(p_factor === model.primer_factor && s_factor !== model.segundo_factor){
-            views.mostrarMensaje("#mensajes4", "#mensaje4",  "Error. Verifique segundo factor");
+            views_binomio.mostrarMensaje("#mensajes4", "#mensaje4",  "Error. Verifique segundo factor");
             
         }else if(p_factor !== model.primer_factor && s_factor === model.segundo_factor){
-            views.mostrarMensaje("#mensajes4", "#mensaje4",  "Error. Verifique primer factor");
+            views_binomio.mostrarMensaje("#mensajes4", "#mensaje4",  "Error. Verifique primer factor");
             
         }else if(p_factor !== model.primer_factor && s_factor !== model.segundo_factor){
-            views.mostrarMensaje("#mensajes4", "#mensaje4",  "Error. Verifique ambos factores");
+            views_binomio.mostrarMensaje("#mensajes4", "#mensaje4",  "Error. Verifique ambos factores");
             
         }else if(p_factor === model.primer_factor && s_factor === model.segundo_factor){
-            views.esconder("#ingresa_factores");
-            views.mostrarMensaje("#mensajes4", "#mensaje4",  "¡Correcto!");
-            views.mostrar("#continuar4");
+            views_binomio.esconder("#ingresa_factores");
+            views_binomio.mostrarMensaje("#mensajes4", "#mensaje4",  "¡Correcto!");
+            views_binomio.mostrar("#continuar4");
         }
         
     }
@@ -672,20 +672,5 @@ $(document).ready(function() {
     //Modal
     $('.modal-trigger').leanModal();
     
-    $("#binomios").click(function() {
-        views.comenzar();
-    });
-
-    //Niveles de dificultad
-    $("#bajo").click(function() {
-      controller.establecerNivel(1);
-    });
-
-    $("#medio").click(function() {
-      controller.establecerNivel(2);
-    });
-
-    $("#alto").click(function() {
-      controller.establecerNivel(3);
-    });
+    views_binomio.comenzar();
 });
