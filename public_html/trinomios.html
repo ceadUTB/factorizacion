@@ -1,16 +1,292 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
+<html lang="en">
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+        <title>Trinomios</title>
+
+        <!-- CSS  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     </head>
+
     <body>
-        <div>TODO write content</div>
+        <nav class="light-blue lighten-1" role="navigation">
+            <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#">Navbar Link</a></li>
+                </ul>
+
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="#">Navbar Link</a></li>
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+        
+        
+        <!-- === SIDENAV === -->
+        <div>
+            <ul id="slide-out" class="side-nav">
+                <li><h5> Glosario de téminos</h5></li>
+                <li class="no-padding">
+                  <ul class="collapsible collapsible-accordion">
+                    <li>
+                      <a class="collapsible-header">Factorización</a>
+                      <div class="collapsible-body">
+                          es...
+                      </div>
+                    </li>
+                    <li>
+                      <a class="collapsible-header">Binomios</a>
+                      <div class="collapsible-body">
+                          es...
+                      </div>
+                    </li>
+                    <li>
+                      <a class="collapsible-header">Factores primos</a>
+                      <div class="collapsible-body">
+                          es...
+                      </div>
+                    </li>
+                    <li>
+                      <a class="collapsible-header">Factor común</a>
+                      <div class="collapsible-body">
+                          es...
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- === NAVBAR === -->
+        
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
+                <h1 class="header center orange-text">Factorización</h1>
+                
+                <!--Trigger sidenav-->
+                <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">find_in_page</i></a>
+                
+                <div class="row center">
+                        <p class="header col s12 light"><strong>Importante:</strong> 
+                        Este programa está diseñado para  proponer
+                        ejercicios que deben ser resueltos con  PAPEL  y  LAPIZ,
+                        para  luego  volcar  los  resultados al  computador  y  asi
+                        verificar su corrección. No trate de hacerlo sin ellos.</p>
+                </div>
+            </div>
+        </div>
+
+            
+        <!--/////------------------------------------BINOMIOS---------------------------------------/////--->
+        <div id="container" class="container center">
+            <div class="card-panel z-depth-6" >
+                <div id="niveles" class="center">
+                    <p>Selecciona nivel de dificultad</p>
+                    <hr><br>
+                    <div class="row center">
+                        <div class="col s12 m12 l12">
+                            <a class="waves-effect waves-light btn btn-large" onclick="controller.establecerNivel(1);"><i class="material-icons left">cloud</i>Bajo</a>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row center">
+                      <div class="col s12 m12 l12">
+                        <a class="waves-effect waves-light btn btn-large" onclick="controller.establecerNivel(2);"><i class="material-icons left">cloud</i>Medio</a>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="row center">
+                      <div class="col s12 m12 l12">
+                        <a class="waves-effect waves-light btn btn-large" onclick="controller.establecerNivel(3);"><i class="material-icons left">cloud</i>Alto</a>
+                      </div>
+                    </div>
+                </div><!--row-->
+                
+                <div id="resuelve" class="center" style="display: none;">
+                    <p>Resuelve el siguiente binomio</p>
+                    <hr><br>
+                    <div id="binomio_resolver"></div>
+                    <br>
+                    <div class="col s12 m6 l6">
+                        <a id="resolver" class="btn waves-effect waves-light orange" onclick="views_binomio.mostrarPasos()">Resolver</a>
+                    </div>
+                </div><!--row-->
+                
+                <div id="pasos" class="center" style="display: none;">   
+                    <div class="row">
+                        <div class="col s12" id="tabs">
+                            <ul class="tabs">
+                                <li id="li_fc" class="tab col s3"><a href="#factor_comun">Factor común</a></li>
+                                <li id="li_cuadrado_cubo" class="tab col s3"><a href="#cuadrado_cubo">Cuadrado o cubo</a></li>
+                                <li id="li_factores" class="tab col s3"><a href="#factores">Factores</a></li>
+                                <li id="li_resultado" class="tab col s3"><a href="#resultado">Resultado</a></li>
+                            </ul>
+                        </div>
+                        <div id="factor_comun" class="center">
+                            <br>
+                            <h6>¿Existe factor común?</h6>
+
+                            <input type="radio" id="fc_si" name="fc" onclick="controller.validarExistenciaFC('si');">
+                            <label for="fc_si">Sí</label>
+                            <input type="radio" id="fc_no" name="fc" onclick="controller.validarExistenciaFC('no');">
+                            <label for="fc_no">No</label> 
+                            <br>
+                            <div id="mensajes" class="warning-box" style="display: none;">
+                                <p id="mensaje"></p>
+                            </div>
+                            <a id="continuar" class="btn waves-effect waves-light orange" onclick="views_binomio.actualizarTabs('cuadrado_cubo');" style="display: none;">Continuar</a>
+                            <br>
+                            <div id="ingresa_fc" class="row" style="display: none;">
+                                <h6>Ingrese factor común</h6>
+                                <input id="fc" class="col s12 m6 l6 center" type='number' min='2' value='2' onkeyup="if(this.value<1){this.value='2';}">
+                                <br>
+                                <a id="verificar" class="btn waves-effect waves-light orange" onclick="controller.validarFC();">Verificar</a>
+                                <a class="btn waves-effect waves-light orange" onclick="views_binomio.mostrarFC();">Me rindo</a>
+                            </div>
+                            <div id="mensajes2" class="warning-box" style="display: none;">
+                                <p id="mensaje2"></p>
+                            </div>
+                            <p id="valor_fc"></p>
+                            <a id="continuar2" class="btn waves-effect waves-light orange" onclick="views_binomio.actualizarTabs('cuadrado_cubo');" style="display: none;">Continuar</a>
+                        </div>
+                        
+                        
+                        <div id="cuadrado_cubo" class="col s12">
+                            <br>
+                            <div id="ingresa_tipo">
+                                <h6>¿El binomio es cuadrático o cúbico?</h6>
+
+                                <input type="radio" id="cuadratico" name="tipo" onclick="controller.validarTipoBinomio('cuadratico');">
+                                <label for="cuadratico">Cuadrático</label>
+                                <input type="radio" id="cubico" name="tipo" onclick="controller.validarTipoBinomio('cubico');">
+                                <label for="cubico">Cúbico</label> 
+                                <br>
+                            </div>
+                            <div id="mensajes3" class="warning-box" style="display: none;">
+                                <p id="mensaje3"></p>
+                            </div>
+                            <a id="continuar3" class="btn waves-effect waves-light orange" onclick="views_binomio.actualizarTabs('factores'); views_binomio.mostrarExplicaciones();" style="display: none;">Continuar</a>
+                            <br>
+                        </div>    
+                          
+                        
+                        <div id="factores" class="col s12">
+                            <br>
+                            <h6 class="center"><strong>Tenga en cuenta</strong></h6>
+                            <div id="explicacion_cuadrado" class="center" style="display: none">
+                                RESPONDA TODO CORRIDO, SIN ESPACIOS Y SIN PARÉNTESIS, siguiendo el 
+                                orden en que aparece el ejercicio y usando primero el mismo signo
+                                que tiene el ejercicio
+                                <p><strong>Ej1 :  Sea x<sup>4</sup> - 9y<sup>2</sup>
+                                el primer factor se coloca: x2-3y y no: x2+3y ni tampoco 3y+x2</strong></p>
+                                (SI EL COEFICIENTE ES 1, OMÍTALO)  
+                                <p><strong>Ej2 :  Sea (5x<sup>3</sup>  + y<sup>2</sup> )  ponga: 5x3+y2 </strong></p>
+                            </div>
+                            <div id="explicacion_cubico" class="center" style="display: none">
+                                RESPONDA TODO CORRIDO, SIN ESPACIOS Y SIN PARÉNTESIS 
+                                (SI EL COEFICIENTE ES 1, OMITALO)  
+                                <p><strong>Ej1: Sea (5x <sup>3</sup>  + y<sup>2</sup>)  ponga: 5x3+y2 
+                                Sea (25x<sup>6</sup> - 5x<sup>3</sup>y<sup>2</sup> + y<sup>4</sup>)  ponga: 25x6-5x3y2+y4</strong></p>
+                                <p><strong>Ej2: Para expresar (25x<sup>6</sup>+30x<sup>3</sup>+36)
+                                debe escribirse: 25x6+30x3+36</strong></p>
+                            </div>
+                            
+                            <div id="ingresa_factores" class="row">
+                                <h5>Ingrese factores</h5>
+                                <div class="input-field col s12 m6 l6">
+                                    <input type="text" class="validate" id="primer">
+                                    <label for="primer">Primer factor</label>
+                                </div>
+                                <div class="input-field col s12 m6 l6">
+                                    <input type="text" class="validate" id="segundo">
+                                    <label for="segundo">Segundo factor</label>
+                                </div>
+                                <br>
+                                <a id="verificar2" class="btn waves-effect waves-light orange" onclick="controller.validarFactores();">Verificar</a>
+                                <a class="btn waves-effect waves-light orange" onclick="views_binomio.mostrarFactores();">Me rindo</a>
+                            </div>
+                            <div id="mensajes4" class="warning-box" style="display: none;">
+                                <p id="mensaje4"></p>
+                            </div>
+                            <p id="valor_factores"></p>
+                            
+                            <a id="continuar4" class="btn waves-effect waves-light orange" onclick="views_binomio.actualizarTabs('resultado'); views_binomio.mostrarResultado();" style="display: none;">Continuar</a>
+                        
+                        </div>
+                        
+                        
+                        <div id="resultado" class="col s12">
+                            <br>
+                            <p>Finalmente el resultado se escribe R = Fc (1er factor)(2do factor), así tenemos </p>
+                            <div id="valor_resultado"></div>
+                            <br>
+                            <a class="btn waves-effect waves-light orange" href="index.html">Volver a intentar</a>
+                        </div>
+                  </div>
+                </div><!--row-->
+            </div><!--card-->
+        </div><!--container-->
+        
+        <!--////------------------------------------BINOMIOS----------------------------------------/////-->
+        
+        
+        
+        <!--/////------------------------------------TRINOMIOS---------------------------------------/////--->
+        <div id="container2" class="container center" style="display: none;">
+            <div class="card-panel z-depth-6" >
+                <div id="niveles" class="center"  style="display: none;">
+                    <p>Selecciona nivel de dificultad</p>
+                    <hr><br>
+                    
+                </div><!--row-->
+            </div>
+        </div>    
+        
+        <!--////------------------------------------TRINOMIOS----------------------------------------/////-->
+        
+        <footer class="page-footer orange">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Company Bio</h5>
+                        <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+                    </div>
+                    <div class="col l3 s12">
+                        <h5 class="white-text">Settings</h5>
+                        <ul>
+                            <li><a class="white-text" href="#!">Link 1</a></li>
+                            <li><a class="white-text" href="#!">Link 2</a></li>
+                            <li><a class="white-text" href="#!">Link 3</a></li>
+                            <li><a class="white-text" href="#!">Link 4</a></li>
+                        </ul>
+                    </div>
+                    <div class="col l3 s12">
+                        <h5 class="white-text">Connect</h5>
+                        <ul>
+                            <li><a class="white-text" href="#!">Link 1</a></li>
+                            <li><a class="white-text" href="#!">Link 2</a></li>
+                            <li><a class="white-text" href="#!">Link 3</a></li>
+                            <li><a class="white-text" href="#!">Link 4</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+                </div>
+            </div>
+        </footer>
+
+      <!--  Scripts-->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/jquery-ui.min.js"></script>
+      <script src="js/materialize.js"></script>
+      <script src="js/binomios.js"></script>
+
     </body>
 </html>

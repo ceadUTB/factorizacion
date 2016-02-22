@@ -89,19 +89,19 @@
                     <hr><br>
                     <div class="row center">
                         <div class="col s12 m12 l12">
-                            <a class="waves-effect waves-light btn btn-large" onclick="controller_binomio.establecerNivel(1);"><i class="material-icons left">cloud</i>Bajo</a>
+                            <a class="waves-effect waves-light btn btn-large" onclick="controller.establecerNivel(1);"><i class="material-icons left">cloud</i>Bajo</a>
                         </div>
                     </div>
                     <br>
                     <div class="row center">
                       <div class="col s12 m12 l12">
-                        <a class="waves-effect waves-light btn btn-large" onclick="controller_binomio.establecerNivel(2);"><i class="material-icons left">cloud</i>Medio</a>
+                        <a class="waves-effect waves-light btn btn-large" onclick="controller.establecerNivel(2);"><i class="material-icons left">cloud</i>Medio</a>
                       </div>
                     </div>
                     <br>
                     <div class="row center">
                       <div class="col s12 m12 l12">
-                        <a class="waves-effect waves-light btn btn-large" onclick="controller_binomio.establecerNivel(3);"><i class="material-icons left">cloud</i>Alto</a>
+                        <a class="waves-effect waves-light btn btn-large" onclick="controller.establecerNivel(3);"><i class="material-icons left">cloud</i>Alto</a>
                       </div>
                     </div>
                 </div><!--row-->
@@ -112,7 +112,7 @@
                     <div id="binomio_resolver"></div>
                     <br>
                     <div class="col s12 m6 l6">
-                        <a id="resolver" class="btn waves-effect waves-light orange" onclick="views_binomio.mostrarPasos()">Resolver</a>
+                        <a id="resolver" class="btn waves-effect waves-light orange" onclick="views.mostrarPasos()">Resolver</a>
                     </div>
                 </div><!--row-->
                 
@@ -128,52 +128,48 @@
                         </div>
                         <div id="factor_comun" class="center">
                             <br>
-                            <a class="modal-trigger" href="#ayuda_fc"><i class="material-icons right">help_outline</i></a>
-                            <br><br>
                             <h6>¿Existe factor común?</h6>
 
-                            <input type="radio" id="fc_si" name="fc" onclick="controller_binomio.validarExistenciaFC('si');">
+                            <input type="radio" id="fc_si" name="fc" onclick="controller.validarExistenciaFC('si');">
                             <label for="fc_si">Sí</label>
-                            <input type="radio" id="fc_no" name="fc" onclick="controller_binomio.validarExistenciaFC('no');">
+                            <input type="radio" id="fc_no" name="fc" onclick="controller.validarExistenciaFC('no');">
                             <label for="fc_no">No</label> 
                             <br>
                             <div id="mensajes" class="warning-box" style="display: none;">
                                 <p id="mensaje"></p>
                             </div>
-                            <a id="continuar" class="btn waves-effect waves-light orange" onclick="views_binomio.actualizarTabs('cuadrado_cubo');" style="display: none;">Continuar</a>
+                            <a id="continuar" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('cuadrado_cubo');" style="display: none;">Continuar</a>
                             <br>
                             <div id="ingresa_fc" class="row" style="display: none;">
                                 <h6>Ingrese factor común</h6>
                                 <input id="fc" class="col s12 m6 l6 center" type='number' min='2' value='2' onkeyup="if(this.value<1){this.value='2';}">
                                 <br>
-                                <a id="verificar" class="btn waves-effect waves-light orange" onclick="controller_binomio.validarFC();">Verificar</a>
-                                <a class="btn waves-effect waves-light orange" onclick="views_binomio.mostrarFC();">Me rindo</a>
+                                <a id="verificar" class="btn waves-effect waves-light orange" onclick="controller.validarFC();">Verificar</a>
+                                <a class="btn waves-effect waves-light orange" onclick="views.mostrarFC();">Me rindo</a>
                             </div>
                             <div id="mensajes2" class="warning-box" style="display: none;">
                                 <p id="mensaje2"></p>
                             </div>
                             <p id="valor_fc"></p>
-                            <a id="continuar2" class="btn waves-effect waves-light orange" onclick="views_binomio.actualizarTabs('cuadrado_cubo');" style="display: none;">Continuar</a>
+                            <a id="continuar2" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('cuadrado_cubo');" style="display: none;">Continuar</a>
                         </div>
                         
                         
                         <div id="cuadrado_cubo" class="col s12">
                             <br>
-                            <a class="modal-trigger" href="#ayuda_cuadrado_cubo"><i class="material-icons right">help_outline</i></a>
-                            <br>
                             <div id="ingresa_tipo">
                                 <h6>¿El binomio es cuadrático o cúbico?</h6>
 
-                                <input type="radio" id="cuadratico" name="tipo" onclick="controller_binomio.validarTipoBinomio('cuadratico');">
+                                <input type="radio" id="cuadratico" name="tipo" onclick="controller.validarTipoBinomio('cuadratico');">
                                 <label for="cuadratico">Cuadrático</label>
-                                <input type="radio" id="cubico" name="tipo" onclick="controller_binomio.validarTipoBinomio('cubico');">
+                                <input type="radio" id="cubico" name="tipo" onclick="controller.validarTipoBinomio('cubico');">
                                 <label for="cubico">Cúbico</label> 
                                 <br>
                             </div>
                             <div id="mensajes3" class="warning-box" style="display: none;">
                                 <p id="mensaje3"></p>
                             </div>
-                            <a id="continuar3" class="btn waves-effect waves-light orange" onclick="views_binomio.actualizarTabs('factores'); views_binomio.mostrarExplicaciones();" style="display: none;">Continuar</a>
+                            <a id="continuar3" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('factores'); views.mostrarExplicaciones();" style="display: none;">Continuar</a>
                             <br>
                         </div>    
                           
@@ -210,15 +206,15 @@
                                     <label for="segundo">Segundo factor</label>
                                 </div>
                                 <br>
-                                <a id="verificar2" class="btn waves-effect waves-light orange" onclick="controller_binomio.validarFactores();">Verificar</a>
-                                <a class="btn waves-effect waves-light orange" onclick="views_binomio.mostrarFactores();">Me rindo</a>
+                                <a id="verificar2" class="btn waves-effect waves-light orange" onclick="controller.validarFactores();">Verificar</a>
+                                <a class="btn waves-effect waves-light orange" onclick="views.mostrarFactores();">Me rindo</a>
                             </div>
                             <div id="mensajes4" class="warning-box" style="display: none;">
                                 <p id="mensaje4"></p>
                             </div>
                             <p id="valor_factores"></p>
                             
-                            <a id="continuar4" class="btn waves-effect waves-light orange" onclick="views_binomio.actualizarTabs('resultado'); views_binomio.mostrarResultado();" style="display: none;">Continuar</a>
+                            <a id="continuar4" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('resultado'); views.mostrarResultado();" style="display: none;">Continuar</a>
                         
                         </div>
                         
@@ -234,44 +230,6 @@
                 </div><!--row-->
             </div><!--card-->
         </div><!--container-->
-        
-        <!-- Modal Structure -->
-        <div id="ayuda_fc" class="modal">
-            <div class="modal-content">
-                <h4 class="center">Hallar un factor común</h4>
-                <p>Debes  descomponer  los coeficientes  de  las  bases  en  sus  factores  primos
-                   y, si al  hacer ésto, queda un FACTOR LINEAL  COMÚN en ambos, mientras queda
-                   ya sea un coeficiente  cuadrado en una parte  y  OTRO  cuadrado  en otra, o bien un 
-                   coeficiente cúbico en una y  OTRO coeficiente cúbico en  la  otra,  sabemos  que 
-                   <strong>SI HAY  un  FACTOR COMÚN</strong></p>
-                <p><strong>Ej: Si tenemos 8x <sup>4</sup> - 18y<sup>6</sup>
-                   Se factorizan: 8 = 2<sup>3</sup> = 2x2<sup>2</sup> y 18 = 2x2<sup>3</sup>
-                   entonces el fc es 2 
-                   </strong></p>
-            </div>
-            <div class="modal-footer">
-                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Ok</a>
-            </div>
-        </div>
-        
-        <!-- Modal Structure -->
-        <div id="ayuda_cuadrado_cubo" class="modal">
-            <div class="modal-content">
-                <h4 class="center">Determinar si el binomio es cuadrado o cubo</h4>
-                <p>VERIFICA dos cosas:  
-                    1) Una vez sacado el factor común (si lo hay) debes  chequear si los factores que quedan 
-                    en los coeficientes son cuadrados (o cubos)
-                    <p><strong>Ej: Sean 8 = 2<sup>3</sup>  y 18 = 2*3<sup>2</sup> los coeficientes: el fc es 2 y 
-                    quedan 2 y 3 al cuadrado.</strong></p>
-                    2) Los exponentes de cada base, si son Cuadrados, deben ser divisibles entre 2 (si cubos,
-                    deben ser divisibles entre 3) 
-                    <p><strong>Ej Si las bases son: x<sup>4</sup> y<sup>6</sup> dado que <sup>4</sup> y <sup>6</sup> son divisibles entre 2, confirman que son Cuadrados.
-                    </strong></p>
-            </div>
-            <div class="modal-footer">
-                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Ok</a>
-            </div>
-        </div>
         
         <!--////------------------------------------BINOMIOS----------------------------------------/////-->
         

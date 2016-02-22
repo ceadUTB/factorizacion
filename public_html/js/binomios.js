@@ -51,7 +51,7 @@ var model = { //Variables
     factor_comun : 0
 };
 
-var views_binomio = {
+var views = {
     mostrar : function (elemento){
         $(elemento).show();
     },
@@ -163,10 +163,10 @@ var views_binomio = {
     }
 };
 
-var controller_binomio = {
+var controller = {
     establecerNivel : function (niv) {
         model.nivel = niv;
-        views_binomio.esconderNiveles();
+        views.esconderNiveles();
         this.inicializarVariables();
     },
 
@@ -438,7 +438,12 @@ var controller_binomio = {
         console.log(model.primer_factor);
         //$('#binomio_resolver').html(model.str_primer_factor);
 
-        this.construirSegundoFactorCuadrados();
+        if(model.t === 2){
+            this.construirSegundoFactorCuadrados();
+        }else{
+            this.calcularb2();
+        }
+        
     },
 
     construirSegundoFactorCuadrados : function () {
@@ -456,7 +461,9 @@ var controller_binomio = {
         console.log(model.str_g);
         console.log(model.segundo_factor_cuadrados);
         //$('#binomio_resolver').html(model.str_segundo_factor_cuadrados);
-        this.calcularb2();
+        
+        this.mostrarBinomio();
+        
     },
 
     calcularb2 : function () {
@@ -511,7 +518,7 @@ var controller_binomio = {
     calcularg2 : function () {
         model.g2 = (2 * model.g).toString();
 
-        if (model.g2 === "" || model.g2 === "1"){
+        if (model.g2 === "" || model.g2 === "1" || model.g2 === "0"){
             model.expo2 = "";
         }else{
             model.expo2 = model.g2;
@@ -523,7 +530,7 @@ var controller_binomio = {
     construirSegundoFactorCubos : function () {
         //Segundo factor: b2 + str_d_j1 + f2 + str(h2) + bc + str_d_j1 + str_f + str_e_k1 + str_g + "+" + c2 + str_e_k1 + g2
         model.segundo_factor_cubos = model.b2.concat(model.str_d_j1, model.f2, model.h2.toString(), model.bc, model.str_d_j1,
-                                     model.str_f, model.str_e_k1, model.str_g, "+", model.c2, model.str_e_k1, model.g2);
+                                     model.str_f, model.str_e_k1, model.str_g, "+", model.c2, model.str_e_k1, model.expo2);
         model.str_segundo_factor_cubos = model.b2 + model.str_d_j1 + "<sup>" + model.expo1 + "</sup>" + model.h2.toString()+ 
                                          model.bc + model.str_d_j1 + "<sup>"+ model.str_f + "</sup>" + model.str_e_k1 + "<sup>" 
                                          + model.str_g + "</sup>" + "+" + model.c2 + model.str_e_k1 + "<sup>"+ model.expo2 + "</sup>" + "<br>";
@@ -540,7 +547,7 @@ var controller_binomio = {
         console.log("+");
         console.log(model.c2);
         console.log(model.str_e_k1);
-        console.log(model.g2);
+        console.log(model.expo2);
         console.log(model.segundo_factor_cubos);
         //$('#binomio_resolver').html(model.str_segundo_factor_cubos);
         
@@ -560,28 +567,28 @@ var controller_binomio = {
         console.log("Binomio");
         console.log(model.binomio);
         
-        views_binomio.reemplazarHTML("#binomio_resolver", model.str_binomio);
+        views.reemplazarHTML("#binomio_resolver", model.str_binomio);
         
     },
     
     validarExistenciaFC : function (valor){
-        views_binomio.deshabilitarRadio();
+        views.deshabilitarRadio();
         if(valor === "si"){
             if(model.a === 1 ){
-                views_binomio.mostrarMensaje("#mensajes", "#mensaje",  "No amigo, debiste verificar. No hay factor común");
-                views_binomio.mostrar("#continuar");
+                views.mostrarMensaje("#mensajes", "#mensaje",  "No amigo, debiste verificar. No hay factor común");
+                views.mostrar("#continuar");
             }
             if(model.a !== 1 ){
-                views_binomio.mostrarIngresaFC();
+                views.mostrarIngresaFC();
             }
         }else{
             if(model.a === 1 ){
-                views_binomio.mostrarMensaje("#mensajes", "#mensaje",  "¡Correcto!");
-                views_binomio.mostrar("#continuar");
+                views.mostrarMensaje("#mensajes", "#mensaje",  "¡Correcto!");
+                views.mostrar("#continuar");
             }
             if(model.a !== 1 ){
-                views_binomio.mostrarMensaje("#mensajes", "#mensaje", "No amigo. Sí hay factor común. Revisa y ubícalo");
-                views_binomio.mostrarIngresaFC();
+                views.mostrarMensaje("#mensajes", "#mensaje", "No amigo. Sí hay factor común. Revisa y ubícalo");
+                views.mostrarIngresaFC();
             }
         }
     },
@@ -591,35 +598,35 @@ var controller_binomio = {
         model.factor_comun = parseInt($("#fc").val());
         
         if(model.factor_comun === model.a){
-            views_binomio.esconder("#ingresa_fc");
-            views_binomio.mostrarMensaje("#mensajes2", "#mensaje2",  "¡Correcto!");
-            views_binomio.mostrar("#continuar2");
+            views.esconder("#ingresa_fc");
+            views.mostrarMensaje("#mensajes2", "#mensaje2",  "¡Correcto!");
+            views.mostrar("#continuar2");
         }else{
-            views_binomio.mostrarMensaje("#mensajes2", "#mensaje2",  "Error. Ingrese nuevamente el factor común");
+            views.mostrarMensaje("#mensajes2", "#mensaje2",  "Error. Ingrese nuevamente el factor común");
         }
     },
     
     //El tipo es t
     validarTipoBinomio : function (valor){
-        views_binomio.deshabilitarRadio();
+        views.deshabilitarRadio();
         if(valor === "cuadratico"){
             model.tipo = 2;
         }else{
             model.tipo = 3; 
         } 
         
-        views_binomio.esconder("#ingresa_tipo a");
+        views.esconder("#ingresa_tipo a");
         if(model.tipo === model.t){
-            views_binomio.mostrarMensaje("#mensajes3", "#mensaje3",  "¡Correcto!");
+            views.mostrarMensaje("#mensajes3", "#mensaje3",  "¡Correcto!");
         }else{
             if(model.tipo === 2){
-                views_binomio.mostrarMensaje("#mensajes3", "#mensaje3",  "Error. El binomio es cúbico");
+                views.mostrarMensaje("#mensajes3", "#mensaje3",  "Error. El binomio es cúbico");
             }else{
-                views_binomio.mostrarMensaje("#mensajes3", "#mensaje3",  "Error. El binomio es cuadrático");
+                views.mostrarMensaje("#mensajes3", "#mensaje3",  "Error. El binomio es cuadrático");
             }
         }
         
-        views_binomio.mostrar("#continuar3");
+        views.mostrar("#continuar3");
     },
     
     validarFactores : function (){
@@ -646,18 +653,18 @@ var controller_binomio = {
         console.log("model.s_factor" + s_factor);*/
         
         if(p_factor === model.primer_factor && s_factor !== model.segundo_factor){
-            views_binomio.mostrarMensaje("#mensajes4", "#mensaje4",  "Error. Verifique segundo factor");
+            views.mostrarMensaje("#mensajes4", "#mensaje4",  "Error. Verifique segundo factor");
             
         }else if(p_factor !== model.primer_factor && s_factor === model.segundo_factor){
-            views_binomio.mostrarMensaje("#mensajes4", "#mensaje4",  "Error. Verifique primer factor");
+            views.mostrarMensaje("#mensajes4", "#mensaje4",  "Error. Verifique primer factor");
             
         }else if(p_factor !== model.primer_factor && s_factor !== model.segundo_factor){
-            views_binomio.mostrarMensaje("#mensajes4", "#mensaje4",  "Error. Verifique ambos factores");
+            views.mostrarMensaje("#mensajes4", "#mensaje4",  "Error. Verifique ambos factores");
             
         }else if(p_factor === model.primer_factor && s_factor === model.segundo_factor){
-            views_binomio.esconder("#ingresa_factores");
-            views_binomio.mostrarMensaje("#mensajes4", "#mensaje4",  "¡Correcto!");
-            views_binomio.mostrar("#continuar4");
+            views.esconder("#ingresa_factores");
+            views.mostrarMensaje("#mensajes4", "#mensaje4",  "¡Correcto!");
+            views.mostrar("#continuar4");
         }
         
     }
@@ -672,5 +679,5 @@ $(document).ready(function() {
     //Modal
     $('.modal-trigger').leanModal();
     
-    views_binomio.comenzar();
+    views.comenzar();
 });
