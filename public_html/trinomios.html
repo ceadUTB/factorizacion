@@ -81,7 +81,6 @@
         </div>
 
             
-        <!--/////------------------------------------BINOMIOS---------------------------------------/////--->
         <div id="container" class="container center">
             <div class="card-panel z-depth-6" >
                 <div id="niveles" class="center">
@@ -89,30 +88,42 @@
                     <hr><br>
                     <div class="row center">
                         <div class="col s12 m12 l12">
+                            <a class="waves-effect waves-light btn btn-large" onclick="controller.establecerNivel(0);"><i class="material-icons left">cloud</i>Muy Bajo</a>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row center">
+                        <div class="col s12 m12 l12">
                             <a class="waves-effect waves-light btn btn-large" onclick="controller.establecerNivel(1);"><i class="material-icons left">cloud</i>Bajo</a>
                         </div>
                     </div>
                     <br>
                     <div class="row center">
-                      <div class="col s12 m12 l12">
-                        <a class="waves-effect waves-light btn btn-large" onclick="controller.establecerNivel(2);"><i class="material-icons left">cloud</i>Medio</a>
-                      </div>
+                        <div class="col s12 m12 l12">
+                            <a class="waves-effect waves-light btn btn-large" onclick="controller.establecerNivel(2);"><i class="material-icons left">cloud</i>Medio</a>
+                        </div>
                     </div>
                     <br>
                     <div class="row center">
-                      <div class="col s12 m12 l12">
-                        <a class="waves-effect waves-light btn btn-large" onclick="controller.establecerNivel(3);"><i class="material-icons left">cloud</i>Alto</a>
-                      </div>
+                        <div class="col s12 m12 l12">
+                            <a class="waves-effect waves-light btn btn-large" onclick="controller.establecerNivel(3);"><i class="material-icons left">cloud</i>Alto</a>
+                        </div>
                     </div>
-                </div><!--row-->
+                    <br>
+                    <div class="row center">
+                        <div class="col s12 m12 l12">
+                            <a class="waves-effect waves-light btn btn-large" onclick="controller.establecerNivel(4);"><i class="material-icons left">cloud</i>Muy Alto</a>
+                        </div>
+                    </div>
+                </div>
                 
                 <div id="resuelve" class="center" style="display: none;">
-                    <p>Resuelve el siguiente binomio</p>
+                    <p>Resuelve el siguiente trinomio</p>
                     <hr><br>
-                    <div id="binomio_resolver"></div>
+                    <div id="trinomio_resolver"></div>
                     <br>
                     <div class="col s12 m6 l6">
-                        <a id="resolver" class="btn waves-effect waves-light orange" onclick="views_binomio.mostrarPasos()">Resolver</a>
+                        <a id="resolver" class="btn waves-effect waves-light orange" onclick="views.mostrarPasos()">Resolver</a>
                     </div>
                 </div><!--row-->
                 
@@ -121,11 +132,11 @@
                         <div class="col s12" id="tabs">
                             <ul class="tabs">
                                 <li id="li_fc" class="tab col s3"><a href="#factor_comun">Factor común</a></li>
-                                <li id="li_cuadrado_cubo" class="tab col s3"><a href="#cuadrado_cubo">Cuadrado o cubo</a></li>
                                 <li id="li_factores" class="tab col s3"><a href="#factores">Factores</a></li>
                                 <li id="li_resultado" class="tab col s3"><a href="#resultado">Resultado</a></li>
                             </ul>
                         </div>
+                        
                         <div id="factor_comun" class="center">
                             <br>
                             <h6>¿Existe factor común?</h6>
@@ -138,41 +149,22 @@
                             <div id="mensajes" class="warning-box" style="display: none;">
                                 <p id="mensaje"></p>
                             </div>
-                            <a id="continuar" class="btn waves-effect waves-light orange" onclick="views_binomio.actualizarTabs('cuadrado_cubo');" style="display: none;">Continuar</a>
+                            <a id="continuar" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('factores');" style="display: none;">Continuar</a>
                             <br>
                             <div id="ingresa_fc" class="row" style="display: none;">
                                 <h6>Ingrese factor común</h6>
                                 <input id="fc" class="col s12 m6 l6 center" type='number' min='2' value='2' onkeyup="if(this.value<1){this.value='2';}">
                                 <br>
                                 <a id="verificar" class="btn waves-effect waves-light orange" onclick="controller.validarFC();">Verificar</a>
-                                <a class="btn waves-effect waves-light orange" onclick="views_binomio.mostrarFC();">Me rindo</a>
+                                <a class="btn waves-effect waves-light orange" onclick="views.mostrarFC();">Me rindo</a>
                             </div>
                             <div id="mensajes2" class="warning-box" style="display: none;">
                                 <p id="mensaje2"></p>
                             </div>
                             <p id="valor_fc"></p>
-                            <a id="continuar2" class="btn waves-effect waves-light orange" onclick="views_binomio.actualizarTabs('cuadrado_cubo');" style="display: none;">Continuar</a>
+                            <a id="continuar2" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('factores');" style="display: none;">Continuar</a>
                         </div>
                         
-                        
-                        <div id="cuadrado_cubo" class="col s12">
-                            <br>
-                            <div id="ingresa_tipo">
-                                <h6>¿El binomio es cuadrático o cúbico?</h6>
-
-                                <input type="radio" id="cuadratico" name="tipo" onclick="controller.validarTipoBinomio('cuadratico');">
-                                <label for="cuadratico">Cuadrático</label>
-                                <input type="radio" id="cubico" name="tipo" onclick="controller.validarTipoBinomio('cubico');">
-                                <label for="cubico">Cúbico</label> 
-                                <br>
-                            </div>
-                            <div id="mensajes3" class="warning-box" style="display: none;">
-                                <p id="mensaje3"></p>
-                            </div>
-                            <a id="continuar3" class="btn waves-effect waves-light orange" onclick="views_binomio.actualizarTabs('factores'); views_binomio.mostrarExplicaciones();" style="display: none;">Continuar</a>
-                            <br>
-                        </div>    
-                          
                         
                         <div id="factores" class="col s12">
                             <br>
@@ -207,14 +199,14 @@
                                 </div>
                                 <br>
                                 <a id="verificar2" class="btn waves-effect waves-light orange" onclick="controller.validarFactores();">Verificar</a>
-                                <a class="btn waves-effect waves-light orange" onclick="views_binomio.mostrarFactores();">Me rindo</a>
+                                <a class="btn waves-effect waves-light orange" onclick="views.mostrarFactores();">Me rindo</a>
                             </div>
                             <div id="mensajes4" class="warning-box" style="display: none;">
                                 <p id="mensaje4"></p>
                             </div>
                             <p id="valor_factores"></p>
                             
-                            <a id="continuar4" class="btn waves-effect waves-light orange" onclick="views_binomio.actualizarTabs('resultado'); views_binomio.mostrarResultado();" style="display: none;">Continuar</a>
+                            <a id="continuar4" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('resultado'); views.mostrarResultado();" style="display: none;">Continuar</a>
                         
                         </div>
                         
@@ -231,22 +223,6 @@
             </div><!--card-->
         </div><!--container-->
         
-        <!--////------------------------------------BINOMIOS----------------------------------------/////-->
-        
-        
-        
-        <!--/////------------------------------------TRINOMIOS---------------------------------------/////--->
-        <div id="container2" class="container center" style="display: none;">
-            <div class="card-panel z-depth-6" >
-                <div id="niveles" class="center"  style="display: none;">
-                    <p>Selecciona nivel de dificultad</p>
-                    <hr><br>
-                    
-                </div><!--row-->
-            </div>
-        </div>    
-        
-        <!--////------------------------------------TRINOMIOS----------------------------------------/////-->
         
         <footer class="page-footer orange">
             <div class="container">
@@ -286,7 +262,7 @@
       <script src="js/jquery.min.js"></script>
       <script src="js/jquery-ui.min.js"></script>
       <script src="js/materialize.js"></script>
-      <script src="js/binomios.js"></script>
+      <script src="js/trinomios.js"></script>
 
     </body>
 </html>
