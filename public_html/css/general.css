@@ -1,0 +1,65 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 23-feb-2016, 21:37:28
+    Author     : lauricdd
+*/
+
+@font-face { 
+    font-family: 'champagne Limousines'; 
+    src: url('../fonts/champagne_limousines/Champagne&Limousines.ttf'); 
+}
+
+@font-face { 
+    font-family: 'jenna Sue'; 
+    src: url('../fonts/JennaSue.ttf'); 
+}
+
+body{
+    font-weight: lighter;
+    background-image: url('../img/fondo.png');
+    background-repeat: repeat;
+    color: #4E4E4E;
+}
+
+nav .container{
+    width: 95%;
+}
+
+nav{
+    background: #5C97A0;
+    padding: 10px 10px 20px 10px;
+}
+
+nav img{
+    width: 190px;
+    margin-left: 50px;
+}
+
+nav h6{
+    font-family: 'champagne Limousines'; 
+    font-size: 0.7em;
+}
+
+nav h4{
+    font-family: 'jenna Sue'; 
+    margin: 0;
+    font-size: 2.2em;
+}
+
+#top_footer{
+    background: #5C97A0;
+    height: 20px;
+}
+
+#bottom_footer{
+    background: #467A7F;
+}
+
+footer img{
+    width: 260px;
+    margin: 15px 0 15px 0;
+}

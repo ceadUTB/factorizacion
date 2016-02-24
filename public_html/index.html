@@ -3,96 +3,86 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-        <title>Starter Template - Materialize</title>
+        <title>Factorizando con Pedro Cabarcas</title>
 
         <!-- CSS  -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-        <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="css/general.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="css/index.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     </head>
 
     <body>
-        <nav class="light-blue lighten-1" role="navigation">
-            <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="#">Navbar Link</a></li>
-                </ul>
-
-                <ul id="nav-mobile" class="side-nav">
-                    <li><a href="#">Navbar Link</a></li>
-                </ul>
-                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        <nav role="navigation">
+            <div class="nav-wrapper container">
+                <a class="brand-logo hide-on-small-only" id="logo-container" href="#"><img src="img/logo_utb.png" alt="logo" class="left"></a>
+                <div class="right hide-on-small-only" id="factorizando">
+                    <h6>Factorizando</h6>
+                    <h4>Pedro Cabarcas</h4>
+                </div>
+                
+                <div class="center hide-on-med-and-up">
+                    <h6>Factorizando</h6>
+                    <h4>Pedro Cabarcas</h4>
+                </div>
             </div>
         </nav>
         
-        
-        <!-- === SIDENAV === -->
-        <div>
-            <ul id="slide-out" class="side-nav">
-                <li><h5> Glosario de téminos</h5></li>
-                <li class="no-padding">
-                  <ul class="collapsible collapsible-accordion">
-                    <li>
-                      <a class="collapsible-header">Factorización</a>
-                      <div class="collapsible-body">
-                          es...
-                      </div>
-                    </li>
-                    <li>
-                      <a class="collapsible-header">Binomios</a>
-                      <div class="collapsible-body">
-                          es...
-                      </div>
-                    </li>
-                    <li>
-                      <a class="collapsible-header">Factores primos</a>
-                      <div class="collapsible-body">
-                          es...
-                      </div>
-                    </li>
-                    <li>
-                      <a class="collapsible-header">Factor común</a>
-                      <div class="collapsible-body">
-                          es...
-                      </div>
-                    </li>
-                  </ul>
-                </li>
-            </ul>
+        <div class="row">
+            
         </div>
-        
-        <!-- === NAVBAR === -->
-        
-        <div class="section no-pad-bot" id="index-banner">
+        <div class="section no-pad-bot center" id="content">
             <div class="container">
-                <h1 class="header center orange-text">Factorización</h1>
+                <h4>Factorizando</h4>
+                <div class="row">
+                    <div class="col s3 m3 l3">
+                        <span>Con</span>    
+                    </div>
+                    <div class="col s9 m9 l9">
+                        <h1>Pedro Cabarcas</h1>
+                    </div>
+                </div>
                 
-                <!--Trigger sidenav-->
-                <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">find_in_page</i></a>
-                
-                <div class="row center">
-                        <p class="header col s12 light"><strong>Importante:</strong> 
-                        Este programa está diseñado para  proponer
-                        ejercicios que deben ser resueltos con  PAPEL  y  LAPIZ,
-                        para  luego  volcar  los  resultados al  computador  y  asi
-                        verificar su corrección. No trate de hacerlo sin ellos.</p>
+                <div class="row">
+                    <div class="col s12 m6 l6">
+                        <a id="binomios" href="binomios.html" class="btn-large waves-effect waves-light">Binomios</a>
+                    </div>
+                    <div class="col s12 m6 l6">
+                        <a id="trinomios" href="trinomios.html" class="btn-large waves-effect waves-light">Trinomios</a>
+                    </div>
                 </div>
             </div>
         </div>
         
-        <div class="row center" id="tipos">
-            <div class="col s12 m6 l6">
-                <a href="binomios.html" id="binomios" class="btn-large waves-effect waves-light orange">Binomios</a>
-            </div>
-            <div class="col s12 m6 l6">
-                <a href="trinomios.html" class="btn-large waves-effect waves-light orange">Trinomios</a>
+        
+        
+        <!-- Modal Structure -->
+        <div id="instrucciones" class="modal">
+            <div class="modal-content center">
+                <div class="row">
+                    <div class="col s12 m10 l10 offset-m1 offset-l1 center">
+                        <h5>¡Importante!</h5> 
+                        <p>
+                            A continuación, encontrará propuestos ejercicios de factorización de binomios, 
+                            los cuales usted deberá resolver con la ayuda de papel y lápiz, para  luego escribir 
+                            la respuesta obtenida en el campo correspondiente y de esta manera verificar los resultados 
+                            y obtener las correcciones necesarias.
+                        </p>
+                    </div> 
+                </div>
+                <div class="row">
+                    <a href="#!" id="cerrar" class="modal-action modal-close btn-large waves-effect waves-light">Continuar</a>
+                </div>
             </div>
         </div>
         
-        <footer class="page-footer orange">
-            <div class="container">
+        <br><br><br>   
+        <footer class="center">
+            <div id="top_footer"></div>
+            <div id="bottom_footer">
                 <div class="row">
-                    <div class="col l6 s12">
+                    <img src="img/logo_utb.png" alt="logo">
+                    <!--<div class="col l6 s12">
                         <h5 class="white-text">Company Bio</h5>
                         <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
                     </div>
@@ -113,20 +103,26 @@
                             <li><a class="white-text" href="#!">Link 3</a></li>
                             <li><a class="white-text" href="#!">Link 4</a></li>
                         </ul>
-                    </div>
+                    </div>-->
                 </div>
             </div>
-            <div class="footer-copyright">
+            <!--<div class="footer-copyright">
                 <div class="container">
                     Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
                 </div>
-            </div>
+            </div>-->
         </footer>
 
       <!--  Scripts-->
       <script src="js/jquery.min.js"></script>
       <script src="js/jquery-ui.min.js"></script>
       <script src="js/materialize.js"></script>
+      
+      <script type="text/javascript">
+        $(window).load(function(){
+            //$('#instrucciones').openModal();
+        });
+    </script>
 
     </body>
 </html>

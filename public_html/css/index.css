@@ -1,0 +1,135 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+body{
+    font-weight: lighter;
+}
+
+#content{
+    height: 330px;
+    background-image: url('../img/figuras.png');
+    background-repeat : no-repeat;
+    background-size: contain;
+    background-position-x: right;
+    background-origin: content-box;
+}
+
+#content h1{
+    font-family: 'jenna Sue';
+    margin: 0;
+    float: left;
+}
+
+#content h4{
+    font-family: 'champagne Limousines';
+    margin-bottom: 0;
+}
+
+span {
+    font-family: 'jenna Sue';
+    display: inline-block;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    float: right;
+}
+
+#binomios{
+    background-color: #F7931E;
+    font-family: 'champagne Limousines';
+    font-size: 3em;
+    display: inline-block;
+}
+
+#trinomios{
+    background-color: #a4a4a4;
+    font-family: 'champagne Limousines';
+    font-size: 3em;
+}
+        
+/*Small screens*/
+@media (max-width:600px) {
+    #content{
+        height: 335px;
+    }
+    
+    #content h1{
+        font-size: 5.2em;
+        padding-left: 0;
+        color: red;
+    }
+
+    #content h4{
+        font-size: 1.6em;
+    }
+    span {
+        font-size: 2.5em;
+        padding-top: 50px;
+    }
+    
+}    
+
+/*Medium screens*/
+@media (min-width: 601px) and (max-width:992px) {
+    #content h1{
+        font-size: 6.2em;
+    }
+
+    #content h4{
+        font-size: 1.5em;
+    }
+    span {
+        font-size: 2.5em;
+        padding-top: 70px;
+        padding-right: 10px;
+    }
+    
+}
+
+/*Large screens*/
+@media (min-width:993px) {
+    #content h1{
+        font-size: 8em;
+    }
+
+    #content h4{
+        font-size: 1.9em;
+    }
+      
+    span {
+        font-size: 3.7em;
+        padding-top: 105px;
+        padding-right: 18px;
+    }
+    
+    #content{
+        padding-right: 40px;
+    }
+} 
+
+#instrucciones{
+    width: 100%;
+    height: 40%;
+    margin: 8% 0 10% 0;
+       
+}
+
+#cerrar{
+    background: #F7931E;
+}
+
+.btn-large {
+    text-transform: none;
+}
+
+#instrucciones p{
+    font-size: 1.4em;
+    font-weight: lighter;
+}
+
