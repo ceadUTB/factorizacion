@@ -19,11 +19,10 @@ and open the template in the editor.
 }
 
 body{
-    font-weight: lighter;
     background-image: url('../img/fondo.png');
     background-repeat: repeat;
     color: #4E4E4E;
-}
+}   
 
 nav .container{
     width: 95%;
@@ -50,16 +49,118 @@ nav h4{
     font-size: 2.2em;
 }
 
-#top_footer{
-    background: #5C97A0;
-    height: 20px;
+#content h1{
+    font-family: 'jenna Sue';
+    margin: 0;
+    float: left;
 }
 
-#bottom_footer{
-    background: #467A7F;
+#content h4{
+    font-family: 'champagne Limousines';
+    margin-bottom: 0;
+}
+
+span {
+    font-family: 'jenna Sue';
+    display: inline-block;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    float: right;
+}
+
+#factorizando{
+    margin-right: 50px;
+}
+
+footer{
+    font-weight: lighter;
+}
+
+#top_footer{
+    background: #5C97A0;
+    height: 5px;
 }
 
 footer img{
-    width: 260px;
-    margin: 15px 0 15px 0;
+    width: 240px;
+}
+
+li{
+    font-size: 0.9em;
+    width: 90%;
+    display: block;
+}
+
+li a{
+    font-weight: 500;
+    color: white;
+}
+
+footer .container{
+    width: 100%;
+    padding-top: 12px;
+    background-color: #467A7F;
+}
+
+@media (max-width: 600px){
+    #content h1{
+        font-size: 4.5em;
+    }
+
+    #content h4{
+        font-size: 1.4em;
+    }
+    
+    span {
+        font-size: 2.2em;
+        padding-top: 50px;
+    }
+    
+    #top_footer{
+        margin-top: 30px; 
+    }
+}
+
+@media (min-width: 601px) and (max-width:992px) {
+    #content h1{
+        font-size: 6.4em;
+        text-align: center;
+    }
+
+    #content h4{
+        font-size: 1.8em;
+    }
+    
+    span {
+        font-size: 2.8em;
+        padding-top: 78px;
+        padding-right: 15px;
+    }
+    
+    #top_footer{
+        margin-top: 30px; 
+    }
+}
+
+@media (min-width:993px) {
+    
+    #content h1{
+        font-size: 8em;
+    }
+
+    #content h4{
+        font-size: 1.9em;
+    }
+      
+    span {
+        font-size: 3.7em;
+        padding-top: 105px;
+        padding-right: 18px;
+    }
+    
+    #top_footer{
+        margin-top: 5px;
+    }    
 }

@@ -1,36 +1,49 @@
-/* Custom Stylesheet */
-/**
- * Use this file to override Materialize files so you can update
- * the core Materialize files in the future
- *
- * Made By MaterializeCSS.com
- */
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 25-feb-2016, 11:16:18
+    Author     : lauricdd
+*/
 
-body{
-    font-weight: lighter;   
-    overflow: hidden;
+#content h1{
+    font-family: 'jenna Sue';
+    margin: 0;
+    float: left;
 }
 
-#binomios{
-    background-color: #F7931E;
+#content h4{
     font-family: 'champagne Limousines';
+    margin-bottom: 0;
 }
 
-#trinomios{
-    background-color: #a4a4a4;
-    font-family: 'champagne Limousines';
-}
-
-#instrucciones{
-    width: 100%;      
-}
-
-#cerrar{
-    background: #F7931E;
+span {
+    font-family: 'jenna Sue';
+    display: inline-block;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    float: right;
 }
 
 .btn{
     text-transform: none;
+    font-weight: lighter;
+}
+
+#nivel_1{
+    background-color: #8CC63F;
+}
+
+#nivel_2{
+    background-color: #F7931E;
+}
+
+#nivel_3{
+    background-color: #F15A24;
 }
         
 /*Small screens*/
@@ -46,14 +59,6 @@ body{
         padding: 10px;
         margin: 20px;
         font-size: 1.6em;
-    }
-    
-    #top_footer{
-        margin-top: 40px;
-    }
-    
-    footer{
-        font-size: 1.2em;
     }
 }
 
@@ -74,18 +79,6 @@ body{
         margin-top: 30px;
         font-size: 2.3em;
     }
-    
-    /*Modal*/
-    #instrucciones{
-        padding: 15px 20px;
-        height: 35%;
-        margin: 8% 0 10% 0; 
-    }
-    
-    #instrucciones p{
-        font-size: 1.2em;
-        display: inline;
-    }
 }
 
 /*Large screens*/
@@ -104,20 +97,5 @@ body{
         padding: 15px 10px;
         font-size: 3.5em; 
     }
-    
-    /*Modal*/
-    #instrucciones{
-        padding: 30px;
-        height: 30%;
-        margin: 8% 0 10% 0; 
-    }
-    
-    #instrucciones p{
-        font-size: 1.2em;
-        display: inline;
-    }
 } 
-
-
-
 

@@ -8,24 +8,28 @@
         <!-- CSS  -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-        <link href="css/index.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="css/general.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="css/binomios.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     </head>
 
     <body>
         <nav role="navigation">
-            <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="#">Navbar Link</a></li>
-                </ul>
-
-                <ul id="nav-mobile" class="side-nav">
-                    <li><a href="#">Navbar Link</a></li>
-                </ul>
-                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            <div class="nav-wrapper container">
+                <a class="brand-logo hide-on-small-only" id="logo-container" href="http://www.unitecnologica.edu.co/">
+                    <img src="img/logo_utb.png" alt="logo" class="left">
+                </a>
+                <div class="right hide-on-small-only" id="factorizando">
+                    <h6>Factorizando</h6>
+                    <h4>Pedro Cabarcas</h4>
+                </div>
+                
+                <div class="center hide-on-med-and-up">
+                    <h6>Factorizando</h6>
+                    <h4>Pedro Cabarcas</h4>
+                </div>
             </div>
         </nav>
-        
-        
+
         <!-- === SIDENAV === -->
         <div>
             <ul id="slide-out" class="side-nav">
@@ -60,52 +64,37 @@
                 </li>
             </ul>
         </div>
+        <!-- === SIDENAV === -->
         
-        <!-- === NAVBAR === -->
-        
-        <div class="section no-pad-bot" id="index-banner">
-            <div class="container">
-                <h1 class="header center orange-text">Factorización</h1>
-                
-                <!--Trigger sidenav-->
-                <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">find_in_page</i></a>
-                
-                <div class="row center">
-                        <p class="header col s12 light"><strong>Importante:</strong> 
-                        Este programa está diseñado para  proponer
-                        ejercicios que deben ser resueltos con  PAPEL  y  LAPIZ,
-                        para  luego  volcar  los  resultados al  computador  y  asi
-                        verificar su corrección. No trate de hacerlo sin ellos.</p>
+        <div class="section no-pad-bot" id="content">
+            <div class="container center">
+                <h4>Factorizando</h4>
+                <div class="row">
+                    <div class="col s3 m3 l3">
+                        <span>Con</span>    
+                    </div>
+                    <div class="col s9 m9 l9">
+                        <h1>Pedro Cabarcas</h1>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-            
-        <div id="container" class="container center">
-            <div class="card-panel z-depth-6" >
-                <div id="niveles" class="center">
-                    <p>Selecciona nivel de dificultad</p>
-                    <hr><br>
-                    <div class="row center">
-                        <div class="col s12 m12 l12">
-                            <a class="waves-effect waves-light btn btn-large" onclick="controller.establecerNivel(1);"><i class="material-icons left">cloud</i>Bajo</a>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row center">
-                      <div class="col s12 m12 l12">
-                        <a class="waves-effect waves-light btn btn-large" onclick="controller.establecerNivel(2);"><i class="material-icons left">cloud</i>Medio</a>
-                      </div>
-                    </div>
-                    <br>
-                    <div class="row center">
-                      <div class="col s12 m12 l12">
-                        <a class="waves-effect waves-light btn btn-large" onclick="controller.establecerNivel(3);"><i class="material-icons left">cloud</i>Alto</a>
-                      </div>
-                    </div>
-                </div><!--row-->
                 
-                <div id="resuelve" class="center" style="display: none;">
+                <div class="row center" id="niveles">
+                    <div class="col s12 m4 l4">
+                        <a id="nivel_1" class="btn waves-effect waves-light" onclick="controller.establecerNivel(1);">Nivel 1</a>
+                    </div>
+                    <div class="col s12 m4 l4">
+                        <a id="nivel_2" class="btn waves-effect waves-light" onclick="controller.establecerNivel(2);">Nivel 2</a>
+                    </div>
+                    <div class="col s12 m4 l4">
+                        <a id="nivel_3" class="btn waves-effect waves-light" onclick="controller.establecerNivel(3);">Nivel 3</a>
+                    </div>
+                </div>
+            </div>    
+        </div>
+        
+        <div id="container" class="container center">
+            <div class="card-panel z-depth-5" style="display: none;">
+                    <div id="resuelve" class="center" style="display: none;">
                     <p>Resuelve el siguiente binomio</p>
                     <hr><br>
                     <div id="binomio_resolver"></div>
@@ -113,7 +102,7 @@
                     <div class="col s12 m6 l6">
                         <a id="resolver" class="btn waves-effect waves-light orange" onclick="views.mostrarPasos()">Resolver</a>
                     </div>
-                </div><!--row-->
+                </div>
                 
                 <div id="pasos" class="center" style="display: none;">   
                     <div class="row">
@@ -125,6 +114,8 @@
                                 <li id="li_resultado" class="tab col s3"><a href="#resultado">Resultado</a></li>
                             </ul>
                         </div>
+                        
+                        <!--Tab 1-->
                         <div id="factor_comun" class="center">
                             <br>
                             <h6>¿Existe factor común?</h6>
@@ -153,7 +144,7 @@
                             <a id="continuar2" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('cuadrado_cubo');" style="display: none;">Continuar</a>
                         </div>
                         
-                        
+                        <!--Tab 2-->
                         <div id="cuadrado_cubo" class="col s12">
                             <br>
                             <div id="ingresa_tipo">
@@ -172,7 +163,7 @@
                             <br>
                         </div>    
                           
-                        
+                        <!--Tab 3-->
                         <div id="factores" class="col s12">
                             <br>
                             <h6 class="center"><strong>Tenga en cuenta</strong></h6>
@@ -217,7 +208,7 @@
                         
                         </div>
                         
-                        
+                        <!--Tab 4-->
                         <div id="resultado" class="col s12">
                             <br>
                             <p>Finalmente el resultado se escribe R = Fc (1er factor)(2do factor), así tenemos </p>
@@ -226,41 +217,47 @@
                             <a class="btn waves-effect waves-light orange" href="index.html">Volver a intentar</a>
                         </div>
                   </div>
-                </div><!--row-->
+                </div>
             </div><!--card-->
         </div><!--container-->
         
         
-        <footer class="page-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col l6 s12">
-                        <h5 class="white-text">Company Bio</h5>
-                        <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
-                    </div>
-                    <div class="col l3 s12">
-                        <h5 class="white-text">Settings</h5>
-                        <ul>
-                            <li><a class="white-text" href="#!">Link 1</a></li>
-                            <li><a class="white-text" href="#!">Link 2</a></li>
-                            <li><a class="white-text" href="#!">Link 3</a></li>
-                            <li><a class="white-text" href="#!">Link 4</a></li>
-                        </ul>
-                    </div>
-                    <div class="col l3 s12">
-                        <h5 class="white-text">Connect</h5>
-                        <ul>
-                            <li><a class="white-text" href="#!">Link 1</a></li>
-                            <li><a class="white-text" href="#!">Link 2</a></li>
-                            <li><a class="white-text" href="#!">Link 3</a></li>
-                            <li><a class="white-text" href="#!">Link 4</a></li>
-                        </ul>
+        <br><br><br>   
+        <footer>
+            <div id="top_footer" class="container"></div>
+            <div class="page-footer hide-on-small-only"> 
+                <div class="container">
+                    <div class="row grey-text text-lighten-3 center">
+                        <div class="col m7 l8">
+                            <ul>
+                                <li>Aplicación de factorización profesor Pedro Cabarcas</li>
+                                <li>Desarrollada por Laura Schiatti y Diseñada por Jose Gelvis 
+                                <li>de la <a href="http://www.unitecnologica.edu.co/educacionadistancia/">Coordinación de Educación a Distancia.</a></li>
+                            </ul>
+                            <ul style="font-size: 90%;">
+                                <li>Parque Industrial y Tecnológico Carlos Vélez Pombo, Km 1 Vía Turbaco. - Pbx: 57-5-6535200 - Fax: 57-5- 6619240</li>
+                                <li>Campus Casa Lemaitre: Calle del Bouquet cra.21 #25-92, barrio Manga - Tels.: (5) 6606041-42-4</li>
+                            </ul>
+                        </div>
+                        <div class="col m5 l4" style="font-size: 90%;">
+                            <img src="img/logo_utb.png" alt="logo">
+                            <br>
+                            Copyright © 2016 - Cartagena - Bolívar - Colombia
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="footer-copyright">
+            <div class="page-footer hide-on-med-and-up center">
                 <div class="container">
-                    Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+                    <div class="row white-text" style="font-size: 90%;">
+                        <ul>
+                            <li>Aplicación de factorización profesor Pedro Cabarcas</li>
+                            <li>Desarrollada por Laura Schiatti y Diseñada por Jose Gelvis 
+                            <li>de la <a href="http://www.unitecnologica.edu.co/educacionadistancia/">Coordinación de Educación a Distancia.</a></li>
+                        </ul>
+                        <p>Copyright © 2016 - Cartagena - Bolívar - Colombia</p>
+                        &nbsp;
+                    </div>    
                 </div>
             </div>
         </footer>

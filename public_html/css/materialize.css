@@ -2912,7 +2912,7 @@ ul.staggered-list li {
   }
 }
 
-footer.page-footer {
+/*footer.page-footer {
   margin-top: 20px;
   padding-top: 20px;
   background-color: #ee6e73;
@@ -2924,7 +2924,7 @@ footer.page-footer .footer-copyright {
   line-height: 50px;
   color: rgba(255, 255, 255, 0.8);
   background-color: rgba(51, 51, 51, 0.08);
-}
+}*/
 
 table, th, td {
   border: none;
@@ -6647,7 +6647,7 @@ nav ul a span.badge {
 }
 
 .container {
-  margin: 0 auto;
+  margin: 0 auto; 
   max-width: 1280px;
   width: 90%;
 }
@@ -6687,9 +6687,9 @@ nav ul a span.badge {
 }
 
 .row {
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 20px;
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  /* margin-bottom: 20px; */
 }
 
 .row:after {
@@ -8062,7 +8062,7 @@ small {
   line-height: 36px;
   outline: 0;
   padding: 0 2rem;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   vertical-align: middle;
   -webkit-tap-highlight-color: transparent;
 }
