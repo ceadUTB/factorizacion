@@ -13,23 +13,24 @@
     </head>
 
     <body>
-        <nav role="navigation">
-            <div class="nav-wrapper container">
-                <a class="brand-logo hide-on-small-only" id="logo-container" href="http://www.unitecnologica.edu.co/">
-                    <img src="img/logo_utb.png" alt="logo" class="left">
-                </a>
-                <div class="right hide-on-small-only" id="factorizando">
-                    <h6>Factorizando</h6>
-                    <h4>Pedro Cabarcas</h4>
-                </div>
-                
-                <div class="center hide-on-med-and-up">
-                    <h6>Factorizando</h6>
-                    <h4>Pedro Cabarcas</h4>
-                </div>
-            </div>
-        </nav>
+        <!--<div  class="navbar-fixed">-->
+            <nav role="navigation">
+                <div class="nav-wrapper container">
+                    <a class="brand-logo left" id="logo-container" href="http://www.unitecnologica.edu.co/">
+                        <img src="img/logo_utb.png" alt="logo">
+                    </a>
+                    <div class="right hide-on-small-only" id="factorizando">
+                        <h6>Factorizando</h6>
+                        <h4>Pedro Cabarcas</h4>
+                    </div>
 
+                    <div class="center hide-on-med-and-up right" id="mobile_nav">
+                        <h6>Factorizando</h6>
+                        <h4>Pedro Cabarcas</h4>
+                    </div>
+                </div>
+            </nav>
+        <!--</div>-->
         <!-- === SIDENAV === -->
         <div>
             <ul id="slide-out" class="side-nav">
@@ -65,8 +66,9 @@
             </ul>
         </div>
         <!-- === SIDENAV === -->
-        
-        <div class="section no-pad-bot" id="content">
+       
+        <div id="box">
+            <div class="section no-pad-bot" id="content">
             <div class="container center">
                 <h4>Factorizando</h4>
                 <div class="row">
@@ -77,7 +79,7 @@
                         <h1>Pedro Cabarcas</h1>
                     </div>
                 </div>
-                
+
                 <div class="row center" id="niveles">
                     <div class="col s12 m4 l4">
                         <a id="nivel_1" class="btn waves-effect waves-light" onclick="controller.establecerNivel(1);">Nivel 1</a>
@@ -89,178 +91,175 @@
                         <a id="nivel_3" class="btn waves-effect waves-light" onclick="controller.establecerNivel(3);">Nivel 3</a>
                     </div>
                 </div>
-            </div>    
+            </div>
+        </div>
         </div>
         
         <div id="container" class="container center">
-            <div class="card-panel z-depth-5" style="display: none;">
-                    <div id="resuelve" class="center" style="display: none;">
-                    <p>Resuelve el siguiente binomio</p>
-                    <hr><br>
-                    <div id="binomio_resolver"></div>
-                    <br>
-                    <div class="col s12 m6 l6">
-                        <a id="resolver" class="btn waves-effect waves-light orange" onclick="views.mostrarPasos()">Resolver</a>
-                    </div>
-                </div>
-                
-                <div id="pasos" class="center" style="display: none;">   
-                    <div class="row">
-                        <div class="col s12" id="tabs">
-                            <ul class="tabs">
-                                <li id="li_fc" class="tab col s3"><a href="#factor_comun">Factor común</a></li>
-                                <li id="li_cuadrado_cubo" class="tab col s3"><a href="#cuadrado_cubo">Cuadrado o cubo</a></li>
-                                <li id="li_factores" class="tab col s3"><a href="#factores">Factores</a></li>
-                                <li id="li_resultado" class="tab col s3"><a href="#resultado">Resultado</a></li>
-                            </ul>
-                        </div>
-                        
-                        <!--Tab 1-->
-                        <div id="factor_comun" class="center">
-                            <br>
-                            <h6>¿Existe factor común?</h6>
-
-                            <input type="radio" id="fc_si" name="fc" onclick="controller.validarExistenciaFC('si');">
-                            <label for="fc_si">Sí</label>
-                            <input type="radio" id="fc_no" name="fc" onclick="controller.validarExistenciaFC('no');">
-                            <label for="fc_no">No</label> 
-                            <br>
-                            <div id="mensajes" class="warning-box" style="display: none;">
-                                <p id="mensaje"></p>
-                            </div>
-                            <a id="continuar" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('cuadrado_cubo');" style="display: none;">Continuar</a>
-                            <br>
-                            <div id="ingresa_fc" class="row" style="display: none;">
-                                <h6>Ingrese factor común</h6>
-                                <input id="fc" class="col s12 m6 l6 center" type='number' min='2' value='2' onkeyup="if(this.value<1){this.value='2';}">
-                                <br>
-                                <a id="verificar" class="btn waves-effect waves-light orange" onclick="controller.validarFC();">Verificar</a>
-                                <a class="btn waves-effect waves-light orange" onclick="views.mostrarFC();">Me rindo</a>
-                            </div>
-                            <div id="mensajes2" class="warning-box" style="display: none;">
-                                <p id="mensaje2"></p>
-                            </div>
-                            <p id="valor_fc"></p>
-                            <a id="continuar2" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('cuadrado_cubo');" style="display: none;">Continuar</a>
-                        </div>
-                        
-                        <!--Tab 2-->
-                        <div id="cuadrado_cubo" class="col s12">
-                            <br>
-                            <div id="ingresa_tipo">
-                                <h6>¿El binomio es cuadrático o cúbico?</h6>
-
-                                <input type="radio" id="cuadratico" name="tipo" onclick="controller.validarTipoBinomio('cuadratico');">
-                                <label for="cuadratico">Cuadrático</label>
-                                <input type="radio" id="cubico" name="tipo" onclick="controller.validarTipoBinomio('cubico');">
-                                <label for="cubico">Cúbico</label> 
-                                <br>
-                            </div>
-                            <div id="mensajes3" class="warning-box" style="display: none;">
-                                <p id="mensaje3"></p>
-                            </div>
-                            <a id="continuar3" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('factores'); views.mostrarExplicaciones();" style="display: none;">Continuar</a>
-                            <br>
-                        </div>    
-                          
-                        <!--Tab 3-->
-                        <div id="factores" class="col s12">
-                            <br>
-                            <h6 class="center"><strong>Tenga en cuenta</strong></h6>
-                            <div id="explicacion_cuadrado" class="center" style="display: none">
-                                RESPONDA TODO CORRIDO, SIN ESPACIOS Y SIN PARÉNTESIS, siguiendo el 
-                                orden en que aparece el ejercicio y usando primero el mismo signo
-                                que tiene el ejercicio
-                                <p><strong>Ej1 :  Sea x<sup>4</sup> - 9y<sup>2</sup>
-                                el primer factor se coloca: x2-3y y no: x2+3y ni tampoco 3y+x2</strong></p>
-                                (SI EL COEFICIENTE ES 1, OMÍTALO)  
-                                <p><strong>Ej2 :  Sea (5x<sup>3</sup>  + y<sup>2</sup> )  ponga: 5x3+y2 </strong></p>
-                            </div>
-                            <div id="explicacion_cubico" class="center" style="display: none">
-                                RESPONDA TODO CORRIDO, SIN ESPACIOS Y SIN PARÉNTESIS 
-                                (SI EL COEFICIENTE ES 1, OMITALO)  
-                                <p><strong>Ej1: Sea (5x <sup>3</sup>  + y<sup>2</sup>)  ponga: 5x3+y2 
-                                Sea (25x<sup>6</sup> - 5x<sup>3</sup>y<sup>2</sup> + y<sup>4</sup>)  ponga: 25x6-5x3y2+y4</strong></p>
-                                <p><strong>Ej2: Para expresar (25x<sup>6</sup>+30x<sup>3</sup>+36)
-                                debe escribirse: 25x6+30x3+36</strong></p>
-                            </div>
-                            
-                            <div id="ingresa_factores" class="row">
-                                <h5>Ingrese factores</h5>
-                                <div class="input-field col s12 m6 l6">
-                                    <input type="text" class="validate" id="primer">
-                                    <label for="primer">Primer factor</label>
-                                </div>
-                                <div class="input-field col s12 m6 l6">
-                                    <input type="text" class="validate" id="segundo">
-                                    <label for="segundo">Segundo factor</label>
-                                </div>
-                                <br>
-                                <a id="verificar2" class="btn waves-effect waves-light orange" onclick="controller.validarFactores();">Verificar</a>
-                                <a class="btn waves-effect waves-light orange" onclick="views.mostrarFactores();">Me rindo</a>
-                            </div>
-                            <div id="mensajes4" class="warning-box" style="display: none;">
-                                <p id="mensaje4"></p>
-                            </div>
-                            <p id="valor_factores"></p>
-                            
-                            <a id="continuar4" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('resultado'); views.mostrarResultado();" style="display: none;">Continuar</a>
-                        
-                        </div>
-                        
-                        <!--Tab 4-->
-                        <div id="resultado" class="col s12">
-                            <br>
-                            <p>Finalmente el resultado se escribe R = Fc (1er factor)(2do factor), así tenemos </p>
-                            <div id="valor_resultado"></div>
-                            <br>
-                            <a class="btn waves-effect waves-light orange" href="index.html">Volver a intentar</a>
-                        </div>
-                  </div>
-                </div>
-            </div><!--card-->
-        </div><!--container-->
-        
-        
-        <br><br><br>   
-        <footer>
-            <div id="top_footer" class="container"></div>
-            <div class="page-footer hide-on-small-only"> 
-                <div class="container">
-                    <div class="row grey-text text-lighten-3 center">
-                        <div class="col m7 l8">
-                            <ul>
-                                <li>Aplicación de factorización profesor Pedro Cabarcas</li>
-                                <li>Desarrollada por Laura Schiatti y Diseñada por Jose Gelvis 
-                                <li>de la <a href="http://www.unitecnologica.edu.co/educacionadistancia/">Coordinación de Educación a Distancia.</a></li>
-                            </ul>
-                            <ul style="font-size: 90%;">
-                                <li>Parque Industrial y Tecnológico Carlos Vélez Pombo, Km 1 Vía Turbaco. - Pbx: 57-5-6535200 - Fax: 57-5- 6619240</li>
-                                <li>Campus Casa Lemaitre: Calle del Bouquet cra.21 #25-92, barrio Manga - Tels.: (5) 6606041-42-4</li>
-                            </ul>
-                        </div>
-                        <div class="col m5 l4" style="font-size: 90%;">
-                            <img src="img/logo_utb.png" alt="logo">
-                            <br>
-                            Copyright © 2016 - Cartagena - Bolívar - Colombia
-                        </div>
-                    </div>
+        <div id="card" class="card-panel z-depth-5" style="display: none;">
+                <div id="resuelve" class="center" style="display: none;">
+                <p>Resuelve el siguiente binomio</p>
+                <hr><br>
+                <div id="binomio_resolver"></div>
+                <br>
+                <div class="col s12 m6 l6">
+                    <a id="resolver" class="btn waves-effect waves-light orange" onclick="views.mostrarPasos()">Resolver</a>
                 </div>
             </div>
-            <div class="page-footer hide-on-med-and-up center">
-                <div class="container">
-                    <div class="row white-text" style="font-size: 90%;">
+
+            <div id="pasos" class="center" style="display: none;">   
+                <div class="row">
+                    <div class="col s12" id="tabs">
+                        <ul class="tabs">
+                            <li id="li_fc" class="tab col s3"><a href="#factor_comun">Factor común</a></li>
+                            <li id="li_cuadrado_cubo" class="tab col s3"><a href="#cuadrado_cubo">Cuadrado o cubo</a></li>
+                            <li id="li_factores" class="tab col s3"><a href="#factores">Factores</a></li>
+                            <li id="li_resultado" class="tab col s3"><a href="#resultado">Resultado</a></li>
+                        </ul>
+                    </div>
+
+                    <!--Tab 1-->
+                    <div id="factor_comun" class="center">
+                        <br>
+                        <h6>¿Existe factor común?</h6>
+
+                        <input type="radio" id="fc_si" name="fc" onclick="controller.validarExistenciaFC('si');">
+                        <label for="fc_si">Sí</label>
+                        <input type="radio" id="fc_no" name="fc" onclick="controller.validarExistenciaFC('no');">
+                        <label for="fc_no">No</label> 
+                        <br>
+                        <div id="mensajes" class="warning-box" style="display: none;">
+                            <p id="mensaje"></p>
+                        </div>
+                        <a id="continuar" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('cuadrado_cubo');" style="display: none;">Continuar</a>
+                        <br>
+                        <div id="ingresa_fc" class="row" style="display: none;">
+                            <h6>Ingrese factor común</h6>
+                            <input id="fc" class="col s12 m6 l6 center" type='number' min='2' value='2' onkeyup="if(this.value<1){this.value='2';}">
+                            <br>
+                            <a id="verificar" class="btn waves-effect waves-light orange" onclick="controller.validarFC();">Verificar</a>
+                            <a class="btn waves-effect waves-light orange" onclick="views.mostrarFC();">Me rindo</a>
+                        </div>
+                        <div id="mensajes2" class="warning-box" style="display: none;">
+                            <p id="mensaje2"></p>
+                        </div>
+                        <p id="valor_fc"></p>
+                        <a id="continuar2" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('cuadrado_cubo');" style="display: none;">Continuar</a>
+                    </div>
+
+                    <!--Tab 2-->
+                    <div id="cuadrado_cubo" class="col s12">
+                        <br>
+                        <div id="ingresa_tipo">
+                            <h6>¿El binomio es cuadrático o cúbico?</h6>
+
+                            <input type="radio" id="cuadratico" name="tipo" onclick="controller.validarTipoBinomio('cuadratico');">
+                            <label for="cuadratico">Cuadrático</label>
+                            <input type="radio" id="cubico" name="tipo" onclick="controller.validarTipoBinomio('cubico');">
+                            <label for="cubico">Cúbico</label> 
+                            <br>
+                        </div>
+                        <div id="mensajes3" class="warning-box" style="display: none;">
+                            <p id="mensaje3"></p>
+                        </div>
+                        <a id="continuar3" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('factores'); views.mostrarExplicaciones();" style="display: none;">Continuar</a>
+                        <br>
+                    </div>    
+
+                    <!--Tab 3-->
+                    <div id="factores" class="col s12">
+                        <br>
+                        <h6 class="center"><strong>Tenga en cuenta</strong></h6>
+                        <div id="explicacion_cuadrado" class="center" style="display: none">
+                            RESPONDA TODO CORRIDO, SIN ESPACIOS Y SIN PARÉNTESIS, siguiendo el 
+                            orden en que aparece el ejercicio y usando primero el mismo signo
+                            que tiene el ejercicio
+                            <p><strong>Ej1 :  Sea x<sup>4</sup> - 9y<sup>2</sup>
+                            el primer factor se coloca: x2-3y y no: x2+3y ni tampoco 3y+x2</strong></p>
+                            (SI EL COEFICIENTE ES 1, OMÍTALO)  
+                            <p><strong>Ej2 :  Sea (5x<sup>3</sup>  + y<sup>2</sup> )  ponga: 5x3+y2 </strong></p>
+                        </div>
+                        <div id="explicacion_cubico" class="center" style="display: none">
+                            RESPONDA TODO CORRIDO, SIN ESPACIOS Y SIN PARÉNTESIS 
+                            (SI EL COEFICIENTE ES 1, OMITALO)  
+                            <p><strong>Ej1: Sea (5x <sup>3</sup>  + y<sup>2</sup>)  ponga: 5x3+y2 
+                            Sea (25x<sup>6</sup> - 5x<sup>3</sup>y<sup>2</sup> + y<sup>4</sup>)  ponga: 25x6-5x3y2+y4</strong></p>
+                            <p><strong>Ej2: Para expresar (25x<sup>6</sup>+30x<sup>3</sup>+36)
+                            debe escribirse: 25x6+30x3+36</strong></p>
+                        </div>
+
+                        <div id="ingresa_factores" class="row">
+                            <h5>Ingrese factores</h5>
+                            <div class="input-field col s12 m6 l6">
+                                <input type="text" class="validate" id="primer">
+                                <label for="primer">Primer factor</label>
+                            </div>
+                            <div class="input-field col s12 m6 l6">
+                                <input type="text" class="validate" id="segundo">
+                                <label for="segundo">Segundo factor</label>
+                            </div>
+                            <br>
+                            <a id="verificar2" class="btn waves-effect waves-light orange" onclick="controller.validarFactores();">Verificar</a>
+                            <a class="btn waves-effect waves-light orange" onclick="views.mostrarFactores();">Me rindo</a>
+                        </div>
+                        <div id="mensajes4" class="warning-box" style="display: none;">
+                            <p id="mensaje4"></p>
+                        </div>
+                        <p id="valor_factores"></p>
+
+                        <a id="continuar4" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('resultado'); views.mostrarResultado();" style="display: none;">Continuar</a>
+
+                    </div>
+
+                    <!--Tab 4-->
+                    <div id="resultado" class="col s12">
+                        <br>
+                        <p>Finalmente el resultado se escribe R = Fc (1er factor)(2do factor), así tenemos </p>
+                        <div id="valor_resultado"></div>
+                        <br>
+                        <a class="btn waves-effect waves-light orange" href="index.html">Volver a intentar</a>
+                    </div>
+              </div>
+            </div>
+        </div><!--card-->
+    </div><!--container-->
+    
+        <br class="hide-on-med-and-down"><br class="hide-on-med-and-down"><br class="hide-on-med-and-down">
+        <footer class="page-footer">
+            <div id="top_footer"></div>
+            <div id="bottom_footer" class="hide-on-small-only"> 
+                <div class="row grey-text text-lighten-3">
+                    <div class="col m8 l8" style="padding-left: 60px;">
                         <ul>
                             <li>Aplicación de factorización profesor Pedro Cabarcas</li>
                             <li>Desarrollada por Laura Schiatti y Diseñada por Jose Gelvis 
                             <li>de la <a href="http://www.unitecnologica.edu.co/educacionadistancia/">Coordinación de Educación a Distancia.</a></li>
                         </ul>
+                        <ul>
+                            <li>Parque Industrial y Tecnológico Carlos Vélez Pombo, Km 1 Vía Turbaco. - Pbx: 57-5-6535200 - Fax: 57-5- 6619240</li>
+                            <li>Campus Casa Lemaitre: Calle del Bouquet cra.21 #25-92, barrio Manga - Tels.: (5) 6606041-42-4</li>
+                        </ul>
                         <p>Copyright © 2016 - Cartagena - Bolívar - Colombia</p>
-                        &nbsp;
-                    </div>    
+                        <br>
+                    </div>
+                    <div class="col m4 l4">
+                        <img src="img/logo_utb.png" alt="logo">
+                    </div>
+                </div>
+            </div>
+            <div class="page-footer hide-on-med-and-up center">
+                <div id="mobile_bottom_footer" class="white-text">
+                    <ul>
+                        <li>Aplicación de factorización profesor Pedro Cabarcas</li>
+                        <li>Desarrollada por Laura Schiatti y Diseñada por Jose Gelvis 
+                        <li>de la <a href="http://www.unitecnologica.edu.co/educacionadistancia/">Coordinación de Educación a Distancia.</a></li>
+                    </ul>
+                    <p>Copyright © 2016 - Cartagena - Bolívar - Colombia</p>
+                    <br>
                 </div>
             </div>
         </footer>
+        
 
       <!--  Scripts-->
       <script src="js/jquery.min.js"></script>

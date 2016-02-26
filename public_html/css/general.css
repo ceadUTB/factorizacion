@@ -24,18 +24,17 @@ body{
     color: #4E4E4E;
 }   
 
+/*Navbar*/
 nav .container{
     width: 95%;
 }
 
 nav{
     background: #5C97A0;
-    padding: 10px 10px 20px 10px;
 }
 
 nav img{
     width: 190px;
-    margin-left: 50px;
 }
 
 nav h6{
@@ -49,6 +48,7 @@ nav h4{
     font-size: 2.2em;
 }
 
+/*container and titles*/
 #content h1{
     font-family: 'jenna Sue';
     margin: 0;
@@ -74,21 +74,26 @@ span {
     margin-right: 50px;
 }
 
+/*Footer*/
 footer{
     font-weight: lighter;
 }
 
 #top_footer{
     background: #5C97A0;
-    height: 5px;
+    height: 25px;
 }
 
-footer img{
-    width: 240px;
+#bottom_footer, #mobile_bottom_footer{
+    background-color: #467A7F;
+}
+
+#mobile_bottom_footer{
+    padding-top: 10px;
 }
 
 li{
-    font-size: 0.9em;
+    font-size: 13px;
     width: 90%;
     display: block;
 }
@@ -98,32 +103,58 @@ li a{
     color: white;
 }
 
-footer .container{
+footer img{
+    max-width: 290px;
     width: 100%;
-    padding-top: 12px;
-    background-color: #467A7F;
+    height: auto;
+    padding-bottom: 15px;
+    padding-top: 10px;
 }
 
+
 @media (max-width: 600px){
+    nav{
+        padding: 10px 0 20px 10px;
+    }
+    
+    #mobile_nav{
+        padding-right: 20px;
+        padding-top: 10px;
+    }
+    
+    nav img{
+        margin-left: 0;
+    }
+    
     #content h1{
-        font-size: 4.5em;
+        font-size: 4.2em;
     }
 
     #content h4{
-        font-size: 1.4em;
+        font-size: 1.7em;  
     }
     
     span {
-        font-size: 2.2em;
-        padding-top: 50px;
+        font-size: 2.4em;
+        padding-top: 52px;
     }
     
-    #top_footer{
-        margin-top: 30px; 
+    footer{
+        font-size: 11px;
     }
+    
+    
 }
 
 @media (min-width: 601px) and (max-width:992px) {
+    nav{
+        padding: 10px 10px 20px 10px;
+    }
+    
+    nav img{
+        margin-right: 50px;
+    }
+    
     #content h1{
         font-size: 6.4em;
         text-align: center;
@@ -139,12 +170,19 @@ footer .container{
         padding-right: 15px;
     }
     
-    #top_footer{
-        margin-top: 30px; 
+    footer{
+        font-size: 9px;
     }
 }
 
 @media (min-width:993px) {
+    nav{
+        padding: 10px 10px 20px 10px;
+    }
+    
+    nav img{
+        margin-left: 50px;
+    }
     
     #content h1{
         font-size: 8em;
@@ -162,5 +200,9 @@ footer .container{
     
     #top_footer{
         margin-top: 5px;
-    }    
+    }   
+    
+    footer{
+        font-size: 11px;
+    }
 }

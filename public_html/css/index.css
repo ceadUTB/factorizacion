@@ -7,7 +7,7 @@
  */
 
 body{
-    font-weight: lighter;   
+    font-weight: lighter;
     overflow: hidden;
 }
 
@@ -32,35 +32,38 @@ body{
 .btn{
     text-transform: none;
 }
+
+#content{
+    height:100%;  
+}
         
 /*Small screens*/
 @media (max-width:600px) {
     #content{
-        height: 300px;
-        padding-top: 25px;
-        padding-left: 0;
+        padding-top: 70px;
+        padding-right: 45px;
+    }
+    
+    #mobile_nav{
+        margin-right: 20px;
     }
    
     .btn {
         text-transform: none;
         padding: 10px;
-        margin: 20px;
-        font-size: 1.6em;
+        margin-bottom: 20px;
+        margin-left: 10px;
+        font-size: 1.4em;
     }
     
     #top_footer{
         margin-top: 40px;
-    }
-    
-    footer{
-        font-size: 1.2em;
     }
 }
 
 /*Medium screens*/
 @media (min-width: 601px) and (max-width:992px) {
     #content{
-        height: 230px;
         padding: 40px;
         background-image: url('../img/figuras.png');
         background-repeat : no-repeat;
@@ -72,7 +75,7 @@ body{
     .btn {
         padding: 15px 10px;
         margin-top: 30px;
-        font-size: 2.3em;
+        font-size: 2.8em;
     }
     
     /*Modal*/
@@ -91,8 +94,8 @@ body{
 /*Large screens*/
 @media (min-width:993px) {
     #content{
-        height: 340px;
-        padding-right: 40px;
+        /*height: 350px;*/
+        padding: 45px;
         background-image: url('../img/figuras.png');
         background-repeat : no-repeat;
         background-size: contain;
@@ -102,7 +105,7 @@ body{
     
     .btn {
         padding: 15px 10px;
-        font-size: 3.5em; 
+        font-size: 4em; 
     }
     
     /*Modal*/
@@ -117,7 +120,6 @@ body{
         display: inline;
     }
 } 
-
 
 
 

@@ -7,6 +7,13 @@ and open the template in the editor.
     Created on : 25-feb-2016, 11:16:18
     Author     : lauricdd
 */
+body{
+    font-weight: lighter;
+}
+
+#content{
+    height:100%;  
+}
 
 #content h1{
     font-family: 'jenna Sue';
@@ -45,12 +52,15 @@ span {
 #nivel_3{
     background-color: #F15A24;
 }
-        
+
+#ayuda{
+    width: 70px;
+}
+
 /*Small screens*/
 @media (max-width:600px) {
     #content{
-        height: 300px;
-        padding-top: 25px;
+        padding-top: 45px;
         padding-left: 0;
     }
    
@@ -60,18 +70,18 @@ span {
         margin: 20px;
         font-size: 1.6em;
     }
+    
 }
 
 /*Medium screens*/
 @media (min-width: 601px) and (max-width:992px) {
-    #content{
-        height: 230px;
-        padding: 40px;
+    #box{
         background-image: url('../img/figuras.png');
         background-repeat : no-repeat;
         background-size: contain;
         background-position-x: right;
         background-origin: content-box;
+        padding-right: 40px;
     }
     
     .btn {
@@ -83,19 +93,19 @@ span {
 
 /*Large screens*/
 @media (min-width:993px) {
-    #content{
-        height: 340px;
-        padding-right: 40px;
+    #box{
         background-image: url('../img/figuras.png');
         background-repeat : no-repeat;
         background-size: contain;
         background-position-x: right;
         background-origin: content-box;
+        padding-right: 40px;
     }
     
     .btn {
         padding: 15px 10px;
         font-size: 3.5em; 
     }
+    
 } 
 

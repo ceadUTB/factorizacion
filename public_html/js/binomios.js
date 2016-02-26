@@ -65,13 +65,13 @@ var views = {
     },
     
     comenzar : function () {
-        this.esconder("#tipos");
         this.mostrar("#niveles");
         this.mostrar("#container");
     },
 
     esconderNiveles : function (){
         this.esconder("#niveles");
+        this.mostrar("#card");
         this.mostrar("#resuelve");
     },
     
