@@ -12,7 +12,7 @@
         <link href="css/binomios.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     </head>
 
-    <body>
+    <body onload="controller.inicializarVariables();">
         <!--<div  class="navbar-fixed">-->
             <nav role="navigation">
                 <div class="nav-wrapper container">
@@ -31,6 +31,7 @@
                 </div>
             </nav>
         <!--</div>-->
+        
         <!-- === SIDENAV === -->
         <div>
             <ul id="slide-out" class="side-nav">
@@ -67,162 +68,154 @@
         </div>
         <!-- === SIDENAV === -->
        
-        <div id="box">
-            <div class="section no-pad-bot" id="content">
+        <div class="section no-pad-bot" id="content">
             <div class="container center">
                 <h4>Factorizando</h4>
                 <div class="row">
-                    <div class="col s3 m3 l3">
+                    <div class="col s4 m3 l3">
+                        <!--Trigger sidenav-->
+                        <a href="#" data-activates="slide-out" class="button-collapse">
+                            <img src="img/ayuda.png" alt="ayuda" style="width: 40%; margin-top: 0;">
+                        </a>
                         <span>Con</span>    
                     </div>
-                    <div class="col s9 m9 l9">
+                    <div class="col s8 m9 l9">
                         <h1>Pedro Cabarcas</h1>
                     </div>
                 </div>
-
-                <div class="row center" id="niveles">
-                    <div class="col s12 m4 l4">
-                        <a id="nivel_1" class="btn waves-effect waves-light" onclick="controller.establecerNivel(1);">Nivel 1</a>
-                    </div>
-                    <div class="col s12 m4 l4">
-                        <a id="nivel_2" class="btn waves-effect waves-light" onclick="controller.establecerNivel(2);">Nivel 2</a>
-                    </div>
-                    <div class="col s12 m4 l4">
-                        <a id="nivel_3" class="btn waves-effect waves-light" onclick="controller.establecerNivel(3);">Nivel 3</a>
-                    </div>
-                </div>
             </div>
-        </div>
         </div>
         
         <div id="container" class="container center">
-        <div id="card" class="card-panel z-depth-5" style="display: none;">
-                <div id="resuelve" class="center" style="display: none;">
-                <p>Resuelve el siguiente binomio</p>
-                <hr><br>
-                <div id="binomio_resolver"></div>
-                <br>
-                <div class="col s12 m6 l6">
-                    <a id="resolver" class="btn waves-effect waves-light orange" onclick="views.mostrarPasos()">Resolver</a>
+            <div id="card" class="card-panel z-depth-5">
+                <div id="header">
+                    <h4>Resuelve el siguiente binomio</h4>
                 </div>
-            </div>
-
-            <div id="pasos" class="center" style="display: none;">   
-                <div class="row">
-                    <div class="col s12" id="tabs">
-                        <ul class="tabs">
-                            <li id="li_fc" class="tab col s3"><a href="#factor_comun">Factor común</a></li>
-                            <li id="li_cuadrado_cubo" class="tab col s3"><a href="#cuadrado_cubo">Cuadrado o cubo</a></li>
-                            <li id="li_factores" class="tab col s3"><a href="#factores">Factores</a></li>
-                            <li id="li_resultado" class="tab col s3"><a href="#resultado">Resultado</a></li>
-                        </ul>
+                    
+                <div id="resuelve" class="center">
+                    <div id="binomio_resolver"></div>
+                    <br>
+                    <div class="col s12 m6 l6">
+                        <a id="resolver" class="btn waves-effect waves-light orange" onclick="views.mostrarPasos()">Resolver</a>
                     </div>
+                </div>
 
-                    <!--Tab 1-->
-                    <div id="factor_comun" class="center">
-                        <br>
-                        <h6>¿Existe factor común?</h6>
-
-                        <input type="radio" id="fc_si" name="fc" onclick="controller.validarExistenciaFC('si');">
-                        <label for="fc_si">Sí</label>
-                        <input type="radio" id="fc_no" name="fc" onclick="controller.validarExistenciaFC('no');">
-                        <label for="fc_no">No</label> 
-                        <br>
-                        <div id="mensajes" class="warning-box" style="display: none;">
-                            <p id="mensaje"></p>
+                <div id="pasos" class="center" style="display: none;">   
+                    <div class="row">
+                        <div class="col s12" id="tabs">
+                            <ul class="tabs">
+                                <li id="li_fc" class="tab col s3"><a href="#factor_comun">Factor común</a></li>
+                                <li id="li_cuadrado_cubo" class="tab col s3"><a href="#cuadrado_cubo">Cuadrado o cubo</a></li>
+                                <li id="li_factores" class="tab col s3"><a href="#factores">Factores</a></li>
+                                <li id="li_resultado" class="tab col s3"><a href="#resultado">Resultado</a></li>
+                            </ul>
                         </div>
-                        <a id="continuar" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('cuadrado_cubo');" style="display: none;">Continuar</a>
-                        <br>
-                        <div id="ingresa_fc" class="row" style="display: none;">
-                            <h6>Ingrese factor común</h6>
-                            <input id="fc" class="col s12 m6 l6 center" type='number' min='2' value='2' onkeyup="if(this.value<1){this.value='2';}">
+
+                        <!--Tab 1-->
+                        <div id="factor_comun" class="center">
                             <br>
-                            <a id="verificar" class="btn waves-effect waves-light orange" onclick="controller.validarFC();">Verificar</a>
-                            <a class="btn waves-effect waves-light orange" onclick="views.mostrarFC();">Me rindo</a>
-                        </div>
-                        <div id="mensajes2" class="warning-box" style="display: none;">
-                            <p id="mensaje2"></p>
-                        </div>
-                        <p id="valor_fc"></p>
-                        <a id="continuar2" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('cuadrado_cubo');" style="display: none;">Continuar</a>
-                    </div>
+                            <h6>¿Existe factor común?</h6>
 
-                    <!--Tab 2-->
-                    <div id="cuadrado_cubo" class="col s12">
-                        <br>
-                        <div id="ingresa_tipo">
-                            <h6>¿El binomio es cuadrático o cúbico?</h6>
-
-                            <input type="radio" id="cuadratico" name="tipo" onclick="controller.validarTipoBinomio('cuadratico');">
-                            <label for="cuadratico">Cuadrático</label>
-                            <input type="radio" id="cubico" name="tipo" onclick="controller.validarTipoBinomio('cubico');">
-                            <label for="cubico">Cúbico</label> 
+                            <input type="radio" id="fc_si" name="fc" onclick="controller.validarExistenciaFC('si');">
+                            <label for="fc_si">Sí</label>
+                            <input type="radio" id="fc_no" name="fc" onclick="controller.validarExistenciaFC('no');">
+                            <label for="fc_no">No</label> 
                             <br>
-                        </div>
-                        <div id="mensajes3" class="warning-box" style="display: none;">
-                            <p id="mensaje3"></p>
-                        </div>
-                        <a id="continuar3" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('factores'); views.mostrarExplicaciones();" style="display: none;">Continuar</a>
-                        <br>
-                    </div>    
-
-                    <!--Tab 3-->
-                    <div id="factores" class="col s12">
-                        <br>
-                        <h6 class="center"><strong>Tenga en cuenta</strong></h6>
-                        <div id="explicacion_cuadrado" class="center" style="display: none">
-                            RESPONDA TODO CORRIDO, SIN ESPACIOS Y SIN PARÉNTESIS, siguiendo el 
-                            orden en que aparece el ejercicio y usando primero el mismo signo
-                            que tiene el ejercicio
-                            <p><strong>Ej1 :  Sea x<sup>4</sup> - 9y<sup>2</sup>
-                            el primer factor se coloca: x2-3y y no: x2+3y ni tampoco 3y+x2</strong></p>
-                            (SI EL COEFICIENTE ES 1, OMÍTALO)  
-                            <p><strong>Ej2 :  Sea (5x<sup>3</sup>  + y<sup>2</sup> )  ponga: 5x3+y2 </strong></p>
-                        </div>
-                        <div id="explicacion_cubico" class="center" style="display: none">
-                            RESPONDA TODO CORRIDO, SIN ESPACIOS Y SIN PARÉNTESIS 
-                            (SI EL COEFICIENTE ES 1, OMITALO)  
-                            <p><strong>Ej1: Sea (5x <sup>3</sup>  + y<sup>2</sup>)  ponga: 5x3+y2 
-                            Sea (25x<sup>6</sup> - 5x<sup>3</sup>y<sup>2</sup> + y<sup>4</sup>)  ponga: 25x6-5x3y2+y4</strong></p>
-                            <p><strong>Ej2: Para expresar (25x<sup>6</sup>+30x<sup>3</sup>+36)
-                            debe escribirse: 25x6+30x3+36</strong></p>
-                        </div>
-
-                        <div id="ingresa_factores" class="row">
-                            <h5>Ingrese factores</h5>
-                            <div class="input-field col s12 m6 l6">
-                                <input type="text" class="validate" id="primer">
-                                <label for="primer">Primer factor</label>
+                            <div id="mensajes" class="warning-box" style="display: none;">
+                                <p id="mensaje"></p>
                             </div>
-                            <div class="input-field col s12 m6 l6">
-                                <input type="text" class="validate" id="segundo">
-                                <label for="segundo">Segundo factor</label>
-                            </div>
+                            <a id="continuar" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('cuadrado_cubo');" style="display: none;">Continuar</a>
                             <br>
-                            <a id="verificar2" class="btn waves-effect waves-light orange" onclick="controller.validarFactores();">Verificar</a>
-                            <a class="btn waves-effect waves-light orange" onclick="views.mostrarFactores();">Me rindo</a>
+                            <div id="ingresa_fc" class="row" style="display: none;">
+                                <h6>Ingrese factor común</h6>
+                                <input id="fc" class="col s12 m6 l6 center" type='number' min='2' value='2' onkeyup="if(this.value<1){this.value='2';}">
+                                <br>
+                                <a id="verificar" class="btn waves-effect waves-light orange" onclick="controller.validarFC();">Verificar</a>
+                                <a class="btn waves-effect waves-light orange" onclick="views.mostrarFC();">Me rindo</a>
+                            </div>
+                            <div id="mensajes2" class="warning-box" style="display: none;">
+                                <p id="mensaje2"></p>
+                            </div>
+                            <p id="valor_fc"></p>
+                            <a id="continuar2" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('cuadrado_cubo');" style="display: none;">Continuar</a>
                         </div>
-                        <div id="mensajes4" class="warning-box" style="display: none;">
-                            <p id="mensaje4"></p>
+
+                        <!--Tab 2-->
+                        <div id="cuadrado_cubo" class="col s12">
+                            <br>
+                            <div id="ingresa_tipo">
+                                <h6>¿El binomio es cuadrático o cúbico?</h6>
+
+                                <input type="radio" id="cuadratico" name="tipo" onclick="controller.validarTipoBinomio('cuadratico');">
+                                <label for="cuadratico">Cuadrático</label>
+                                <input type="radio" id="cubico" name="tipo" onclick="controller.validarTipoBinomio('cubico');">
+                                <label for="cubico">Cúbico</label> 
+                                <br>
+                            </div>
+                            <div id="mensajes3" class="warning-box" style="display: none;">
+                                <p id="mensaje3"></p>
+                            </div>
+                            <a id="continuar3" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('factores'); views.mostrarExplicaciones();" style="display: none;">Continuar</a>
+                            <br>
+                        </div>    
+
+                        <!--Tab 3-->
+                        <div id="factores" class="col s12">
+                            <br>
+                            <h6 class="center"><strong>Tenga en cuenta</strong></h6>
+                            <div id="explicacion_cuadrado" class="center" style="display: none">
+                                RESPONDA TODO CORRIDO, SIN ESPACIOS Y SIN PARÉNTESIS, siguiendo el 
+                                orden en que aparece el ejercicio y usando primero el mismo signo
+                                que tiene el ejercicio
+                                <p><strong>Ej1 :  Sea x<sup>4</sup> - 9y<sup>2</sup>
+                                el primer factor se coloca: x2-3y y no: x2+3y ni tampoco 3y+x2</strong></p>
+                                (SI EL COEFICIENTE ES 1, OMÍTALO)  
+                                <p><strong>Ej2 :  Sea (5x<sup>3</sup>  + y<sup>2</sup> )  ponga: 5x3+y2 </strong></p>
+                            </div>
+                            <div id="explicacion_cubico" class="center" style="display: none">
+                                RESPONDA TODO CORRIDO, SIN ESPACIOS Y SIN PARÉNTESIS 
+                                (SI EL COEFICIENTE ES 1, OMITALO)  
+                                <p><strong>Ej1: Sea (5x <sup>3</sup>  + y<sup>2</sup>)  ponga: 5x3+y2 
+                                Sea (25x<sup>6</sup> - 5x<sup>3</sup>y<sup>2</sup> + y<sup>4</sup>)  ponga: 25x6-5x3y2+y4</strong></p>
+                                <p><strong>Ej2: Para expresar (25x<sup>6</sup>+30x<sup>3</sup>+36)
+                                debe escribirse: 25x6+30x3+36</strong></p>
+                            </div>
+
+                            <div id="ingresa_factores" class="row">
+                                <h5>Ingrese factores</h5>
+                                <div class="input-field col s12 m6 l6">
+                                    <input type="text" class="validate" id="primer">
+                                    <label for="primer">Primer factor</label>
+                                </div>
+                                <div class="input-field col s12 m6 l6">
+                                    <input type="text" class="validate" id="segundo">
+                                    <label for="segundo">Segundo factor</label>
+                                </div>
+                                <br>
+                                <a id="verificar2" class="btn waves-effect waves-light orange" onclick="controller.validarFactores();">Verificar</a>
+                                <a class="btn waves-effect waves-light orange" onclick="views.mostrarFactores();">Me rindo</a>
+                            </div>
+                            <div id="mensajes4" class="warning-box" style="display: none;">
+                                <p id="mensaje4"></p>
+                            </div>
+                            <p id="valor_factores"></p>
+
+                            <a id="continuar4" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('resultado'); views.mostrarResultado();" style="display: none;">Continuar</a>
+
                         </div>
-                        <p id="valor_factores"></p>
 
-                        <a id="continuar4" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('resultado'); views.mostrarResultado();" style="display: none;">Continuar</a>
-
-                    </div>
-
-                    <!--Tab 4-->
-                    <div id="resultado" class="col s12">
-                        <br>
-                        <p>Finalmente el resultado se escribe R = Fc (1er factor)(2do factor), así tenemos </p>
-                        <div id="valor_resultado"></div>
-                        <br>
-                        <a class="btn waves-effect waves-light orange" href="index.html">Volver a intentar</a>
-                    </div>
-              </div>
-            </div>
-        </div><!--card-->
-    </div><!--container-->
+                        <!--Tab 4-->
+                        <div id="resultado" class="col s12">
+                            <br>
+                            <p>Finalmente el resultado se escribe R = Fc (1er factor)(2do factor), así tenemos </p>
+                            <div id="valor_resultado"></div>
+                            <br>
+                            <a class="btn waves-effect waves-light orange" href="index.html">Volver a intentar</a>
+                        </div>
+                  </div>
+                </div>
+                </div><!--card-->
+            </div><!--container-->
     
         <br class="hide-on-med-and-down"><br class="hide-on-med-and-down"><br class="hide-on-med-and-down">
         <footer class="page-footer">
@@ -260,12 +253,10 @@
             </div>
         </footer>
         
-
-      <!--  Scripts-->
-      <script src="js/jquery.min.js"></script>
-      <script src="js/jquery-ui.min.js"></script>
-      <script src="js/materialize.js"></script>
-      <script src="js/binomios.js"></script>
-
+            <!--  Scripts-->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/binomios.js"></script>
     </body>
 </html>

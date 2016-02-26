@@ -2913,9 +2913,9 @@ ul.staggered-list li {
 }
 
 footer.page-footer {
-  margin-top: 20px;
-  padding-top: 20px;
-  /*background-color: #ee6e73;*/
+   margin-top: 20px;
+   padding-top: 20px; 
+   background-color: #ee6e73;
 }
 
 footer.page-footer .footer-copyright {
@@ -7348,7 +7348,7 @@ nav .button-collapse i {
 }
 
 nav .brand-logo {
-  position: absolute;
+  /* position: absolute; */
   color: #fff;
   display: inline-block;
   font-size: 2.1rem;
@@ -7749,7 +7749,7 @@ small {
   padding: 20px;
   margin: 0.5rem 0 1rem 0;
   border-radius: 2px;
-  background-color: #fff;
+  /*background-color: #fff;*/
 }
 
 .card {

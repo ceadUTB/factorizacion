@@ -42,12 +42,24 @@
                     </div>
                 </div>
                 
-                <div class="row center">
+                <div class="row center" id="tipos">
                     <div class="col s12 m6 l6">
-                        <a id="binomios" href="binomios.html" class="btn waves-effect waves-light">Binomios</a>
+                        <a id="binomios" class="btn waves-effect waves-light" onclick="mostrarNiveles()">Binomios</a>
                     </div>
                     <div class="col s12 m6 l6">
-                        <a id="trinomios" href="trinomios.html" class="btn waves-effect waves-light">Trinomios</a>
+                        <a id="trinomios" class="btn waves-effect waves-light">Trinomios</a>
+                    </div>
+                </div>
+                
+                <div class="row center" id="niveles"  style="display: none;">
+                    <div class="col s12 m4 l4">
+                        <a id="nivel_1" class="btn waves-effect waves-light" onclick="almacenarNivel(1);">Nivel 1</a>
+                    </div>
+                    <div class="col s12 m4 l4">
+                        <a id="nivel_2" class="btn waves-effect waves-light" onclick="almacenarNivel(2);">Nivel 2</a>
+                    </div>
+                    <div class="col s12 m4 l4">
+                        <a id="nivel_3" class="btn waves-effect waves-light" onclick="almacenarNivel(3);">Nivel 3</a>
                     </div>
                 </div>
             </div>
@@ -112,11 +124,23 @@
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery-ui.min.js"></script>
         <script src="js/materialize.js"></script>
+        <script src="js/binomios.js"></script>
       
         <script type="text/javascript">
             $(window).load(function(){
                 //$('#instrucciones').openModal();
             });
+            
+            function mostrarNiveles(){
+                $("#tipos").hide();
+                $("#niveles").show();
+            }
+            
+            function almacenarNivel(nivel){
+                //Almacenar en localStorage
+                localStorage.setItem("nivel", nivel);
+                controller.cambiarLocation();
+            }
         </script>
 
     </body>

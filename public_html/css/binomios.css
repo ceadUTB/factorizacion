@@ -9,6 +9,7 @@ and open the template in the editor.
 */
 body{
     font-weight: lighter;
+    text-align: center;
 }
 
 #content{
@@ -24,6 +25,7 @@ body{
 #content h4{
     font-family: 'champagne Limousines';
     margin-bottom: 0;
+    padding-left: 0;
 }
 
 span {
@@ -38,23 +40,38 @@ span {
 
 .btn{
     text-transform: none;
+    font-family: 'champagne Limousines';
     font-weight: lighter;
-}
-
-#nivel_1{
-    background-color: #8CC63F;
-}
-
-#nivel_2{
-    background-color: #F7931E;
-}
-
-#nivel_3{
-    background-color: #F15A24;
 }
 
 #ayuda{
     width: 70px;
+}
+
+#binomio_resolver{
+    font-size: 2.2em;
+    color: black;
+    font-weight: 300;
+    
+}
+
+.card-panel{
+    background-color: #E6E6E6;
+    padding: 0 0 30px;
+    margin: 0;
+}
+
+#header{
+    background-color: #467A7F;
+    height: 40px;
+    padding: 0;
+    margin: 0 0 1rem 0;
+} 
+
+#header h4{
+    font-family: 'champagne Limousines';
+    font-weight: lighter;
+    color: white;
 }
 
 /*Small screens*/
@@ -62,6 +79,19 @@ span {
     #content{
         padding-top: 45px;
         padding-left: 0;
+    }
+    
+    #content h1{
+        font-size: 4em;
+    }
+
+    #content h4{
+        font-size: 1.4em;  
+    }
+    
+    span {
+        font-size: 2em;
+        padding-top: 52px;
     }
    
     .btn {
@@ -75,14 +105,6 @@ span {
 
 /*Medium screens*/
 @media (min-width: 601px) and (max-width:992px) {
-    #box{
-        background-image: url('../img/figuras.png');
-        background-repeat : no-repeat;
-        background-size: contain;
-        background-position-x: right;
-        background-origin: content-box;
-        padding-right: 40px;
-    }
     
     .btn {
         padding: 15px 10px;
@@ -93,19 +115,22 @@ span {
 
 /*Large screens*/
 @media (min-width:993px) {
-    #box{
-        background-image: url('../img/figuras.png');
-        background-repeat : no-repeat;
-        background-size: contain;
-        background-position-x: right;
-        background-origin: content-box;
-        padding-right: 40px;
+    #content h1{
+        font-size: 6em;
+    }
+
+    #content h4{
+        font-size: 1.5em;
+    }
+      
+    span {
+        font-size: 3.2em;
+        padding-top: 80px;
+        padding-right: 5px;
     }
     
     .btn {
-        padding: 15px 10px;
-        font-size: 3.5em; 
+        padding: 10px;
+        font-size: 1.8em; 
     }
-    
-} 
-
+}    

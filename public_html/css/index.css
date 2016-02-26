@@ -8,17 +8,14 @@
 
 body{
     font-weight: lighter;
-    overflow: hidden;
 }
 
 #binomios{
     background-color: #F7931E;
-    font-family: 'champagne Limousines';
 }
 
 #trinomios{
     background-color: #a4a4a4;
-    font-family: 'champagne Limousines';
 }
 
 #instrucciones{
@@ -30,7 +27,19 @@ body{
 }
 
 .btn{
-    text-transform: none;
+    text-transform: none;   
+}
+
+#nivel_1{
+    background-color: #8CC63F;
+}
+
+#nivel_2{
+    background-color: #F7931E;
+}
+
+#nivel_3{
+    background-color: #F15A24;
 }
 
 #content{

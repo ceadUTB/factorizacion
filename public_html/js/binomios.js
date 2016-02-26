@@ -63,18 +63,7 @@ var views = {
     reemplazarHTML : function (elemento, html){
         $(elemento).html(html);
     },
-    
-    comenzar : function () {
-        this.mostrar("#niveles");
-        this.mostrar("#container");
-    },
 
-    esconderNiveles : function (){
-        this.esconder("#niveles");
-        this.mostrar("#card");
-        this.mostrar("#resuelve");
-    },
-    
     mostrarPasos : function (){
         this.esconder("#resolver");
         this.mostrar("#pasos");
@@ -164,10 +153,8 @@ var views = {
 };
 
 var controller = {
-    establecerNivel : function (niv) {
-        model.nivel = niv;
-        views.esconderNiveles();
-        this.inicializarVariables();
+    cambiarLocation : function () {
+        location.href = "binomios.html";
     },
 
     calcularRandom : function (X, Y){
@@ -180,6 +167,11 @@ var controller = {
     },
 
     inicializarVariables : function() {
+        //Obtener de localStorage
+        model.nivel = parseInt(localStorage.getItem("nivel"));
+        console.log("nivel");
+        console.log(model.nivel);
+        
         //Segun nivel asignar a, n, m
         switch(model.nivel) {
             case 1:
@@ -679,5 +671,4 @@ $(document).ready(function() {
     //Modal
     $('.modal-trigger').leanModal();
     
-    views.comenzar();
 });

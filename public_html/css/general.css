@@ -22,6 +22,7 @@ body{
     background-image: url('../img/fondo.png');
     background-repeat: repeat;
     color: #4E4E4E;
+    overflow-x: hidden;
 }   
 
 /*Navbar*/
@@ -35,6 +36,7 @@ nav{
 
 nav img{
     width: 190px;
+    float: left;
 }
 
 nav h6{
@@ -111,6 +113,11 @@ footer img{
     padding-top: 10px;
 }
 
+footer.page-footer {
+    margin-top: 0; 
+    background-color: transparent;
+        
+}
 
 @media (max-width: 600px){
     nav{
