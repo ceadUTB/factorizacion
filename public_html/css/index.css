@@ -18,10 +18,6 @@ body{
     background-color: #a4a4a4;
 }
 
-#instrucciones{
-    width: 100%;      
-}
-
 #cerrar{
     background: #F7931E;
 }
@@ -87,17 +83,7 @@ body{
         font-size: 2.8em;
     }
     
-    /*Modal*/
-    #instrucciones{
-        padding: 15px 20px;
-        height: 35%;
-        margin: 8% 0 10% 0; 
-    }
     
-    #instrucciones p{
-        font-size: 1.2em;
-        display: inline;
-    }
 }
 
 /*Large screens*/
@@ -115,18 +101,6 @@ body{
     .btn {
         padding: 15px 10px;
         font-size: 4em; 
-    }
-    
-    /*Modal*/
-    #instrucciones{
-        padding: 30px;
-        height: 30%;
-        margin: 8% 0 10% 0; 
-    }
-    
-    #instrucciones p{
-        font-size: 1.2em;
-        display: inline;
     }
 } 
 

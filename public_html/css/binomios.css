@@ -9,7 +9,6 @@ and open the template in the editor.
 */
 body{
     font-weight: lighter;
-    text-align: center;
 }
 
 #content{
@@ -48,13 +47,7 @@ span {
     width: 70px;
 }
 
-#binomio_resolver{
-    font-size: 2.2em;
-    color: black;
-    font-weight: 300;
-    
-}
-
+/*Card panel*/
 .card-panel{
     background-color: #E6E6E6;
     padding: 0 0 30px;
@@ -73,6 +66,126 @@ span {
     font-weight: lighter;
     color: white;
 }
+
+#binomio_resolver{
+    color: #3b3b3b;
+    font-weight: 300;
+    margin-top: 20px;
+}
+
+/*Tabs*/
+.tabs {
+    background-color: #E6E6E6
+}
+
+.tabs .tab{
+    text-transform: none;
+    font-size: 1em;
+}
+
+.tabs .tab a, .tabs .tab a:hover {
+    color: #F7931E;
+    font-weight: 300;
+}
+
+.tabs .tab.disabled a{
+    color: #878787;
+}
+
+.tabs .indicator {
+    height: 5px;
+    width : 15%;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: #F7931E;
+}
+
+/* Tab Factor comun*/
+#factor_comun{
+    font-family: 'champagne Limousines';
+    padding-top: 60px;
+    text-align: center;
+}
+
+#factor_comun h5, #cuadrado_cubo h5, #factor_comun label, #fc, #valor_fc{
+    color: #5b5b5b;
+}
+
+#valor_fc{
+    font-weight: 900;
+    font-size: 1.5em;
+}
+
+[type="radio"]:disabled:checked + label:after {
+    background-color: #ee4210;
+    border-radius: 50%;
+    border: 2px solid #ee4210;
+}
+
+/*Sidenav*/
+.side-nav, .side-nav .collapsible-body{
+    background-color: #e0e0e0;
+}
+
+#sidenav_header img{
+    width: 35%;
+    margin-left: 10px;
+    margin-bottom: 0;
+    float:left;
+}
+
+.side-nav .collapsible-header {
+    /* display: block; */
+    background-color: #878787;
+    color: #f9f9f9;
+    font-weight: lighter;
+    font-family: 'jenna Sue';
+    line-height: inherit;
+    width: 240px;
+    text-align: left;
+    margin: 0;
+    /* height: 10px; */
+    /* padding: 10px 0; */
+}
+
+.collapsible-header li a{
+    color: green;
+}
+
+/*.collapsible-header span{
+    display: block;
+    float: left;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    background-color: #eb7b00;
+    color: white;
+    text-align: center;
+    font-size: 0.6em;
+    margin: 15px 0;
+    padding: 2px;
+    font-family: 'champagne Limousines';
+}
+
+.collapsible-header h5{
+    font-size: 1.1em;
+    margin: 0;
+    height: 37px;
+}*/
+
+.collapsible-body p {
+    margin-right: 0;
+    /* padding: 2rem; */
+    color: #595959;
+    font-family: 'champagne Limousines';
+    line-height: 25px;
+    font-size: 15px;
+    padding: 20px 0 20px 10px;
+    text-align: left;
+}
+
 
 /*Small screens*/
 @media (max-width:600px) {
@@ -96,20 +209,43 @@ span {
    
     .btn {
         text-transform: none;
-        padding: 10px;
+        padding: 5px;
         margin: 20px;
-        font-size: 1.6em;
+        font-size: 1.2em;
     }
     
+    #factor_comun h5, #cuadrado_cubo h5, #factor_comun label, #fc{
+        font-size: 1.2em;
+    }
+     
+    #binomio_resolver{
+        font-size: 1.4em;
+    }
+    
+    .side-nav .collapsible-header{
+        font-size: 2.1em;
+    }
 }
 
 /*Medium screens*/
 @media (min-width: 601px) and (max-width:992px) {
     
     .btn {
-        padding: 15px 10px;
+        padding: 8px;
         margin-top: 30px;
-        font-size: 2.3em;
+        font-size: 1.5em;
+    }
+    
+    #factor_comun h5, #cuadrado_cubo h5, #factor_comun label, #fc{
+        font-size: 1.2em;
+    }
+    
+    #binomio_resolver{
+        font-size: 1.5em;
+    }
+    
+    .side-nav .collapsible-header{
+        font-size: 2.5em;
     }
 }
 
@@ -131,6 +267,19 @@ span {
     
     .btn {
         padding: 10px;
-        font-size: 1.8em; 
+        font-size: 1.5em;
+        margin-top: 20px;
+    }
+    
+    #binomio_resolver{
+        font-size: 1.7em;
+    }
+    
+    #factor_comun h5, #cuadrado_cubo h5, #factor_comun label, #fc, #valor_fc{
+        font-size: 1.4em;
+    }
+    
+    .side-nav .collapsible-header{
+        font-size: 2.4em;
     }
 }    

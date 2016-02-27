@@ -8519,12 +8519,12 @@ a.waves-effect .waves-ripple {
 .collapsible-body {
   display: none;
   border-bottom: 1px solid #ddd;
-  box-sizing: border-box;
+  /*box-sizing: border-box;*/
 }
 
 .collapsible-body p {
-  margin: 0;
-  padding: 2rem;
+  /* margin: 0; */
+  /* padding: 2rem; */
 }
 
 .side-nav .collapsible {
@@ -8659,7 +8659,7 @@ button:focus {
 
 label {
   font-size: 0.8rem;
-  color: #9e9e9e;
+  /* color: red; */
 }
 
 /***************************
@@ -9792,7 +9792,8 @@ select {
 }
 
 .side-nav .collapsible {
-  margin: 0;
+  /* margin: 0; */
+  margin-top: 0;
 }
 
 .side-nav li {
