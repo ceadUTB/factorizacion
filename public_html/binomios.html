@@ -86,7 +86,6 @@
                     
                 <div id="resuelve" class="center">
                     <div id="binomio_resolver"></div>
-                    <br>
                     <div class="col s12 m6 l6">
                         <a id="resolver" class="btn waves-effect waves-light orange" onclick="views.mostrarPasos()">Resolver</a>
                     </div>
@@ -105,18 +104,17 @@
 
                         <!--Tab 1-->
                         <div id="factor_comun" class="center">
-                            <br>
-                            <h5>¿Existe factor común?</h5>
+                            <div id="existe_fc">
+                                <h5>¿Existe factor común?</h5>
 
-                            <input type="radio" id="fc_si" name="fc" onclick="controller.validarExistenciaFC('si');">
-                            <label for="fc_si">Sí</label>
-                            <input type="radio" id="fc_no" name="fc" onclick="controller.validarExistenciaFC('no');">
-                            <label for="fc_no">No</label> 
-                            <br>
-                            
+                                <input type="radio" id="fc_si" name="fc" onclick="controller.validarExistenciaFC('si');">
+                                <label for="fc_si">Sí</label>
+                                <input type="radio" id="fc_no" name="fc" onclick="controller.validarExistenciaFC('no');">
+                                <label for="fc_no">No</label> 
+                            </div>
                             <a id="continuar" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('cuadrado_cubo');" style="display: none;">Continuar</a>
                             
-                            <br><br>
+                            
                             <div id="ingresa_fc" class="row" style="display: none;">
                                 <h5>Ingrese factor común</h5>
                                 <div class="row">
@@ -125,7 +123,6 @@
                                     </div>
                                 </div>
                                 
-                                <br>
                                 <div class="row center">
                                     <div class="col offset-s2 s3 offset-m3 m3  offset-l3 l2">
                                         <a id="verificar" class="btn waves-effect waves-light orange" onclick="controller.validarFC();">Verificar</a>
@@ -158,38 +155,49 @@
                         <!--Tab 3-->
                         <div id="factores" class="col s12">
                             <br>
-                            <h6 class="center"><strong>Tenga en cuenta</strong></h6>
-                            <div id="explicacion_cuadrado" class="center" style="display: none">
-                                RESPONDA TODO CORRIDO, SIN ESPACIOS Y SIN PARÉNTESIS, siguiendo el 
-                                orden en que aparece el ejercicio y usando primero el mismo signo
-                                que tiene el ejercicio
-                                <p><strong>Ej1 :  Sea x<sup>4</sup> - 9y<sup>2</sup>
-                                el primer factor se coloca: x2-3y y no: x2+3y ni tampoco 3y+x2</strong></p>
-                                (SI EL COEFICIENTE ES 1, OMÍTALO)  
-                                <p><strong>Ej2 :  Sea (5x<sup>3</sup>  + y<sup>2</sup> )  ponga: 5x3+y2 </strong></p>
-                            </div>
-                            <div id="explicacion_cubico" class="center" style="display: none">
-                                RESPONDA TODO CORRIDO, SIN ESPACIOS Y SIN PARÉNTESIS 
-                                (SI EL COEFICIENTE ES 1, OMITALO)  
-                                <p><strong>Ej1: Sea (5x <sup>3</sup>  + y<sup>2</sup>)  ponga: 5x3+y2 
-                                Sea (25x<sup>6</sup> - 5x<sup>3</sup>y<sup>2</sup> + y<sup>4</sup>)  ponga: 25x6-5x3y2+y4</strong></p>
-                                <p><strong>Ej2: Para expresar (25x<sup>6</sup>+30x<sup>3</sup>+36)
-                                debe escribirse: 25x6+30x3+36</strong></p>
+                            <div id="explicaciones" class="center">
+                                <p class="bold">RESPONDE TODO CORRIDO, SIN ESPACIOS Y SIN PARÉNTESIS</p> 
+                                <hr>
+                                <div id="explicacion_cuadrado" style="display: none">
+                                    <p class="bold">Coloca como primer factor el que tenga el mismo signo del ejercicio</p>
+                                    <p>Ej1 :  Sea x<sup>4</sup> - 9y<sup>2</sup>
+                                    el primer factor se coloca: x2-3y y no: x2+3y ni tampoco 3y+x2</p>
+                                    <hr>
+                                    <p class="bold">Si el coeficiente es 1, omítalo; si el exponente es 1, también</p> 
+                                    <p>Ej2 :  Sea (5x<sup>3</sup>  + 1 y<sup>1</sup> )  ponga: 5x3+y </p>
+                                </div>
+                                <div id="explicacion_cubico" style="display: none">
+                                    <p class="bold">Coloca como primer factor el que tenga el mismo signo del ejercicio</p>
+                                    <p>Ej1: Sea (5x <sup>3</sup>  + y<sup>2</sup>)  ponga: 5x3+y2 
+                                    Sea (25x<sup>6</sup> - 5x<sup>3</sup>y<sup>2</sup> + y<sup>4</sup>)  ponga: 25x6-5x3y2+y4</p>
+                                    <hr>
+                                    <p class="bold">Si el coeficiente es 1, omítalo; si el exponente es 1, también</p> 
+                                    <p>Ej2: Para expresar (1x<sup>6</sup>+30x<sup>1</sup>+36)
+                                    debe escribirse: x6+30x+36</p>
+                                </div>
                             </div>
 
-                            <div id="ingresa_factores" class="row">
+                            <div id="ingresa_factores">
                                 <h5>Ingrese factores</h5>
-                                <div class="input-field col s12 m6 l6">
-                                    <input type="text" class="validate" id="primer">
-                                    <label for="primer">Primer factor</label>
-                                </div>
-                                <div class="input-field col s12 m6 l6">
-                                    <input type="text" class="validate" id="segundo">
-                                    <label for="segundo">Segundo factor</label>
+                                <div class="row">                                    
+                                    <div class="input-field col s8 offset-s2 m4 offset-m2 l4 offset-l2">
+                                        <input type="text" class="validate" id="primer">
+                                        <label for="primer">Primer factor</label>
+                                    </div>
+                                    <div class="input-field col s8 offset-s2 m4 l4">
+                                        <input type="text" class="validate" id="segundo">
+                                        <label for="segundo">Segundo factor</label>
+                                    </div>
                                 </div>
                                 <br>
-                                <a id="verificar2" class="btn waves-effect waves-light orange" onclick="controller.validarFactores();">Verificar</a>
-                                <a class="btn waves-effect waves-light orange" onclick="views.mostrarFactores();">Me rindo</a>
+                                <div class="row center">
+                                    <div class="col offset-s2 s3 offset-m3 m3  offset-l3 l2">
+                                        <a id="verificar2" class="btn waves-effect waves-light orange" onclick="controller.validarFactores();">Verificar</a>
+                                    </div>
+                                    <div class="col offset-s1 s4 m3 offset-l2 l2">
+                                        <a class="btn waves-effect waves-light orange" onclick="views.mostrarFactores();">Me rindo</a>
+                                    </div>
+                                </div>
                             </div>
                             <p id="valor_factores"></p>
 
@@ -200,8 +208,8 @@
                         <!--Tab 4-->
                         <div id="resultado" class="col s12">
                             <br>
-                            <p>Finalmente el resultado se escribe R = Fc (1er factor)(2do factor), así tenemos </p>
-                            <div id="valor_resultado"></div>
+                            <h5>Finalmente el resultado se escribe R = Fc (1er factor)(2do factor), así tenemos </h5>
+                            <p id="valor_resultado" ></p>
                             <br>
                             <a class="btn waves-effect waves-light orange" href="index.html">Volver a intentar</a>
                         </div>

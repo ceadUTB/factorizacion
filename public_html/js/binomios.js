@@ -1,4 +1,3 @@
-http://www.lucianoaibar.com/dev/web/agregar-contenido-div
 
 var model = { //Variables
     i1 : (' 2357 '),
@@ -71,6 +70,7 @@ var views = {
     },
     
     mostrarIngresaFC : function (){
+        this.esconder("#existe_fc");
         this.mostrar("#ingresa_fc");
     },
     
@@ -105,8 +105,8 @@ var views = {
         Materialize.toast(valor, 5000); // 4000 is the duration of the toast
     },
     
-    deshabilitarRadio : function (){
-        $('input[name=fc]').attr("disabled",true);
+    deshabilitarRadio : function (valor){
+        $('input[name='+valor+']').attr("disabled",true);
     }, 
     
     mostrarFC : function (){
@@ -125,6 +125,7 @@ var views = {
     
     mostrarFactores : function (){
         this.esconder("#ingresa_factores");
+        this.esconder("#explicaciones");
         this.mostrar("#continuar4");
         
         if(model.t === 2){
@@ -133,7 +134,7 @@ var views = {
             model.str_segundo_factor = model.str_segundo_factor_cubos;
         }
         
-        this.reemplazarHTML("#valor_factores", "Los factores son " + model.str_primer_factor + " y " + model.str_segundo_factor);
+        this.reemplazarHTML("#valor_factores", "Los factores son <br>" + model.str_primer_factor + " y " + model.str_segundo_factor);
     }, 
     
     mostrarResultado : function (){
@@ -143,7 +144,8 @@ var views = {
             var res = "R = " + model.factor_comun + " (" + model.str_primer_factor + ") " + " (" + model.str_segundo_factor + ")"; 
         }
         
-        this.reemplazarHTML("#valor_resultado", res);
+        
+        $("#valor_resultado").html(res);
     }
 };
 
@@ -559,7 +561,7 @@ var controller = {
     },
     
     validarExistenciaFC : function (valor){
-        views.deshabilitarRadio();
+        views.deshabilitarRadio('fc');
         if(valor === "si"){
             if(model.a === 1 ){
                 views.mostrarMensaje("No amigo, debiste verificar. No hay factor común");
@@ -595,7 +597,7 @@ var controller = {
     
     //El tipo es t
     validarTipoBinomio : function (valor){
-        views.deshabilitarRadio();
+        views.deshabilitarRadio('tipo');
         if(valor === "cuadratico"){
             model.tipo = 2;
         }else{

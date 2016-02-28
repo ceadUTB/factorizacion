@@ -11,6 +11,10 @@ body{
     font-weight: lighter;
 }
 
+.bold {
+    font-weight: 900;
+}
+
 #content{
     height:100%;  
 }
@@ -70,7 +74,7 @@ span {
 #binomio_resolver{
     color: #3b3b3b;
     font-weight: 300;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 /*Tabs*/
@@ -101,17 +105,17 @@ span {
 }
 
 /* Tab Factor comun*/
-#factor_comun{
+#factor_comun, #cuadrado_cubo{
     font-family: 'champagne Limousines';
     padding-top: 60px;
     text-align: center;
 }
 
-#factor_comun h5, #cuadrado_cubo h5, #factor_comun label, #fc, #valor_fc{
+#pasos h5, #pasos label, #fc, #valor_fc, #valor_factores{
     color: #5b5b5b;
 }
 
-#valor_fc{
+#valor_fc, #valor_factores{
     font-weight: 900;
     font-size: 1.5em;
 }
@@ -120,6 +124,22 @@ span {
     background-color: #ee4210;
     border-radius: 50%;
     border: 2px solid #ee4210;
+}
+
+#explicaciones{
+    width: 70%;
+    margin: 10px 15%;
+    line-height: 15px;
+    font-size: 1.2em;
+}
+
+#factores, #resultado{
+    font-family: 'champagne Limousines';  
+}
+
+#valor_factores{
+    line-height: 35px;
+    /* width: 60%; */
 }
 
 /*Sidenav*/
@@ -214,7 +234,7 @@ span {
         font-size: 1.2em;
     }
     
-    #factor_comun h5, #cuadrado_cubo h5, #factor_comun label, #fc{
+    #pasos h5, #pasos label, #fc{
         font-size: 1.2em;
     }
      
@@ -236,7 +256,7 @@ span {
         font-size: 1.5em;
     }
     
-    #factor_comun h5, #cuadrado_cubo h5, #factor_comun label, #fc{
+    #pasos h5, #pasos label, #fc{
         font-size: 1.2em;
     }
     
@@ -275,7 +295,7 @@ span {
         font-size: 1.7em;
     }
     
-    #factor_comun h5, #cuadrado_cubo h5, #factor_comun label, #fc, #valor_fc{
+    #pasos h5, #pasos label, #fc, #valor_fc, #valor_factores{
         font-size: 1.4em;
     }
     

@@ -39,7 +39,7 @@ body{
 }
 
 #content{
-    height:100%;  
+    height: 100%;
 }
         
 /*Small screens*/
@@ -74,7 +74,7 @@ body{
         background-repeat : no-repeat;
         background-size: contain;
         background-position-x: right;
-        background-origin: content-box;
+        /* background-origin: content-box; */
     }
     
     .btn {
