@@ -61,7 +61,7 @@ nav h4{
     margin-bottom: 0;
 }
 
-span {
+#con {
     font-family: 'jenna Sue';
     display: inline-block;
     -webkit-transform: rotate(-90deg);
@@ -156,7 +156,7 @@ footer.page-footer {
         font-size: 1.7em;  
     }
     
-    span {
+    #con {
         font-size: 2.4em;
         padding-top: 52px;
     }
@@ -202,7 +202,7 @@ footer.page-footer {
         font-size: 1.8em;
     }
     
-    span {
+    #con {
         font-size: 2.8em;
         padding-top: 78px;
         padding-right: 15px;
@@ -249,7 +249,7 @@ footer.page-footer {
         font-size: 1.9em;
     }
       
-    span {
+    #con {
         font-size: 3.7em;
         padding-top: 105px;
         padding-right: 18px;

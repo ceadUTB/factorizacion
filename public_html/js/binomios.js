@@ -138,15 +138,35 @@ var views = {
     }, 
     
     mostrarResultado : function (){
+        if(model.t === 2){
+            model.str_segundo_factor = model.str_segundo_factor_cuadrados;
+        }else if(model.t === 3){
+            model.str_segundo_factor = model.str_segundo_factor_cubos;
+        }
+        
         if(model.factor_comun === 0){
             var res = "R = (" + model.str_primer_factor + ") " + " (" + model.str_segundo_factor + ")"; 
         }else{
             var res = "R = " + model.factor_comun + " (" + model.str_primer_factor + ") " + " (" + model.str_segundo_factor + ")"; 
         }
         
-        
         $("#valor_resultado").html(res);
     }
+    
+    
+    /*mostrarFactor : function (){
+        this.reemplazarHTML("#valor_fc", "El factor común es " + model.a);
+    },
+    
+    mostrarTipo : function (){
+        if(model.t === 2){
+            var tipo = "cuadrático";
+        }else{
+            var tipo = "cúbico";
+        }
+        this.esconder("#ingresa_tipo");
+        this.reemplazarHTML("#tipo", "El binomio es " + tipo);
+    }*/
 };
 
 var controller = {

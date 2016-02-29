@@ -69,7 +69,7 @@
                         <a href="#" data-activates="slide-out" class="button-collapse">
                             <img src="img/ayuda.png" alt="ayuda" style="width: 40%; margin-top: 0;">
                         </a>
-                        <span>Con</span>    
+                        <span id="con">Con</span>    
                     </div>
                     <div class="col s8 m9 l9">
                         <h1>Pedro Cabarcas</h1>
@@ -133,6 +133,7 @@
                                 </div>
                             </div>
                             <p id="valor_fc"></p>
+                            
                             <a id="continuar2" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('cuadrado_cubo');" style="display: none;">Continuar</a>
                         </div>
 
@@ -148,6 +149,7 @@
                                 <label for="cubico">Cúbico</label> 
                                 <br>
                             </div>
+                            <p id="tipo"></p>
                             <a id="continuar3" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('factores'); views.mostrarExplicaciones();" style="display: none;">Continuar</a>
                             <br>
                         </div>    
@@ -209,7 +211,7 @@
                         <div id="resultado" class="col s12">
                             <br>
                             <h5>Finalmente el resultado se escribe R = Fc (1er factor)(2do factor), así tenemos </h5>
-                            <p id="valor_resultado" ></p>
+                            <span id="valor_resultado" ></span>
                             <br>
                             <a class="btn waves-effect waves-light orange" href="index.html">Volver a intentar</a>
                         </div>

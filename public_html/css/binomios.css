@@ -31,7 +31,7 @@ body{
     padding-left: 0;
 }
 
-span {
+#con {
     font-family: 'jenna Sue';
     display: inline-block;
     -webkit-transform: rotate(-90deg);
@@ -138,8 +138,11 @@ span {
 }
 
 #valor_factores{
-    line-height: 35px;
-    /* width: 60%; */
+    line-height: 30px;
+}
+
+#valor_resultado{
+    font-size: 1.3em;
 }
 
 /*Sidenav*/
@@ -172,7 +175,7 @@ span {
     color: green;
 }
 
-/*.collapsible-header span{
+/*.collapsible-header #con{
     display: block;
     float: left;
     height: 30px;
@@ -222,7 +225,7 @@ span {
         font-size: 1.4em;  
     }
     
-    span {
+    #con {
         font-size: 2em;
         padding-top: 52px;
     }
@@ -279,7 +282,7 @@ span {
         font-size: 1.5em;
     }
       
-    span {
+    #con {
         font-size: 3.2em;
         padding-top: 80px;
         padding-right: 5px;
