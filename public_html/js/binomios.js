@@ -145,9 +145,9 @@ var views = {
         }
         
         if(model.factor_comun === 0){
-            var res = "R = (" + model.str_primer_factor + ") " + " (" + model.str_segundo_factor + ")"; 
+            var res = "R = (" + model.str_primer_factor + ")" + "(" + model.str_segundo_factor + ")"; 
         }else{
-            var res = "R = " + model.factor_comun + " (" + model.str_primer_factor + ") " + " (" + model.str_segundo_factor + ")"; 
+            var res = "R = " + model.factor_comun + "(" + model.str_primer_factor + ")" + "(" + model.str_segundo_factor + ")"; 
         }
         
         $("#valor_resultado").html(res);
@@ -435,7 +435,7 @@ var controller = {
         //Primer factor: str_b_i1 + str_d_j1 + str_f + str(h1) + str_c_i1 + str_e_k1 + str_g
         model.primer_factor = model.str_b_i1.concat(model.str_d_j1, model.str_f, model.h1.toString(), model.str_c_i1, model.str_e_k1, model.str_g);
         model.str_primer_factor = model.str_b_i1 + model.str_d_j1 + "<sup>" + model.str_f + "</sup>"
-                                  + " " + model.h1 + " " + model.str_c_i1 + model.str_e_k1 + "<sup>" + model.str_g + "</sup>" +  "<br>";
+                                  + " " + model.h1 + " " + model.str_c_i1 + model.str_e_k1 + "<sup>" + model.str_g + "</sup>";
         console.log("Primer factor");
         console.log(model.str_b_i1);
         console.log(model.str_d_j1);
@@ -459,7 +459,7 @@ var controller = {
         //Segundo factor: str_b_i1 + str_d_j1 + str_f + str(h2) + str_c_i1 + str_e_k1 + str_g
         model.segundo_factor_cuadrados = model.str_b_i1.concat(model.str_d_j1, model.str_f, model.h2.toString(), model.str_c_i1, model.str_e_k1, model.str_g);
         model.str_segundo_factor_cuadrados = model.str_b_i1 + model.str_d_j1 + "<sup>" + model.str_f + "</sup>" + " " + model.h2 + " " + model.str_c_i1 +
-                                              model.str_e_k1 + "<sup>" + model.str_g + "</sup>" +  "<br>";
+                                              model.str_e_k1 + "<sup>" + model.str_g + "</sup>";
         console.log("Segundo factor cuadrados");
         console.log(model.str_b_i1);
         console.log(model.str_d_j1);
@@ -542,7 +542,7 @@ var controller = {
                                      model.str_f, model.str_e_k1, model.str_g, "+", model.c2, model.str_e_k1, model.expo2);
         model.str_segundo_factor_cubos = model.b2 + model.str_d_j1 + "<sup>" + model.expo1 + "</sup>" + model.h2.toString()+ 
                                          model.bc + model.str_d_j1 + "<sup>"+ model.str_f + "</sup>" + model.str_e_k1 + "<sup>" 
-                                         + model.str_g + "</sup>" + "+" + model.c2 + model.str_e_k1 + "<sup>"+ model.expo2 + "</sup>" + "<br>";
+                                         + model.str_g + "</sup>" + "+" + model.c2 + model.str_e_k1 + "<sup>"+ model.expo2 + "</sup>";
         console.log("Segundo factor cubos");
         console.log(model.b2);
         console.log(model.str_d_j1);

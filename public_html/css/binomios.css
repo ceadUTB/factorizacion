@@ -34,7 +34,7 @@ body{
 #con {
     font-family: 'jenna Sue';
     display: inline-block;
-    -webkit-transform: rotate(-90deg);
+    /* -webkit-transform: rotate(-90deg); */
     -moz-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
     -o-transform: rotate(-90deg);
