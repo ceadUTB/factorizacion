@@ -171,7 +171,7 @@ var views = {
 
 var controller = {
     cambiarLocation : function () {
-        location.href = "binomios.html";
+        location.href = "binomios";
     },
 
     calcularRandom : function (X, Y){
