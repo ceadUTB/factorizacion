@@ -38,10 +38,6 @@ body{
     background-color: #F15A24;
 }
 
-#content{
-    height: 100%;
-}
-        
 /*Small screens*/
 @media (max-width:600px) {
     #content{

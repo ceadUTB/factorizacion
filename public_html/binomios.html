@@ -1,3 +1,4 @@
+<!--https://css-tricks.com/snippets/jquery/jquery-sticky-footer/-->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -40,191 +41,225 @@
             <br>
             <ul class="collapsible">
                 <li>
-                    <a class="collapsible-header"><!--<span>1</span>-->Factor Común</a>
+                    <a class="collapsible-header">
+                        <div class="row">
+                            <span class="col s2 m2 l2">1</span>
+                            <h6 class="col s9 m9 l9">Factor Común</h6>
+                        </div>
+                    </a>
                     <div class="collapsible-body">
                         <p>
                             Debes descomponer los coeficientes de la ecuación en sus factores primos y obtener el máximo 
-                            entero que los divide a todos, ese resultado será el FACTOR COMÚN, el cual debe estar acompañado con la 
+                            entero que los divide a todos, ese resultado será el <b>FACTOR COMÚN</b>, el cual debe estar acompañado con la 
                             variable común en todos los términos (en caso de que se tenga), elevada al mínimo exponente presente en 
                             la ecuación.
+                            <br>
+                            <b>Ej: </b> si tenemos 8x<sup>4</sup> - 18y<sup>6</sup>  se factorizan 
+                            <br><br>
+                            <img src="img/factor_comun.png" alt="fc" style="width: 80%; height: 80%;">
+                            <br><br>
+                            8=2<sup>3</sup> = 2*2<sup>2</sup> y 18 = 2*3<sup>3</sup> entonces el FC = 2
                         </p>
                     </div>
                 </li>
                 <li>
-                    <a class="collapsible-header">Tipo</a>
+                    <a class="collapsible-header">
+                        <div class="row">
+                            <span class="col s2 m2 l2">2</span>
+                            <h6 class="col s9 m9 l9">Cuadrado o cubo</h6>
+                        </div>
+                    </a>
                     <div class="collapsible-body">
-                        asdadasd
+                        <p>
+                            Para poder determinar si un binomio es cuadrático o cúbico, debe verificar dos aspectos: 
+                            
+                            <br><br>
+                            <b>1. </b>Si luego de hallar el factor común (si lo hay), los factores que quedan en los coeficientes  
+                            son cuadráticos o cúbicos.
+                            <br>
+                            <b>Ej: </b> Sean 8 = 2<sup>3</sup> y 18 = 2*3<sup>2</sup> los coeficientes, dónde el fc es 2, quedando 2<sup>2</sup> 
+                            y 3<sup>2</sup>, lo que indica que el binomio es cuadrático.
+                            
+                            <br><br>
+                            <b>2. </b>Si los exponentes de las variables son divisibles entre 2 (cuadráticos) o entre 3 (cúbicos).
+                            <br>
+                            <b>Ej: </b>Si las variables que tenemos son: x<sup>4</sup> y x<sup>6</sup> , entonces el exponente
+                            <sup>4</sup>&frasl;<sub>2</sub> = 2 y <sup>6</sup>&frasl;<sub>3</sub>, confirmando que son cuadráticos.
+                        </p>
                     </div>
                 </li>
             </ul>
+            <br><br>
         </div>
         <!-- === SIDENAV === -->
         
-        <div class="section no-pad-bot" id="content">
-            <div class="container center">
-                <h4>Factorizando</h4>
-                <div class="row">
-                    <div class="col s4 m3 l3">
-                        <!--Trigger sidenav-->
-                        <a href="#" data-activates="slide-out" class="button-collapse">
-                            <img src="img/ayuda.png" alt="ayuda" style="width: 40%; margin-top: 0;">
-                        </a>
-                    </div>
-                    <div class="col s8 m9 l8 offset-l1">
-                        <!--<span id="con" style="float: left;">Con</span> -->
-                        <h1>Pedro Cabarcas</h1>
+        <div class="content">
+            <div class="section no-pad-bot" id="content">
+                <div class="container center">
+                    <h4>Factorizando</h4>
+                    <div class="row">
+                        <div class="col s4 m3 l3">
+                            <!--Trigger sidenav-->
+                            <a href="#" data-activates="slide-out" class="button-collapse">
+                                <img src="img/ayuda.png" alt="ayuda" style="width: 40%; margin-top: 0;">
+                            </a>
+                        </div>
+                        <div class="col s8 m9 l8 offset-l1">
+                            <!--<span id="con" style="float: left;">Con</span> -->
+                            <h1>Pedro Cabarcas</h1>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div id="container" class="container center">
-            <div id="card" class="card-panel z-depth-5">
-                <div id="header">
-                    <h4>Resuelve el siguiente binomio</h4>
-                </div>
-
-                <div id="resuelve" class="center">
-                    <div id="binomio_resolver"></div>
-                    <div class="col s12 m6 l6">
-                        <a id="resolver" class="btn waves-effect waves-light orange" onclick="views.mostrarPasos()">Resolver</a>
+            <div id="container" class="container center">
+                <div id="card" class="card-panel z-depth-5">
+                    <div id="header">
+                        <h4>Resuelve el siguiente binomio</h4>
                     </div>
-                </div>
 
-                <div id="pasos" class="center" style="display: none;">   
-                    <div class="row">
-                        <div class="col s12" id="tabs">
-                            <ul class="tabs">
-                                <li id="li_fc" class="tab col s3"><a href="#factor_comun">Factor común</a></li>
-                                <li id="li_cuadrado_cubo" class="tab col s3"><a href="#cuadrado_cubo">Cuadrado o cubo</a></li>
-                                <li id="li_factores" class="tab col s3"><a href="#factores">Factores</a></li>
-                                <li id="li_resultado" class="tab col s3"><a href="#resultado">Resultado</a></li>
-                            </ul>
+                    <div id="resuelve" class="center">
+                        <div id="binomio_resolver"></div>
+                        <div class="col s12 m6 l6">
+                            <a id="resolver" class="btn waves-effect waves-light orange" onclick="views.mostrarPasos()">Resolver</a>
                         </div>
+                    </div>
 
-                        <!--Tab 1-->
-                        <div id="factor_comun" class="center">
-                            <div id="existe_fc">
-                                <h5>¿Existe factor común?</h5>
-
-                                <input type="radio" id="fc_si" name="fc" onclick="controller.validarExistenciaFC('si');">
-                                <label for="fc_si">Sí</label>
-                                <input type="radio" id="fc_no" name="fc" onclick="controller.validarExistenciaFC('no');">
-                                <label for="fc_no">No</label> 
+                    <div id="pasos" class="center" style="display: none;">   
+                        <div class="row">
+                            <div class="col s12" id="tabs">
+                                <ul class="tabs">
+                                    <li id="li_fc" class="tab col s3"><a href="#factor_comun">Factor común</a></li>
+                                    <li id="li_cuadrado_cubo" class="tab col s3"><a href="#cuadrado_cubo">Cuadrado o cubo</a></li>
+                                    <li id="li_factores" class="tab col s3"><a href="#factores">Factores</a></li>
+                                    <li id="li_resultado" class="tab col s3"><a href="#resultado">Resultado</a></li>
+                                </ul>
                             </div>
-                            <a id="continuar" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('cuadrado_cubo');" style="display: none;">Continuar</a>
+
+                            <!--Tab 1-->
+                            <div id="factor_comun" class="center">
+                                <div id="existe_fc">
+                                    <h5>¿Existe factor común?</h5>
+
+                                    <input type="radio" id="fc_si" name="fc" onclick="controller.validarExistenciaFC('si');">
+                                    <label for="fc_si">Sí</label>
+                                    <input type="radio" id="fc_no" name="fc" onclick="controller.validarExistenciaFC('no');">
+                                    <label for="fc_no">No</label> 
+                                </div>
+                                <a id="continuar" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('cuadrado_cubo');" style="display: none;">Continuar</a>
 
 
-                            <div id="ingresa_fc" class="row" style="display: none;">
-                                <h5>Ingrese factor común</h5>
-                                <div class="row">
-                                    <div class="col s8 offset-s2 m4 offset-m4 l4 offset-l4">
-                                        <input id="fc" class="center" type="number" min="2" value="2"> 
+                                <div id="ingresa_fc" class="row" style="display: none;">
+                                    <h5>Ingrese factor común</h5>
+                                    <div class="row">
+                                        <div class="col s8 offset-s2 m4 offset-m4 l4 offset-l4">
+                                            <input id="fc" class="center" type="number" min="2" value="2"> 
+                                        </div>
+                                    </div>
+
+                                    <div class="row center">
+                                        <div class="col offset-s2 s3 offset-m3 m3  offset-l3 l2">
+                                            <a id="verificar" class="btn waves-effect waves-light orange" onclick="controller.validarFC();">Verificar</a>
+                                        </div>
+                                        <div class="col offset-s1 s4 m3 offset-l2 l2">
+                                            <a class="btn waves-effect waves-light orange" onclick="views.mostrarFC();">Me rindo</a>
+                                        </div>
                                     </div>
                                 </div>
+                                <p id="valor_fc"></p>
 
-                                <div class="row center">
-                                    <div class="col offset-s2 s3 offset-m3 m3  offset-l3 l2">
-                                        <a id="verificar" class="btn waves-effect waves-light orange" onclick="controller.validarFC();">Verificar</a>
-                                    </div>
-                                    <div class="col offset-s1 s4 m3 offset-l2 l2">
-                                        <a class="btn waves-effect waves-light orange" onclick="views.mostrarFC();">Me rindo</a>
-                                    </div>
-                                </div>
+                                <a id="continuar2" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('cuadrado_cubo');" style="display: none;">Continuar</a>
                             </div>
-                            <p id="valor_fc"></p>
 
-                            <a id="continuar2" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('cuadrado_cubo');" style="display: none;">Continuar</a>
-                        </div>
-
-                        <!--Tab 2-->
-                        <div id="cuadrado_cubo" class="center">
-                            <br>
-                            <div id="ingresa_tipo">
-                                <h5>¿El binomio es cuadrático o cúbico?</h5>
-
-                                <input type="radio" id="cuadratico" name="tipo" onclick="controller.validarTipoBinomio('cuadratico');">
-                                <label for="cuadratico">Cuadrático</label>
-                                <input type="radio" id="cubico" name="tipo" onclick="controller.validarTipoBinomio('cubico');">
-                                <label for="cubico">Cúbico</label> 
+                            <!--Tab 2-->
+                            <div id="cuadrado_cubo" class="center">
                                 <br>
-                            </div>
-                            <p id="tipo"></p>
-                            <a id="continuar3" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('factores'); views.mostrarExplicaciones();" style="display: none;">Continuar</a>
-                            <br>
-                        </div>    
+                                <div id="ingresa_tipo">
+                                    <h5>¿El binomio es cuadrático o cúbico?</h5>
 
-                        <!--Tab 3-->
-                        <div id="factores" class="col s12">
-                            <br>
-                            <div id="explicaciones" class="center">
-                                <p class="bold">RESPONDE TODO CORRIDO, SIN ESPACIOS Y SIN PARÉNTESIS</p> 
-                                <hr>
-                                <div id="explicacion_cuadrado" style="display: none">
-                                    <p class="bold">Coloca como primer factor el que tenga el mismo signo del ejercicio</p>
-                                    <p>Ej1 :  Sea x<sup>4</sup> - 9y<sup>2</sup>
-                                    el primer factor se coloca: x2-3y y no: x2+3y ni tampoco 3y+x2</p>
-                                    <hr>
-                                    <p class="bold">Si el coeficiente es 1, omítalo; si el exponente es 1, también</p> 
-                                    <p>Ej2 :  Sea (5x<sup>3</sup>  + 1 y<sup>1</sup> )  ponga: 5x3+y </p>
+                                    <input type="radio" id="cuadratico" name="tipo" onclick="controller.validarTipoBinomio('cuadratico');">
+                                    <label for="cuadratico">Cuadrático</label>
+                                    <input type="radio" id="cubico" name="tipo" onclick="controller.validarTipoBinomio('cubico');">
+                                    <label for="cubico">Cúbico</label> 
+                                    <br>
                                 </div>
-                                <div id="explicacion_cubico" style="display: none">
-                                    <p class="bold">Coloca como primer factor el que tenga el mismo signo del ejercicio</p>
-                                    <p>Ej1: Sea (5x <sup>3</sup>  + y<sup>2</sup>)  ponga: 5x3+y2 
-                                    Sea (25x<sup>6</sup> - 5x<sup>3</sup>y<sup>2</sup> + y<sup>4</sup>)  ponga: 25x6-5x3y2+y4</p>
-                                    <hr>
-                                    <p class="bold">Si el coeficiente es 1, omítalo; si el exponente es 1, también</p> 
-                                    <p>Ej2: Para expresar (1x<sup>6</sup>+30x<sup>1</sup>+36)
-                                    debe escribirse: x6+30x+36</p>
-                                </div>
-                            </div>
-
-                            <div id="ingresa_factores">
-                                <h5>Ingrese factores</h5>
-                                <div class="row">                                    
-                                    <div class="input-field col s8 offset-s2 m4 offset-m2 l4 offset-l2">
-                                        <input type="text" class="validate" id="primer">
-                                        <label for="primer">Primer factor</label>
-                                    </div>
-                                    <div class="input-field col s8 offset-s2 m4 l4">
-                                        <input type="text" class="validate" id="segundo">
-                                        <label for="segundo">Segundo factor</label>
-                                    </div>
-                                </div>
+                                <p id="tipo"></p>
+                                <a id="continuar3" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('factores'); views.mostrarExplicaciones();" style="display: none;">Continuar</a>
                                 <br>
-                                <div class="row center">
-                                    <div class="col offset-s2 s3 offset-m3 m3  offset-l3 l2">
-                                        <a id="verificar2" class="btn waves-effect waves-light orange" onclick="controller.validarFactores();">Verificar</a>
+                            </div>    
+
+                            <!--Tab 3-->
+                            <div id="factores" class="col s12">
+                                <br>
+                                <div id="explicaciones" class="center">
+                                    <p class="bold">RESPONDE TODO CORRIDO, SIN ESPACIOS Y SIN PARÉNTESIS</p> 
+                                    <hr>
+                                    <div id="explicacion_cuadrado" style="display: none">
+                                        <p class="bold">Coloca como primer factor el que tenga el mismo signo del ejercicio</p>
+                                        <p>Ej1 :  Sea x<sup>4</sup> - 9y<sup>2</sup>
+                                        el primer factor se coloca: x2-3y y no: x2+3y ni tampoco 3y+x2</p>
+                                        <hr>
+                                        <p class="bold">Si el coeficiente es 1, omítalo; si el exponente es 1, también</p> 
+                                        <p>Ej2 :  Sea (5x<sup>3</sup>  + 1 y<sup>1</sup> )  ponga: 5x3+y </p>
                                     </div>
-                                    <div class="col offset-s1 s4 m3 offset-l2 l2">
-                                        <a class="btn waves-effect waves-light orange" onclick="views.mostrarFactores();">Me rindo</a>
+                                    <div id="explicacion_cubico" style="display: none">
+                                        <p class="bold">Coloca como primer factor el que tenga el mismo signo del ejercicio</p>
+                                        <p>Ej1: Sea (5x <sup>3</sup>  + y<sup>2</sup>)  ponga: 5x3+y2 
+                                        Sea (25x<sup>6</sup> - 5x<sup>3</sup>y<sup>2</sup> + y<sup>4</sup>)  ponga: 25x6-5x3y2+y4</p>
+                                        <hr>
+                                        <p class="bold">Si el coeficiente es 1, omítalo; si el exponente es 1, también</p> 
+                                        <p>Ej2: Para expresar (1x<sup>6</sup>+30x<sup>1</sup>+36)
+                                        debe escribirse: x6+30x+36</p>
                                     </div>
                                 </div>
+
+                                <div id="ingresa_factores">
+                                    <h5>Ingrese factores</h5>
+                                    <div class="row">                                    
+                                        <div class="input-field col s8 offset-s2 m4 offset-m2 l4 offset-l2">
+                                            <input type="text" class="validate" id="primer">
+                                            <label for="primer">Primer factor</label>
+                                        </div>
+                                        <div class="input-field col s8 offset-s2 m4 l4">
+                                            <input type="text" class="validate" id="segundo">
+                                            <label for="segundo">Segundo factor</label>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row center">
+                                        <div class="col offset-s2 s3 offset-m3 m3  offset-l3 l2">
+                                            <a id="verificar2" class="btn waves-effect waves-light orange" onclick="controller.validarFactores();">Verificar</a>
+                                        </div>
+                                        <div class="col offset-s1 s4 m3 offset-l2 l2">
+                                            <a class="btn waves-effect waves-light orange" onclick="views.mostrarFactores();">Me rindo</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p id="valor_factores"></p>
+
+                                <a id="continuar4" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('resultado'); views.mostrarResultado();" style="display: none;">Continuar</a>
+
                             </div>
-                            <p id="valor_factores"></p>
 
-                            <a id="continuar4" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('resultado'); views.mostrarResultado();" style="display: none;">Continuar</a>
-
-                        </div>
-
-                        <!--Tab 4-->
-                        <div id="resultado" class="col s12">
-                            <br>
-                            <h5>Finalmente el resultado se escribe R = Fc (1er factor)(2do factor), así tenemos </h5>
-                            <span id="valor_resultado" ></span>
-                            <br>
-                            <a class="btn waves-effect waves-light orange" href="index.html">Volver a intentar</a>
-                        </div>
-                  </div>
-                </div>
-                </div><!--card-->
-            </div><!--container-->  
+                            <!--Tab 4-->
+                            <div id="resultado" class="col s12">
+                                <br>
+                                <h5>Finalmente el resultado se escribe R = Fc (1er factor)(2do factor), así tenemos </h5>
+                                <span id="valor_resultado" ></span>
+                                <br>
+                                <a class="btn waves-effect waves-light orange" href="index.html">Volver a intentar</a>
+                            </div>
+                      </div>
+                    </div>
+                    </div><!--card-->
+                </div><!--container--> 
+        </div>
         
-        <footer class="page-footer">
+        <footer class="page-footer" id="footer">
             <div id="top_footer"></div>
             <div id="bottom_footer" class="hide-on-small-only"> 
                 <div class="row grey-text text-lighten-3">
-                    <div class="col m8 l8" style="padding-left: 60px;">
+                    <div class="col m8 l8">
                         <ul>
                             <li>Aplicación de factorización profesor Pedro Cabarcas</li>
                             <li>Desarrollada por Laura Schiatti y Diseñada por Jose Gelvis 
@@ -234,7 +269,6 @@
                             <li>Parque Industrial y Tecnológico Carlos Vélez Pombo, Km 1 Vía Turbaco. - Pbx: 57-5-6535200 - Fax: 57-5- 6619240</li>
                             <li>Campus Casa Lemaitre: Calle del Bouquet cra.21 #25-92, barrio Manga - Tels.: (5) 6606041-42-4</li>
                         </ul>
-                        <br>
                         <p>Copyright © 2016 - Cartagena - Bolívar - Colombia</p>
                     </div>
                     <div class="col m4 l4">
@@ -260,5 +294,5 @@
         <script src="js/jquery-ui.min.js"></script>
         <script src="js/materialize.js"></script>
         <script src="js/binomios.js"></script>
-    </body>
+    </body>    
 </html>

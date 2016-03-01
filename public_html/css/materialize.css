@@ -8493,7 +8493,7 @@ a.waves-effect .waves-ripple {
   border-top: 1px solid #ddd;
   border-right: 1px solid #ddd;
   border-left: 1px solid #ddd;
-  margin: 0.5rem 0 1rem 0;
+  /* margin: 0.5rem 0 1rem 0; */
 }
 
 .collapsible-header {
@@ -8537,11 +8537,12 @@ a.waves-effect .waves-ripple {
 }
 
 .side-nav .collapsible-header {
-  background-color: transparent;
-  border: none;
-  line-height: inherit;
-  height: inherit;
-  margin: 0 1rem;
+  background-color: #878787;
+  /* border: none; */
+  /* line-height: inherit; */
+  /* height: inherit; */
+  margin-bottom: 0;
+  padding: 10px;
 }
 
 .side-nav .collapsible-header i {
@@ -9809,9 +9810,9 @@ select {
 .side-nav a {
   color: #444;
   display: block;
-  font-size: 1rem;
+  /* font-size: 1rem; */
   height: 64px;
-  line-height: 64px;
+  /* line-height: 64px; */
   padding: 0 15px;
 }
 

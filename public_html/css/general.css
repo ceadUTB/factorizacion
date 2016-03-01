@@ -18,18 +18,41 @@ and open the template in the editor.
     src: url('../fonts/JennaSue.ttf'); 
 }
 
-html{
-    position: relative;
-    min-height: 100%;
+@font-face { 
+    font-family: 'carly Sue'; 
+    src: url('../fonts/CarlySue.ttf'); 
 }
 
 body{
     background-image: url('../img/fondo.png');
     background-repeat: repeat;
     color: #4E4E4E;
-    /*overflow-x: hidden;*/
-    margin: 0;
+    overflow-x: hidden;
 }   
+
+/*Sticky footer*/
+/*Tomado de http://codeconvey.com/make-css-sticky-footer/*/
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin: 0 0 230px; 
+}
+
+.content {  
+    box-sizing: border-box;
+}
+
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 165px;
+    width: 100%;
+}
+
 
 /*Navbar*/
 nav .container{
@@ -81,15 +104,9 @@ nav h4{
     margin-right: 50px;
 }
 
-
 /*Footer*/
 footer{
     font-weight: lighter;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 90px;
-    width: 100%;
 }
 
 #top_footer{
@@ -120,8 +137,9 @@ footer img{
     max-width: 290px;
     width: 100%;
     height: auto;
-    padding-bottom: 15px;
-    padding-top: 10px;
+    padding-bottom: 10%;
+    padding-top: 10%;
+    padding-right: 4%;
 }
 
 footer.page-footer {
@@ -223,6 +241,10 @@ footer.page-footer {
         font-size: 9px;
     }
     
+    #bottom_footer{
+        padding-left: 40px;
+    }
+
     /*Modal*/
     .modal{
         padding: 15px;
@@ -272,6 +294,10 @@ footer.page-footer {
     
     footer{
         font-size: 11px;
+    }
+    
+    #bottom_footer, #mobile_bottom_footer{
+        padding-left: 5%;
     }
     
     /*Modal*/

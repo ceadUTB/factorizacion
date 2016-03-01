@@ -15,9 +15,9 @@ body{
     font-weight: 900;
 }
 
-#content{
+/*#content{
     height:100%;  
-}
+}*/
 
 #content h1{
     font-family: 'jenna Sue';
@@ -150,6 +150,14 @@ body{
     background-color: #e0e0e0;
 }
 
+.side-nav .collapsible-header{
+    background-color: #878787;
+    padding: 10px 10px 0;
+    height: 10px;
+    width: 240px;
+    color: white;
+}
+
 #sidenav_header img{
     width: 35%;
     margin-left: 10px;
@@ -157,55 +165,38 @@ body{
     float:left;
 }
 
-.side-nav .collapsible-header {
-    /* display: block; */
-    background-color: #878787;
-    color: #f9f9f9;
+.collapsible {
+    margin-bottom: 30px;
+}
+
+.collapsible-header h6{
+    font-family: 'carly Sue';
     font-weight: lighter;
-    font-family: 'jenna Sue';
-    line-height: inherit;
-    width: 240px;
     text-align: left;
-    margin: 0;
-    /* height: 10px; */
-    /* padding: 10px 0; */
+    font-size: 0.5em;
+    margin: 12px;
 }
 
-.collapsible-header li a{
-    color: green;
-}
-
-/*.collapsible-header #con{
-    display: block;
-    float: left;
+.collapsible-header span{
     height: 30px;
     width: 30px;
     line-height: 30px;
     -moz-border-radius: 100%;
     border-radius: 100%;
     background-color: #eb7b00;
-    color: white;
     text-align: center;
-    font-size: 0.6em;
-    margin: 15px 0;
-    padding: 2px;
+    font-size: 0.5em;
+    color: white;
     font-family: 'champagne Limousines';
 }
 
-.collapsible-header h5{
-    font-size: 1.1em;
-    margin: 0;
-    height: 37px;
-}*/
-
 .collapsible-body p {
     margin-right: 0;
-    /* padding: 2rem; */
     color: #595959;
     font-family: 'champagne Limousines';
     line-height: 25px;
     font-size: 15px;
-    padding: 20px 0 20px 10px;
+    padding: 0 0 20px 20px;
     text-align: left;
 }
 
