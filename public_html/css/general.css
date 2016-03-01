@@ -172,8 +172,8 @@ footer.page-footer {
     
     /*Modal*/
     .modal{
-        padding-top: 40px;
-        height: 50%;
+        padding-top: 20px;
+        height: 70%;
     }
     
     .modal p{
@@ -208,7 +208,7 @@ footer.page-footer {
     
     /*Modal*/
     .modal{
-        padding: 20px 4px;
+        padding: 15px 4px;
         height: 40%;
     }
     
