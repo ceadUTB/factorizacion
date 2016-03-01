@@ -61,6 +61,7 @@ nav .container{
 
 nav{
     background: #5C97A0;
+    padding: 20px 0;
 }
 
 nav img{
@@ -141,7 +142,7 @@ footer.page-footer {
 }
 
 .modal .modal-content {
-    padding: 0 5px;
+    padding: 0;
 }
 
 .modal h5{
@@ -149,10 +150,6 @@ footer.page-footer {
 }
 
 @media (max-width:459px) {
-    nav{
-        padding: 20px;
-    }
-    
     #mobile_nav{
         display: none;
     }
@@ -175,15 +172,14 @@ footer.page-footer {
     
     /*Modal*/
     .modal{
-        padding: 5px;
-        height: 35%;
-        margin: 20% 0 10% 0; 
+        padding-top: 40px;
+        height: 50%;
     }
     
     .modal p{
-        font-size: 0.9em;
-        display: block;
-        line-height: 20px;
+        font-size: 1em;
+        padding: 5px 10px;
+        line-height: 30px;
     }
     
     .modal .btn{
@@ -193,10 +189,6 @@ footer.page-footer {
 }
 
 @media (min-width: 460px) and (max-width : 767px){
-    nav{
-        padding: 10px 0 20px 10px;
-    }
-    
     #mobile_nav{
         padding-right: 20px;
         padding-top: 10px;
@@ -216,15 +208,14 @@ footer.page-footer {
     
     /*Modal*/
     .modal{
-        padding: 5px;
-        height: 35%;
-        margin: 20% 0 10% 0; 
+        padding: 20px 4px;
+        height: 40%;
     }
     
     .modal p{
-        font-size: 0.9em;
-        display: block;
-        line-height: 20px;
+        font-size: 1.2em;
+        padding: 5px 10px;
+        line-height: 30px;
     }
     
     .modal .btn{
@@ -234,10 +225,6 @@ footer.page-footer {
 }    
 
 @media (min-width :768px) and (max-width : 992px) {
-    nav{
-        padding: 10px 10px 20px 10px;
-    }
-    
     nav img{
         margin-right: 50px;
     }
@@ -256,29 +243,23 @@ footer.page-footer {
 
     /*Modal*/
     .modal{
-        padding: 15px;
-        height: 30%;
-        margin: 8% 0 10% 0; 
+        padding: 10px 15px;
+        height: 45%;
     }
     
     .modal p{
-        font-size: 1.2em;
-        display: inline;
-        line-height: 20px;
+        font-size: 1.4em;
+        line-height: 35px;
     }
     
     .modal .btn{
-        margin: 5px;
-        padding: 10px;
+        margin: 0;
+        padding: 8px;
         font-size: 1.4em;
     }
 }
 
 @media (min-width:993px) {
-    nav{
-        padding: 10px 10px 20px 10px;
-    }
-    
     nav img{
         margin-left: 50px;
     }
@@ -286,13 +267,7 @@ footer.page-footer {
     #content h4{
         font-size: 1.9em;
     }
-      
-    #con {
-        font-size: 3.7em;
-        padding-top: 105px;
-        padding-right: 18px;
-    }
-    
+  
     #top_footer{
         margin-top: 5px;
     }   
@@ -307,19 +282,19 @@ footer.page-footer {
     
     /*Modal*/
     .modal{
-        padding: 30px;
-        height: 30%;
-        margin: 8% 0 10% 0; 
+        padding: 40px 30px;
+        height: 35%;
     }
     
     .modal p{
-        font-size: 1.4em;
+        font-size: 1.5em;
         display: inline;
-        line-height: 30px;
+        line-height: 40px;
     }
     
     .modal .btn{
         padding: 10px;
         font-size: 1.4em;
+        margin-bottom: 5px;
     }
 }
