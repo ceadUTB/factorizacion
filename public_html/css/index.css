@@ -10,6 +10,13 @@ body{
     font-weight: lighter;
 }
 
+#titulo{
+    max-width: 430px;
+    width: 100%;
+    height: auto;
+    margin: 30px 0 40px;
+}
+
 #binomios{
     background-color: #F7931E;
 }
@@ -38,8 +45,29 @@ body{
     background-color: #F15A24;
 }
 
-/*Small screens*/
-@media (max-width:600px) {
+@media (max-width:459px) {
+    #content{
+        padding: 40px 0;
+    }
+    
+    #mobile_nav{
+        margin-right: 0;
+    }
+   
+    .btn {
+        text-transform: none;
+        padding: 10px;
+        margin-bottom: 20px;
+        margin-left: 10px;
+        font-size: 1.4em;
+    }
+    
+    #top_footer{
+        margin-top: 40px;
+    }
+}
+    
+@media (min-width: 460px) and (max-width : 767px){
     #content{
         padding-top: 70px;
         padding-right: 45px;
@@ -62,8 +90,7 @@ body{
     }
 }
 
-/*Medium screens*/
-@media (min-width: 601px) and (max-width:992px) {
+@media (min-width :768px) and (max-width : 992px) {
     #content{
         padding: 40px;
         background-image: url('../img/figuras.png');
@@ -82,7 +109,6 @@ body{
     
 }
 
-/*Large screens*/
 @media (min-width:993px) {
     #content{
         /*height: 350px;*/

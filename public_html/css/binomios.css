@@ -14,31 +14,17 @@ body{
 .bold {
     font-weight: 900;
 }
-
-/*#content{
-    height:100%;  
-}*/
-
-#content h1{
-    font-family: 'jenna Sue';
-    margin: 0;
-    float: left;
+#titulo{
+    max-width: 430px;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
 }
 
 #content h4{
     font-family: 'champagne Limousines';
     margin-bottom: 0;
     padding-left: 0;
-}
-
-#con {
-    font-family: 'jenna Sue';
-    display: inline-block;
-    /* -webkit-transform: rotate(-90deg); */
-    -moz-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    -o-transform: rotate(-90deg);
-    float: right;
 }
 
 .btn{
@@ -48,7 +34,7 @@ body{
 }
 
 #ayuda{
-    width: 70px;
+    width: 80px;
 }
 
 /*Card panel*/
@@ -201,25 +187,57 @@ body{
 }
 
 
-/*Small screens*/
-@media (max-width:600px) {
+@media (max-width:459px) {
     #content{
         padding-top: 45px;
         padding-left: 0;
     }
     
-    #content h1{
-        font-size: 4em;
+    #content h4{
+        font-size: 1.4em;  
+    }
+   
+    #header h4{
+        font-size: 1.6em;
+        padding-top: 10px;
+    }
+    
+    .btn {
+        text-transform: none;
+        padding: 5px;
+        margin: 20px;
+        font-size: 1.2em;
+    }
+    
+    #pasos h5, #pasos label, #fc{
+        font-size: 1.2em;
+    }
+     
+    #binomio_resolver{
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+    
+    .side-nav .collapsible-header{
+        font-size: 1.4em;
+    }
+}
+
+@media (min-width: 460px) and (max-width : 767px){
+    #content{
+        padding-top: 45px;
+        padding-left: 0;
     }
 
     #content h4{
         font-size: 1.4em;  
     }
     
-    #con {
-        font-size: 2em;
-        padding-top: 52px;
+    #header h4{
+        font-size: 1.8em;
+        padding-top: 8px;
     }
+    
    
     .btn {
         text-transform: none;
@@ -241,9 +259,7 @@ body{
     }
 }
 
-/*Medium screens*/
-@media (min-width: 601px) and (max-width:992px) {
-    
+@media (min-width :768px) and (max-width : 992px) {  
     .btn {
         padding: 8px;
         margin-top: 30px;
@@ -263,20 +279,9 @@ body{
     }
 }
 
-/*Large screens*/
 @media (min-width:993px) {
-    #content h1{
-        font-size: 6em;
-    }
-
     #content h4{
         font-size: 1.5em;
-    }
-      
-    #con {
-        font-size: 3.2em;
-        padding-top: 80px;
-        padding-right: 5px;
     }
     
     .btn {

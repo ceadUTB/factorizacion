@@ -79,25 +79,10 @@ nav h4{
 }
 
 /*container and titles*/
-#content h1{
-    font-family: 'jenna Sue';
-    margin: 0;
-    float: left;
-}
 
 #content h4{
     font-family: 'champagne Limousines';
     margin-bottom: 0;
-}
-
-#con {
-    font-family: 'jenna Sue';
-    display: inline-block;
-    -webkit-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    -o-transform: rotate(-90deg);
-    float: right;
 }
 
 #factorizando{
@@ -137,8 +122,8 @@ footer img{
     max-width: 290px;
     width: 100%;
     height: auto;
-    padding-bottom: 10%;
-    padding-top: 10%;
+    padding-bottom: 6%;
+    padding-top: 6%;
     padding-right: 4%;
 }
 
@@ -163,31 +148,25 @@ footer.page-footer {
     font-weight: bold;
 }
 
-@media (max-width: 600px){
+@media (max-width:459px) {
     nav{
-        padding: 10px 0 20px 10px;
+        padding: 20px;
     }
     
     #mobile_nav{
-        padding-right: 20px;
-        padding-top: 10px;
+        display: none;
     }
     
     nav img{
         margin-left: 0;
     }
-    
-    #content h1{
-        font-size: 4.2em;
-    }
 
     #content h4{
-        font-size: 1.7em;  
+        font-size: 1.2em;  
     }
     
-    #con {
-        font-size: 2.4em;
-        padding-top: 52px;
+    #content{
+        padding: 0;
     }
     
     footer{
@@ -213,7 +192,48 @@ footer.page-footer {
     }
 }
 
-@media (max-width: 992px) and (min-width: 601px) {
+@media (min-width: 460px) and (max-width : 767px){
+    nav{
+        padding: 10px 0 20px 10px;
+    }
+    
+    #mobile_nav{
+        padding-right: 20px;
+        padding-top: 10px;
+    }
+    
+    nav img{
+        margin-left: 0;
+    }
+    
+    #content h4{
+        font-size: 1.7em;  
+    }
+    
+    footer{
+        font-size: 11px;
+    }
+    
+    /*Modal*/
+    .modal{
+        padding: 5px;
+        height: 35%;
+        margin: 20% 0 10% 0; 
+    }
+    
+    .modal p{
+        font-size: 0.9em;
+        display: block;
+        line-height: 20px;
+    }
+    
+    .modal .btn{
+        padding: 5px;
+        font-size: 1.2em;
+    }
+}    
+
+@media (min-width :768px) and (max-width : 992px) {
     nav{
         padding: 10px 10px 20px 10px;
     }
@@ -222,19 +242,8 @@ footer.page-footer {
         margin-right: 50px;
     }
     
-    #content h1{
-        font-size: 6.4em;
-        text-align: center;
-    }
-
     #content h4{
         font-size: 1.8em;
-    }
-    
-    #con {
-        font-size: 3.2em;
-        padding-top: 30px;
-        /* padding-right: 15px; */
     }
     
     footer{
@@ -272,10 +281,6 @@ footer.page-footer {
     
     nav img{
         margin-left: 50px;
-    }
-    
-    #content h1{
-        font-size: 8em;
     }
 
     #content h4{
