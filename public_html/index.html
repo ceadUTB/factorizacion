@@ -12,7 +12,7 @@
         <link href="css/index.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     </head>
 
-    <body>
+    <body onload="abrirModal()">
         <nav role="navigation">
             <div class="nav-wrapper container">
                 <a class="brand-logo left" id="logo-container" href="http://www.unitecnologica.edu.co/">
@@ -37,10 +37,10 @@
                 <br>
                 <div class="row center" id="tipos">
                     <div class="col s12 m6 l6">
-                        <a id="binomios" class="btn waves-effect waves-light" onclick="mostrarNiveles()">Binomios</a>
+                        <a id="binomios" class="btn waves-effect waves-light" onclick="mostrarNiveles('binomios')">Binomios</a>
                     </div>
                     <div class="col s12 m6 l6">
-                        <a id="trinomios" class="btn waves-effect waves-light">Trinomios</a>
+                        <a id="trinomios" class="btn waves-effect waves-light" onclick="mostrarNiveles('trinomios')">Trinomios</a>
                     </div>
                 </div>
 
@@ -53,6 +53,16 @@
                     </div>
                     <div class="col s12 m4 l4">
                         <a id="nivel_3" class="btn waves-effect waves-light" onclick="almacenarNivel(3);">Nivel 3</a>
+                    </div>
+                </div>
+                
+                <div class="row center" id="niveles2"  style="display: none;">
+                    <br class='hide-on-small-only'><br class='hide-on-small-only'>
+                    <div class="col s12 offset-m2 m4 offset-l2 l4">
+                        <a id="nivel_4" class="btn waves-effect waves-light" onclick="almacenarNivel(4);">Nivel 4</a>
+                    </div>
+                    <div class="col s12 m4 l4">
+                        <a id="nivel_5" class="btn waves-effect waves-light" onclick="almacenarNivel(5);">Nivel 5</a>
                     </div>
                 </div>
             </div>
@@ -118,24 +128,6 @@
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery-ui.min.js"></script>
         <script src="js/materialize.js"></script>
-        <script src="js/binomios.js"></script>
-      
-        <script type="text/javascript">
-            $(window).load(function(){
-                $('#instrucciones').openModal();
-            });
-            
-            function mostrarNiveles(){
-                $("#tipos").hide();
-                $("#niveles").show();
-            }
-            
-            function almacenarNivel(nivel){
-                //Almacenar en localStorage
-                localStorage.setItem("nivel", nivel);
-                controller.cambiarLocation();
-            }
-        </script>
-
+        <script src="js/init.js"></script>
     </body>
 </html>

@@ -56,16 +56,6 @@ var views = {
         $(elemento).html(html);
     },
     
-    comenzar : function () {
-        this.mostrar("#niveles");
-        this.mostrar("#container");
-    },
-    
-    esconderNiveles : function (){
-        this.esconder("#niveles");
-        this.mostrar("#resuelve");
-    },
-    
     mostrarPasos : function (){
         this.esconder("#resolver");
         this.mostrar("#pasos");
@@ -84,24 +74,21 @@ var views = {
                 break;  
             case 'factores':  
                 $("#li_factores").removeClass("disabled");
-                //$("#li_cuadrado_cubo").addClass("disabled");
                 break;
             case 'resultado':  
                 $("#li_resultado").removeClass("disabled");
-                //$("#li_factores").addClass("disabled");
                 break;    
         }
-        
         
         $("#tabs ul.tabs").tabs('select_tab', tab);
         
     },
     
-    mostrarMensaje : function (mensajes, mensaje, valor){
-        this.mostrar(mensajes);
-        $(mensaje).html(valor);
+    mostrarMensaje : function (valor){
+        // Materialize.toast(message, displayLength, className, completeCallback);
+        Materialize.toast(valor, 5000); // 4000 is the duration of the toast
     },
-    
+     
     deshabilitarRadio : function (){
         $('input[name=fc]').attr("disabled",true);
     }, 
@@ -113,15 +100,18 @@ var views = {
         this.reemplazarHTML("#valor_fc", "El factor común es " + model.factor_comun);
     },
     
+    mostrarExplicaciones : function (){
+        if(model.a === 1){
+            this.mostrar("#explicacion_tipo1");
+        }else{
+            this.mostrar("#explicacion_tipo2");
+        }
+        
+    }
+    
 };
 
 var controller = {
-    establecerNivel : function (niv) {
-        model.nivel = niv;
-        views.esconderNiveles();
-        this.inicializarVariables();
-    },
-    
     calcularRandom : function (X, Y){
         //Número aleatorio entre un rango X y Y entonces usando Math.floor(Math.random()*(Y-X))+X
         return Math.floor(Math.random()*(Y+1-X))+X;
@@ -132,25 +122,29 @@ var controller = {
     },
     
     inicializarVariables : function() {
+        //Obtener de localStorage
+        model.nivel = parseInt(localStorage.getItem("nivel"));
+        console.log("nivel", model.nivel);
+        
         //Segun nivel asignar a, n, m
         switch(model.nivel) {
-            case 0:
+            case 1:
                 model.n = 1;
                 model.m = 6;
                 break;
-            case 1:
+            case 2:
                 model.n = 2;
                 model.m = 7;
                 break;
-            case 2:
+            case 3:
                 model.n = 3;
                 model.m = 10;
                 break;
-            case 3:
+            case 4:
                 model.n = 5;
                 model.m = 15;
                 break;
-            case 4:
+            case 5:
                 model.n = 10;
                 model.m = 20;
                 break;
@@ -158,13 +152,16 @@ var controller = {
         
         model.a = this.calcularRandom(1,model.n);
         
-        
         if(model.a === 1){
             model.str_a = "";
         }else{
             model.str_a = model.a.toString();
         }
-
+        
+        console.log("a", model.a);
+        console.log("n", model.n);
+        console.log("m", model.m);
+        
         this.calcularb();
     },
     
@@ -176,7 +173,9 @@ var controller = {
         }else{
             model.str_b = model.b.toString();
         }
-
+        
+        console.log("b", model.b);
+        
         this.calcularc();
     },
     
@@ -193,6 +192,8 @@ var controller = {
             model.j = "-"; 
         }
         
+        console.log("pot_cc*c", model.pot_cc * model.c);
+        
         this.calculard();
     },
     
@@ -208,6 +209,8 @@ var controller = {
         }else{
             model.h = "-"; 
         }
+        
+        console.log("pot_dd*d", model.pot_dd * model.d);
         
         this.calcularw1();
     },
@@ -337,28 +340,30 @@ var controller = {
             model.str_e = "";
         }
         
+        model.f = Math.abs(model.f);
+        
         if(model.f === 1){
             model.f = "";
         }else{
-            model.str_f = Math.abs(model.f).toString(); 
+            model.str_f = model.f.toString(); 
         }
         
-        if(model.g === 1){
-            model.str_g = "";
-        }else{
-            model.str_g = Math.abs(model.g).toString();
-        }
+        model.str_g = Math.abs(model.g).toString();
         
         
         this.construirBinomio_trinomio();
     },
     
     construirBinomio_trinomio : function(){
+        //CASO ESPECIAL: BINOMIO
         if(model.f === 0){
             model.str_binomio =  model.str_e + "x<sup>2</sup> " + model.gg + model.str_g;
             console.log("Binomio");
             console.log(model.str_binomio);
             views.reemplazarHTML("#trinomio_resolver", model.str_binomio);
+            views.reemplazarHTML("#mensaje", "<p><b>Caso especial:</b>  dadas ciertas condiciones un trinomio se puede reducir a una <b>diferencia de cuadrados</b>, un tipo de binomio</p>");
+        
+        //CASO TRINOMIO
         }else if(model.f !== 0){
             model.str_trinomio = model.str_e + "x<sup>2</sup> " + model.ff + model.str_f + "x" + model.gg + model.str_g;
             console.log("Trinomio");
@@ -379,7 +384,7 @@ var controller = {
         
         if(valor === "si"){
             if(model.factor_comun === 1){
-                views.mostrarMensaje("#mensajes", "#mensaje",  "No amigo, debiste verificar. No hay factor común");
+                views.mostrarMensaje("No amigo, debiste verificar. No hay factor común");
                 views.mostrar("#continuar");
             }
             if(model.factor_comun !== 1){
@@ -387,27 +392,27 @@ var controller = {
             }
         }else{
             if(model.factor_comun === 1){
-                views.mostrarMensaje("#mensajes", "#mensaje",  "¡Correcto!");
+                views.mostrarMensaje("¡Correcto!");
                 views.mostrar("#continuar");
             }
             if(model.factor_comun !== 1){
-                views.mostrarMensaje("#mensajes", "#mensaje", "No amigo. Sí hay factor común. Revisa y ubícalo");
+                views.mostrarMensaje("No amigo. Sí hay factor común. Revisa y ubícalo");
                 views.mostrarIngresaFC();
             }
         }
     },
     
     validarFC : function (){
-        model.factor_comun = parseInt($("#fc").val());
+        var fc = parseInt($("#fc").val());
         
-        if(model.factor_comun === model.factor_comun){
+        if(fc === model.factor_comun){
             views.esconder("#ingresa_fc");
-            views.mostrarMensaje("#mensajes2", "#mensaje2",  "¡Correcto!");
+            views.mostrarMensaje("¡Correcto!");
             views.mostrar("#continuar2");
         }else{
-            views.mostrarMensaje("#mensajes2", "#mensaje2",  "Error. Ingrese nuevamente el factor común");
+            views.mostrarMensaje("Error. Ingrese nuevamente el factor común");
         }
-    },
+    }
 
 };
 
@@ -420,5 +425,4 @@ $(document).ready(function() {
     //Modal
     $('.modal-trigger').leanModal();
     
-    views.comenzar();
 });

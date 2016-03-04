@@ -144,7 +144,7 @@ var views = {
             model.str_segundo_factor = model.str_segundo_factor_cubos;
         }
         
-        if(model.factor_comun === 0){
+        if(model.factor_comun === 1){
             var res = "R = (" + model.str_primer_factor + ")" + "(" + model.str_segundo_factor + ")"; 
         }else{
             var res = "R = " + model.factor_comun + "(" + model.str_primer_factor + ")" + "(" + model.str_segundo_factor + ")"; 
@@ -170,10 +170,6 @@ var views = {
 };
 
 var controller = {
-    cambiarLocation : function () {
-        location.href = "binomios";
-    },
-
     calcularRandom : function (X, Y){
         //Número aleatorio entre un rango X y Y entonces usando Math.floor(Math.random()*(Y-X))+X
         return Math.floor(Math.random()*(Y+1-X))+X;
