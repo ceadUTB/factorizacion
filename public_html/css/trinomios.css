@@ -137,6 +137,22 @@ body{
     font-size: 1.3em;
 }
 
+/*Tab factores*/
+#ingresa_variables input{
+    /*width:60px;
+    height:60px;
+    padding:0px;*/
+    /*font-size:30px;
+    background-color: #5C97A0;*/
+    text-align:center;
+    margin:10px 0;
+}
+
+input[type=number].valid{
+    border-bottom: 1px solid #5C97A0; 
+    box-shadow: 0 1px 0 0 #5C97A0; 
+}
+
 /*Sidenav*/
 .side-nav, .side-nav .collapsible-body{
     background-color: #e0e0e0;
@@ -146,7 +162,7 @@ body{
     background-color: #878787;
     padding: 10px 10px 0;
     height: 10px;
-    width: 240px;
+    width: 600px;
     color: white;
 }
 
@@ -190,44 +206,6 @@ body{
     font-size: 15px;
     padding: 0 0 20px 20px;
     text-align: left;
-}
-
-/*Tab factores*/
-#ingresa_variables input{
-    /*width:60px;
-    height:60px;
-    padding:0px;*/
-    /*font-size:30px;
-    background-color: #5C97A0;*/
-    text-align:center;
-    margin:10px 0;
-}
-
-input[type=number].valid, input[type=text].valid{
-    border-bottom: 1px solid #F7931E;
-    box-shadow: 0 1px 0 0 #F7931E;
-}
-
-input[type=number]:focus:not([readonly]), input[type=text]:focus:not([readonly]){
-    border-bottom: 1px solid #5C97A0;
-    box-shadow: 0 1px 0 0 #5C97A0;
-}
-
-#ingresa_variables label{
-    /* background-color: transparent; */
-    /* border: none; */
-    /* border-bottom: 1px solid #9e9e9e; */
-    /* border-radius: 0; */
-    /* outline: none; */
-    /* height: 3rem; */
-    /* width: 100%; */
-    /* font-size: 3em; */
-    /* margin: 0 0 15px 0; */
-    /* padding: 0; */
-    box-shadow: none;
-    /* box-sizing: content-box; */
-    /* transition: all .3s; */
-    font-size: 10em;
 }
 
 @media (max-width:459px) {

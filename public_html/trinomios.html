@@ -66,25 +66,24 @@
                     <a class="collapsible-header">
                         <div class="row">
                             <span class="col s2 m2 l2">2</span>
-                            <h6 class="col s9 m9 l9">Cuadrado o cubo</h6>
+                            <h6 class="col s9 m9 l9">Diferencia de cuadrados</h6>
                         </div>
                     </a>
                     <div class="collapsible-body">
                         <p>
-                            Para poder determinar si un binomio es cuadrático o cúbico, debe verificar dos aspectos: 
-                            
-                            <br><br>
-                            <b>1. </b>Si luego de hallar el factor común (si lo hay), los factores que quedan en los coeficientes  
-                            son cuadráticos o cúbicos.
+                            Una diferencia de cuadrados es igual a una suma por diferencia.
                             <br>
-                            <b>Ej: </b> Sean 8 = 2<sup>3</sup> y 18 = 2*3<sup>2</sup> los coeficientes, dónde el fc es 2, quedando 2<sup>2</sup> 
-                            y 3<sup>2</sup>, lo que indica que el binomio es cuadrático.
-                            
-                            <br><br>
-                            <b>2. </b>Si los exponentes de las variables son divisibles entre 2 (cuadráticos) o entre 3 (cúbicos).
+                            Lo importante es identificar a y b, las raíces de a2 y b2 respectivamente
                             <br>
-                            <b>Ej: </b>Si las variables que tenemos son: x<sup>4</sup> y x<sup>6</sup> , entonces el exponente
-                            <sup>4</sup>&frasl;<sub>2</sub> = 2 y <sup>6</sup>&frasl;<sub>3</sub = 2, confirmando que son cuadráticos.
+                            <b>a<sup>2</sup> − b<sup>2</sup> = (a + b) · (a − b)</b>
+                            <br><br>
+                            <b>Ej: </b> 4x<sup>2</sup> - 25
+                            <br>
+                            En este caso <b>a</b> es &#8730;4x<sup>2</sup> = 2x y <b>b</b> es &#8730;25 = 5
+                            <br>
+                            Entonces tenemos como factores 
+                            <br>
+                            <b>(2x + 5) y (2x - 5)</b>
                         </p>
                     </div>
                 </li>
@@ -200,13 +199,12 @@
                                     <h5><b>Ingrese factores</b></h5>
                                     <br>
                                     <div class="row center">
-                                        <div class="col s12 m4 l4 offset-m1 offset-l1">
+                                        <div class="col s12 m3 l2 offset-l1">
                                             <h5>Primer factor</h5>
                                         </div>
-                                        
                                         <!--Primer factor-->
-                                        <div class="col s3 m1 l1">
-                                            <input type="number" class="validate" id="a">
+                                        <!--<div class="col s3 m1 l1">
+                                            <input type="number" class="validate" id="a" name="a">
                                             <br>
                                             <label for="a">A</label>
                                         </div>
@@ -214,68 +212,69 @@
                                             <label>x</label>
                                         </div>
                                         <div class="col s3 m1 l1">
-                                            <input type="text" class="validate" id="signo"> <!--onkeyup="if(this.value !=='+' && this.value !=='-'){this.value='+';}"-->
+                                            <input type="text" class="validate" id="signo" name="signo"> 
                                             <br>
                                             <label for="signo">signo</label>
                                         </div>
                                         <div class="col s3 m1 l1">
-                                            <input type="number" class="validate" id="b">
+                                            <input type="number" class="validate" id="b" name="b">
                                             <br>
                                             <label for="b">B</label>
                                         </div>
-                                    </div>
-                                    <br>
-                                    <div class="row center">     
-                                        <div class="col s12 m4 l4 offset-m1 offset-l1">
+                                        <div class="col s12 m1 l1">
+                                            <a class="btn-floating btn-large waves-effect waves-light orange" onclick="controller.validarPrimerFactor()"><i class="material-icons">done</i></a>
+                                        </div>-->
+                                        
+                                        <!--Primer factor-->
+                                        <div class="col s3 offset-s3 m1 l1">
+                                            <input type="number" class="validate" id="a" name="a">
+                                            <br>
+                                            <label for="a">A</label>
+                                        </div>
+                                        <div class="col s3 m1 l1">
+                                            <input type="number" class="validate" id="b" name="b">
+                                            <br>
+                                            <label for="b">B</label>
+                                        </div>
+                                        <div class="col s12 m3 l3">
                                             <h5>Segundo factor</h5>
                                         </div>
                                         
                                         <!--Segundo factor-->
-                                        <div class="col s4 m1 l1">
-                                            <input type="number" class="validate" id="c">
+                                        <div class="col s3 offset-s3 m1 l1">
+                                            <input type="number" class="validate" id="c" name="c">
                                             <br>
                                             <label for="c">C</label>
                                         </div>
-                                        <div class="col s2 m1 l1">
-                                            <label>x</label>
-                                        </div>
-                                        <div class="col s2 m1 l1">
-                                            <input type="text" class="validate" id="signo2" onkeyup="if(this.value !=='+' && this.value !=='-'){this.value='+';}">
-                                            <br>
-                                            <label for="signo2">signo</label>
-                                        </div>
-                                        <div class="col s4 m1 l1">
-                                            <input type="number" class="validate" id="d">
+                                        <div class="col s3 m1 l1">
+                                            <input type="number" class="validate" id="d" name="d">
                                             <br>
                                             <label for="d">D</label>
                                         </div>
-                                        <div>
-                                            
-                                        </div>
                                     </div>
                                     <br>
-                                    <div class="row center">
-                                        <div class="col offset-s2 s3 offset-m3 m3  offset-l3 l2">
+                                    <div class="row center" id="botones">
+                                        <div class="col s2 offset-s2 m3 offset-m3 l2 offset-l3">
                                             <a id="verificar2" class="btn waves-effect waves-light orange" onclick="controller.validarFactores();">Verificar</a>
                                         </div>
-                                        <div class="col offset-s1 s4 m3 offset-l2 l2">
+                                        <div class="col s5 offset-s1 m3 offset-l2 l2">
                                             <a class="btn waves-effect waves-light orange" onclick="views.mostrarFactores();">Me rindo</a>
                                         </div>
                                     </div>
                                 </div>
+                                <h5 style="display: none;" id="fact"><b>Factores</b></h5>
                                 <p id="valor_factores"></p>
 
                                 <a id="continuar4" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('resultado'); views.mostrarResultado();" style="display: none;">Continuar</a>
-
                             </div>
 
                             <!--Tab 3-->
                             <div id="resultado" class="col s12">
                                 <br>
                                 <h5>Finalmente el resultado se escribe R = Fc (1er factor)(2do factor), así tenemos </h5>
-                                <span id="valor_resultado" ></span>
+                                <h3 id="valor_resultado" ></h3>
                                 <br>
-                                <a class="btn waves-effect waves-light orange" href="binomios.html">Volver a intentar</a>
+                                <a class="btn waves-effect waves-light orange" href="index.html">Volver a intentar</a>
                             </div>
                       </div>
                     </div>

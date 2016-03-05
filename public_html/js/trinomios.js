@@ -40,7 +40,8 @@ var model ={
     prdo : 0,
     str_binomio : "",
     str_trinomio : "",
-    factor_comun : ""
+    factor_comun : "",
+    str_trinomio : ""
 };
 
 var views = {
@@ -86,7 +87,7 @@ var views = {
     
     mostrarMensaje : function (valor){
         // Materialize.toast(message, displayLength, className, completeCallback);
-        Materialize.toast(valor, 5000); // 4000 is the duration of the toast
+        Materialize.toast(valor, 3000); // 4000 is the duration of the toast
     },
      
     deshabilitarRadio : function (){
@@ -107,6 +108,34 @@ var views = {
             this.mostrar("#explicacion_tipo2");
         }
         
+    },
+    
+    mostrarFactores : function (){
+        this.esconder("#ingresa_variables");
+        this.esconder("#explicaciones");
+        this.mostrar("#continuar4");
+        
+        if(model.a_w1 === 1){
+            model.a_w1 = "";
+        }
+        if(model.b_w2 === 1){
+            model.b_w2 = "";
+        }
+        
+        var primer_factor = "(" + model.a_w1.toString() + "x " + model.j + " " + Math.abs(model.c_w1).toString() + ")";
+        var segundo_factor = "(" + model.b_w2.toString() + "x " + model.h + " " + Math.abs(model.d_w2).toString() + ")";
+
+        this.reemplazarHTML("#valor_factores", "Los factores son <br>" + primer_factor + " y " + segundo_factor);
+    }, 
+    
+    mostrarResultado : function (){
+        if(model.factor_comun === 1){
+            var res = "R = (" + model.a_w1.toString() + "x " + model.j + " " + Math.abs(model.c_w1).toString() + ")(" + model.b_w2.toString() + "x " + model.h + " " + Math.abs(model.d_w2).toString() + ")";
+        }else{
+            var res = "R = " + model.factor_comun + "(" + model.a_w1.toString() + "x " + model.j + " " + Math.abs(model.c_w1).toString() + ")(" + model.b_w2.toString() + "x " + model.h + " " + Math.abs(model.d_w2).toString() + ")";
+        }
+        
+        $("#valor_resultado").html(res);
     }
     
 };
@@ -119,6 +148,12 @@ var controller = {
     
     calcularPow : function (a, b) {
         return Math.pow(a, b);
+    },
+    
+    filterInt : function (value) {
+        if(/^(\-|\+)?([0-9]+|Infinity)$/.test(value))
+          return Number(value);
+        return "NaN";
     },
     
     inicializarVariables : function() {
@@ -210,8 +245,8 @@ var controller = {
             model.h = "-"; 
         }
         
-        console.log("pot_dd*d", model.pot_dd * model.d);
-        
+        console.log("pot_dd*d", model.pot_dd* model.d);
+
         this.calcularw1();
     },
     
@@ -222,10 +257,13 @@ var controller = {
             if(model.a % w1 === 0 && model.c % w1 === 0){
                 model.ac = w1;
                 model.a_w1 = model.a / w1;
-                model.a_w1 = model.c / w1;
+                model.c_w1 = model.c / w1;
             }
             w1 += 1;
         }
+        
+        console.log("a_w1", model.a_w1);
+        console.log("pot_cc*c_w1", model.pot_cc * model.c_w1);
         
         this.calcularw2();
     },
@@ -236,11 +274,14 @@ var controller = {
         while(w2 <= model.n){
             if(model.b % w2 === 0 && model.d % w2 === 0){
                 model.bd = w2;
-                model.a_w2 = model.b / w2;
-                model.a_w2 = model.d / w2;
+                model.b_w2 = model.b / w2;
+                model.d_w2 = model.d / w2;
             }
             w2 += 1;
         }
+        
+        console.log("b_w2", model.b_w2);
+        console.log("pot_dd*d_w2", model.pot_dd* model.d_w2);
         
         this.calculare();
     },
@@ -268,6 +309,7 @@ var controller = {
             model.nf = -1;
         } 
         
+        console.log("ff", model.ff);
         this.calcularf_g();
     },
     
@@ -319,6 +361,8 @@ var controller = {
             model.gg = "-";
             model.ng = -1;
         } 
+        
+        console.log("gg", model.gg);
         
         this.calcularprd();
     },
@@ -378,9 +422,9 @@ var controller = {
         //El factor comun es ac*bd
         model.factor_comun = model.ac * model.bd;
         
-        console.log("ac", model.ac);
+        /*console.log("ac", model.ac);
         console.log("bd", model.bd);
-        console.log("factor_comun", model.factor_comun);
+        console.log("factor_comun", model.factor_comun);*/
         
         if(valor === "si"){
             if(model.factor_comun === 1){
@@ -411,6 +455,95 @@ var controller = {
             views.mostrar("#continuar2");
         }else{
             views.mostrarMensaje("Error. Ingrese nuevamente el factor común");
+        }
+    },
+    
+    validarFactores : function (){
+        var valor_a = $("#a").val();
+        var valor_b = $("#b").val();
+        var valor_c = $("#c").val();
+        var valor_d = $("#d").val();
+        var signo; //Primer signo
+        var signo2; //Segundo signo
+        var flag = 0;
+        
+        
+        if(this.filterInt(valor_a) !== "NaN" && this.filterInt(valor_b) !== "NaN" 
+            && this.filterInt(valor_c) !== "NaN" && this.filterInt(valor_d) !== "NaN"){
+
+            //ParseInt
+            valor_a = this.filterInt(valor_a);
+            valor_b = this.filterInt(valor_b);
+            valor_c = this.filterInt(valor_c);
+            valor_d = this.filterInt(valor_d);
+            
+            //Signos
+            if (valor_b < 0){
+                signo = "-";
+            }
+            if (valor_b > 0){
+                signo = "+";
+            }
+            if (valor_d < 0){
+                signo2 = "-";
+            }
+            if (valor_d > 0){
+                signo2 = "+";
+            }
+            
+            //No hay factor comun
+            if(model.factor_comun === 1){
+                /*Caso 1*/
+                if(valor_a === model.a && valor_b === model.pot_cc * model.c && valor_c === model.b && valor_d === model.pot_dd * model.d){
+                    views.mostrarMensaje("Correcto");
+                    $("input[type=number].valid").css("border-bottom", "2px solid #5C97A0").css("x-shadow ", "0 2px 0 0 #5C97A0");
+                    flag = 1;
+                } /*Caso 2*/
+                else if(valor_a === model.b && valor_b === model.pot_dd * model.d && valor_c === model.a && valor_d === model.pot_cc * model.cc){
+                    views.mostrarMensaje("Correcto");
+                    $("input[type=number].valid").css("border-bottom", "2px solid #5C97A0").css("x-shadow ", "0 2px 0 0 #5C97A0");
+                    flag = 1;
+                } /*Errores*/
+                else{
+                    $("input[type=number].valid").css("border-bottom", "2px solid red").css("x-shadow ", "0 2px 0 0 red");
+                }
+            }
+            //Si hay factor comun
+            else{
+                /*Caso 1*/
+                if(valor_a === model.a_w1 && valor_b === model.pot_cc * model.c_w1 && valor_c === model.b_w2 && valor_d === model.pot_dd * model.d_w2){
+                    views.mostrarMensaje("Correcto");
+                    $("input[type=number].valid").css("border-bottom", "2px solid #5C97A0").css("x-shadow ", "0 2px 0 0 #5C97A0");
+                    flag = 1;
+                } /*Caso 2*/
+                else if(valor_a === model.b_w2 && valor_b === model.pot_dd * model.d_w2 && valor_c === model.a_w1 && valor_d === model.pot_cc * model.c_w1){
+                    views.mostrarMensaje("Correcto");
+                    $("input[type=number].valid").css("border-bottom", "2px solid #5C97A0").css("x-shadow ", "0 2px 0 0 #5C97A0");
+                    flag = 1;
+                } /*Errores*/
+                else{
+                    views.mostrarMensaje("Error. Verifica valores");
+                    $("input[type=number].valid").css("border-bottom", "2px solid red").css("x-shadow ", "0 2px 0 0 red");
+                }
+            }
+        }else{
+            views.mostrarMensaje("Error. Completa los campos vacíos");
+        }
+        
+        if(flag === 1){
+            if(valor_a === 1){
+                valor_a = "";
+            }
+            if(valor_c === 1){
+                valor_c = "";
+            }
+            
+            model.str_trinomio = "(" + valor_a.toString() + "x " + signo + " " + Math.abs(valor_b).toString() + ")(" + valor_c.toString() + "x " + signo2 + " " + Math.abs(valor_d).toString() + ")";
+            
+            views.mostrar("#fact");
+            views.reemplazarHTML("#valor_factores", model.str_trinomio);
+            views.esconder("#botones");
+            views.mostrar("#continuar4");
         }
     }
 

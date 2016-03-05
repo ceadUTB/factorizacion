@@ -102,7 +102,7 @@ var views = {
     
     mostrarMensaje : function (valor){
         // Materialize.toast(message, displayLength, className, completeCallback);
-        Materialize.toast(valor, 5000); // 4000 is the duration of the toast
+        Materialize.toast(valor, 3000); // 4000 is the duration of the toast
     },
     
     deshabilitarRadio : function (valor){
@@ -659,6 +659,7 @@ var controller = {
         
         if(p_factor === model.primer_factor && s_factor !== model.segundo_factor){
             views.mostrarMensaje("Error. Verifique segundo factor");
+            //$("#primer").css("border-bottom", "2px solid red").css("x-shadow ", "0 2px 0 0 red");
             
         }else if(p_factor !== model.primer_factor && s_factor === model.segundo_factor){
             views.mostrarMensaje("Error. Verifique primer factor");
