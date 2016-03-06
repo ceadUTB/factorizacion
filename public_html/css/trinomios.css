@@ -162,7 +162,7 @@ input[type=number].valid{
     background-color: #878787;
     padding: 10px 10px 0;
     height: 10px;
-    width: 600px;
+    width: 250px;
     color: white;
 }
 
@@ -181,8 +181,9 @@ input[type=number].valid{
     font-family: 'carly Sue';
     font-weight: lighter;
     text-align: left;
-    font-size: 0.5em;
-    margin: 12px;
+    /* line-height: 15px; */
+    margin: 11px;
+    /* width: 100%; */
 }
 
 .collapsible-header span{
