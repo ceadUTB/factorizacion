@@ -40,8 +40,7 @@ var model ={
     prdo : 0,
     str_binomio : "",
     str_trinomio : "",
-    factor_comun : "",
-    str_trinomio : ""
+    factor_comun : ""
 };
 
 var views = {

@@ -46,8 +46,7 @@ var model = { //Variables
     binomio : "",
     str_binomio : "",
     tipo : "",
-    str_segundo_factor : "",
-    factor_comun : 0
+    str_segundo_factor : ""
 };
 
 var views = {
@@ -144,10 +143,10 @@ var views = {
             model.str_segundo_factor = model.str_segundo_factor_cubos;
         }
         
-        if(model.factor_comun === 1){
+        if(model.a === 1){
             var res = "R = (" + model.str_primer_factor + ")" + "(" + model.str_segundo_factor + ")"; 
         }else{
-            var res = "R = " + model.factor_comun + "(" + model.str_primer_factor + ")" + "(" + model.str_segundo_factor + ")"; 
+            var res = "R = " + model.a + "(" + model.str_primer_factor + ")" + "(" + model.str_segundo_factor + ")"; 
         }
         
         $("#valor_resultado").html(res);
@@ -600,9 +599,9 @@ var controller = {
     
     //El factor comun es a
     validarFC : function (){
-        model.factor_comun = parseInt($("#fc").val());
+        var factor_comun = parseInt($("#fc").val());
         
-        if(model.factor_comun === model.a){
+        if(factor_comun === model.a){
             views.esconder("#ingresa_fc");
             views.mostrarMensaje("¡Correcto!");
             views.mostrar("#continuar2");

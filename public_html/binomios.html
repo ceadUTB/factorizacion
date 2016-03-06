@@ -11,7 +11,6 @@
         <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
         <link href="css/general.css" type="text/css" rel="stylesheet" media="screen,projection"/>
         <link href="css/binomios.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-        <link href="css/pageguide.min.css" rel="stylesheet" />
     </head>
 
     <body onload="controller.inicializarVariables();">
@@ -289,29 +288,10 @@
             </div>
         </footer>
         
-        <!-- Pasos de pageguide -->
-        <ul id="tlyPageGuide" data-tourtitle="check out these elements">
-            <!-- use these classes to indicate where each number bubble should be
-            positioned. data-tourtarget should contain the selector for the element to
-            which you want to attach this pageguide step. -->
-            <li class="tlypageguide_left" data-tourtarget="#ayuda">
-                Haz clic para desplegar la ayuda
-            </li>
-            <li class="tlypageguide_left" data-tourtarget="#resolver">
-                Haz clic para iniciar a resolver el binomio
-            </li>
-        </ul>
-        
         <!--  Scripts-->
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery-ui.min.js"></script>
         <script src="js/materialize.js"></script>
         <script src="js/binomios.js"></script>
-        <script type="text/javascript" src="js/pageguide.min.js"></script>
-        <script type="text/javascript">
-            jQuery(document).ready(function() {
-                var pageguide = tl.pg.init();
-            });
-        </script>
     </body>    
 </html>
