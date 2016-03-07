@@ -35,7 +35,7 @@ body{
 }
 
 #ayuda{
-    width: 80px;
+    margin-top: 0;
 }
 
 /*Card panel*/
@@ -202,11 +202,6 @@ input[type=number].valid{
 .collapsible-body p {
     margin-right: 0;
     color: #595959;
-    font-family: 'champagne Limousines';
-    line-height: 25px;
-    font-size: 15px;
-    padding: 0 0 20px 20px;
-    text-align: left;
 }
 
 @media (max-width:459px) {
@@ -242,6 +237,11 @@ input[type=number].valid{
     
     .side-nav .collapsible-header{
         font-size: 1.4em;
+    }
+    
+    #ayuda{
+        width:86%;
+        margin-left: 2px;
     }
 }
 
@@ -285,6 +285,10 @@ input[type=number].valid{
     .side-nav .collapsible-header{
         font-size: 2.1em;
     }
+    
+    #ayuda{
+        width: 60%;
+    }
 }
 
 @media (min-width :768px) and (max-width : 992px) {  
@@ -312,6 +316,10 @@ input[type=number].valid{
     
     .side-nav .collapsible-header{
         font-size: 2.5em;
+    }
+    
+    #ayuda{
+        width: 50%;
     }
 }
 
@@ -343,5 +351,9 @@ input[type=number].valid{
     
     .side-nav .collapsible-header{
         font-size: 2.4em;
+    }
+    
+    #ayuda{
+        width: 40%;
     }
 }    

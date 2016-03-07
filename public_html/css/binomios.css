@@ -14,6 +14,7 @@ body{
 .bold {
     font-weight: 900;
 }
+
 #titulo{
     max-width: 430px;
     width: 100%;
@@ -34,7 +35,7 @@ body{
 }
 
 #ayuda{
-    width: 80px;
+    margin-top: 0;
 }
 
 /*Card panel*/
@@ -84,7 +85,7 @@ body{
 
 .tabs .indicator {
     height: 5px;
-    width : 15%;
+    width: 15%;
     margin-left: 5%;
     margin-right: 5%;
     background-color: #F7931E;
@@ -221,6 +222,11 @@ body{
     .side-nav .collapsible-header{
         font-size: 1.4em;
     }
+    
+    #ayuda{
+        width:86%;
+        margin-left: 2px;
+    }
 }
 
 @media (min-width: 460px) and (max-width : 767px){
@@ -257,6 +263,10 @@ body{
     .side-nav .collapsible-header{
         font-size: 2.1em;
     }
+    
+    #ayuda{
+        width: 60%;
+    }
 }
 
 @media (min-width :768px) and (max-width : 992px) {  
@@ -276,6 +286,10 @@ body{
     
     .side-nav .collapsible-header{
         font-size: 2.5em;
+    }
+    
+    #ayuda{
+        width: 50%;
     }
 }
 
@@ -300,5 +314,9 @@ body{
     
     .side-nav .collapsible-header{
         font-size: 2.4em;
+    }
+    
+    #ayuda{
+        width: 40%;
     }
 }    

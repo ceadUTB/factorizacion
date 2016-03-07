@@ -94,12 +94,12 @@ footer{
     font-weight: lighter;
 }
 
-#top_footer{
+.top_footer{
     background: #5C97A0;
     height: 25px;
 }
 
-#bottom_footer, #mobile_bottom_footer{
+.bottom_footer, #mobile_bottom_footer{
     background-color: #467A7F;
 }
 
@@ -138,6 +138,7 @@ footer.page-footer {
     color: #3c3c3c;
     width: 100%; 
     font-family: 'champagne Limousines';
+    height: auto;
 }
 
 .modal .modal-content {
@@ -172,7 +173,7 @@ footer.page-footer {
     /*Modal*/
     .modal{
         padding-top: 20px;
-        height: 80%;
+        min-height: 50%;
     }
     
     .modal p{
@@ -208,7 +209,7 @@ footer.page-footer {
     /*Modal*/
     .modal{
         padding: 15px 4px;
-        height: 40%;
+        min-height: 45%;
     }
     
     .modal p{
@@ -236,14 +237,14 @@ footer.page-footer {
         font-size: 9px;
     }
     
-    #bottom_footer{
+    .bottom_footer{
         padding-left: 40px;
     }
 
     /*Modal*/
     .modal{
         padding: 10px 15px;
-        height: 45%;
+        min-height: 35%;
     }
     
     .modal p{
@@ -267,7 +268,7 @@ footer.page-footer {
         font-size: 1.9em;
     }
   
-    #top_footer{
+    .top_footer{
         margin-top: 5px;
     }   
     
@@ -275,14 +276,14 @@ footer.page-footer {
         font-size: 11px;
     }
     
-    #bottom_footer, #mobile_bottom_footer{
+    .bottom_footer, #mobile_bottom_footer{
         padding-left: 5%;
     }
     
     /*Modal*/
     .modal{
         padding: 40px 30px;
-        height: 35%;
+        min-height: 35%;
     }
     
     .modal p{
