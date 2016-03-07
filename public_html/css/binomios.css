@@ -116,7 +116,7 @@ body{
 #explicaciones{
     width: 70%;
     margin: 10px 15%;
-    line-height: 15px;
+    line-height: 20px;
     font-size: 1.2em;
 }
 
@@ -187,6 +187,14 @@ body{
     text-align: left;
 }
 
+/*Boton flotante*/
+#fixed_button{
+    position: relative;
+}
+
+#fixed_button .fixed-action-btn{
+    position: absolute;
+}
 
 @media (max-width:459px) {
     #content{
@@ -226,6 +234,11 @@ body{
     #ayuda{
         width:86%;
         margin-left: 2px;
+    }
+    
+    #fixed_button .fixed-action-btn{
+        right: 30px; 
+        top: 20px;
     }
 }
 
@@ -267,6 +280,11 @@ body{
     #ayuda{
         width: 60%;
     }
+    
+    #fixed_button .fixed-action-btn{
+        right: 50px; 
+        top: 80px;
+    }
 }
 
 @media (min-width :768px) and (max-width : 992px) {  
@@ -290,6 +308,11 @@ body{
     
     #ayuda{
         width: 50%;
+    }
+    
+    #fixed_button .fixed-action-btn{
+        right: 80px; 
+        top: 50px;
     }
 }
 
@@ -318,5 +341,10 @@ body{
     
     #ayuda{
         width: 40%;
+    }
+    
+    #fixed_button .fixed-action-btn{
+        right: 180px; 
+        top: 50px;
     }
 }    

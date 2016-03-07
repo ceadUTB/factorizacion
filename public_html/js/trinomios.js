@@ -557,4 +557,5 @@ $(document).ready(function() {
     //Modal
     $('.modal-trigger').leanModal();
     
+    
 });
