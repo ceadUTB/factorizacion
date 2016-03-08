@@ -11,6 +11,7 @@
         <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
         <link href="css/general.css" type="text/css" rel="stylesheet" media="screen,projection"/>
         <link href="css/trinomios.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="css/sweetalert.css" type="text/css" rel="stylesheet" >
     </head>
 
     <body onload="controller.inicializarVariables();">
@@ -87,11 +88,60 @@
                         </p>
                     </div>
                 </li>
+                <li>
+                    <a class="collapsible-header">
+                        <div class="row">
+                            <span class="col s2 m2 l2">3</span>
+                            <h6 class="col s9 m9 l9">Ley de los signos</h6>
+                        </div>
+                    </a>
+                    <div class="collapsible-body">
+                        <p>
+                            La ley de los signos es utilizada para el conjunto de los números enteros.
+                        </p> 
+                        <img src="img/signos.jpg" alt="signos" style="width: 60%; margin-left: 20%">
+                    </div>
+                </li>
+                <li>
+                    <a class="collapsible-header">
+                        <div class="row">
+                            <span class="col s2 m2 l2">4</span>
+                            <h6 class="col s9 m9 l9">Descomposición factores primos</h6>
+                        </div>
+                    </a>
+                    <div class="collapsible-body">
+                        <p>
+                            La ley de los signos es utilizada para el conjunto de los números enteros.
+                        </p> 
+                        <img src="img/signos.jpg" alt="signos" style="width: 60%; margin-left: 20%">
+                    </div>
+                </li>
+                <li>
+                    <a class="collapsible-header">
+                        <div class="row">
+                            <span class="col s2 m2 l2">5</span>
+                            <h6 class="col s9 m9 l9">F.C. por agrupación de términos</h6>
+                        </div>
+                    </a>
+                    <div class="collapsible-body">
+                        <p>
+                            Se llama factor común por agrupación de términos, si los términos de un polinomio pueden 
+                            reunirse en grupos de términos con un factor común diferente en cada grupo.
+                        </p> 
+                        <img src="img/signos.jpg" alt="signos" style="width: 60%; margin-left: 20%">
+                    </div>
+                </li>
             </ul>
             <br><br>
         </div>
         <!-- === SIDENAV === -->
         
+        <!--Chips-->
+        <div class="chip amber darken-4 white-text right">
+            Puntos: <span id="puntos">0</span>
+        </div>
+        
+        <!--Fixed button-->
         <div id="fixed_button">
             <div class="fixed-action-btn horizontal click-to-toggle">
                 <a class="btn-floating btn-large orange">
@@ -131,7 +181,11 @@
 
                     <div id="resuelve" class="center">
                         <div id="mensaje" class="center"></div>
+                        
+                        <a class="modal-trigger right" id="abrir_factorizar" href="#factorizar"><i class="material-icons">feedback</i></a>
+                        
                         <div id="trinomio_resolver"></div>
+                        
                         <div class="col s12 m6 l6">
                             <a id="resolver" class="btn waves-effect waves-light orange" onclick="views.mostrarPasos()">Resolver</a>
                         </div>
@@ -188,20 +242,7 @@
                                 <div id="explicaciones" class="center">
                                     <p class="bold">RESPONDE TODO CORRIDO, SIN ESPACIOS Y SIN PARÉNTESIS</p> 
                                     <hr>
-                                    <div id="explicacion_tipo1" style="display: none;">
-                                        <p>El trinomio que debes resolver es de la forma <b>x²+bx+c</b><p>
-                                        <p>Para factorizarlo debes seguir los siguientes pasos:
-                                            Calcular raíz del término que está elevado al cuadrado
-                                            &#8730;x<sup>2</sup> = x
-
-                                            Hallar dos números  m y n  que multiplicados den c y sumados den b
-                                            mn = c  y  m+n=c
- 
-                                            El trinomio factorizado tendrá la forma (x  m) (x  n) , los signos dependen de n y m
-                                        </p>
-                                            
-                                    </div>
-                                    <div id="explicacion_tipo2" style="display: none;">
+                                    <div id="explicacion" style="display: none;">
                                         <p>Luego de hallar el factor común, tienes una expresión de la forma <b>FC(ax²+bx+c)</b><p>
                                         <p>Lo siguiente que debes hacer es
                                             encontrar los valores de A, B, C y D de tal manera que <b>R = FC(Ax+B)(Cx+D)</b>, danos tu respuesta</p>
@@ -256,7 +297,7 @@
                                 <h5 style="display: none;" id="fact"><b>Factores</b></h5>
                                 <p id="valor_factores"></p>
 
-                                <a id="continuar4" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('resultado'); views.mostrarResultado();" style="display: none;">Continuar</a>
+                                <a id="continuar4" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('resultado'); views.mostrarResultado(); controller.guardarPuntaje();" style="display: none;">Continuar</a>
                             </div>
 
                             <!--Tab 3-->
@@ -271,6 +312,31 @@
                     </div>
                     </div><!--card-->
                 </div><!--container--> 
+        </div>
+        
+        <!-- Modal Structure -->
+        <div id="factorizar" class="modal">
+            <div class="modal-content">
+                <h4 class="center-align"><b>Factorizar trinomios</b></h4>
+                <hr>
+                <p class="center-align">Debemos tener en cuenta que la estructura de los trinomios que resolveremos es
+                <b>ax<sup>2</sup>+bx+c</b>, siendo a, b y c números</p>
+                <br class="hide-on-med-and-down"><br class="hide-on-med-and-down">
+                
+                <p>A partir del siguiente ejemplo <span class="orange"><b>3x<sup>2</sup>+x-10</b></span> podrás comprender los pasos para resolver un trinomio:</p>   
+                <br>
+                <p><b>1. </b>Determinar los signos de los factores: &nbsp;
+                    Siendo el signo del <b>primer factor</b> el primer signo del trinomio y el signo del <b>segundo factor</b> la multiplicación de los signos del trinomio teniendo en cuenta la <b>Ley de los signos</b>
+                    <br>En el caso del ejemplo:
+                    - El signo del primer factor es +
+                    - EL signo del segundo factor es <b>+ </b> *  <b>-</b> = -
+                </p>
+                <p><b>2. </b> Encontrar dos números que multiplicados den a*c y sumados o restados den b.
+                    Son sumados si los signos de los factores son iguales, y restados en el caso contrario.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat orange white-text ">Aceptar</a>
+            </div>
         </div>
         
         <footer class="page-footer hide-on-small-only">
@@ -318,5 +384,6 @@
         <script src="js/jquery-ui.min.js"></script>
         <script src="js/materialize.js"></script>
         <script src="js/trinomios.js"></script>
+        <script src="js/sweetalert.min.js"></script>
     </body>    
 </html>

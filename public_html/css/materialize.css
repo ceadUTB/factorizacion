@@ -9800,7 +9800,7 @@ select {
 .side-nav li {
   float: none;
   padding: 0 15px;
-  line-height: 64px;
+  /* line-height: 64px; */
 }
 
 .side-nav li:hover, .side-nav li.active {
@@ -9821,7 +9821,7 @@ select {
   width: 10px;
   position: fixed;
   top: 0;
-  z-index: 998;
+  z-index: 9;
 }
 
 .side-nav.fixed a {

@@ -40,7 +40,8 @@ var model ={
     prdo : 0,
     str_binomio : "",
     str_trinomio : "",
-    factor_comun : ""
+    factor_comun : "",
+    puntos : 0
 };
 
 var views = {
@@ -84,9 +85,24 @@ var views = {
         
     },
     
-    mostrarMensaje : function (valor){
-        // Materialize.toast(message, displayLength, className, completeCallback);
-        Materialize.toast(valor, 3000); // 4000 is the duration of the toast
+    mostrarMensaje : function (valor, tipo){
+        if(tipo === "warning"){
+            swal({   
+                title: "Error",   
+                text: valor,   
+                type: tipo,
+                timer: 3000, //4 segundos   
+                showConfirmButton: false 
+            });
+        }else{
+            swal({   
+                title: "",   
+                text: valor,   
+                type: tipo,
+                timer: 3000, //4 segundos   
+                showConfirmButton: false 
+            });
+        }
     },
      
     deshabilitarRadio : function (){
@@ -94,22 +110,23 @@ var views = {
     }, 
     
     mostrarFC : function (){
+        //Actualizar puntaje
+        controller.actualizarPuntaje("-");
+        
         this.esconder("#ingresa_fc");
         this.esconder("#mensaje2");
-        this.mostrar("#continuar2");
         this.reemplazarHTML("#valor_fc", "El factor común es " + model.factor_comun);
+        this.mostrar("#continuar2");
     },
     
     mostrarExplicaciones : function (){
-        if(model.a === 1){
-            this.mostrar("#explicacion_tipo1");
-        }else{
-            this.mostrar("#explicacion_tipo2");
-        }
-        
+        this.mostrar("#explicacion");
     },
     
     mostrarFactores : function (){
+        //Actualizar puntaje
+        controller.actualizarPuntaje("-");
+        
         this.esconder("#ingresa_variables");
         this.esconder("#explicaciones");
         this.mostrar("#continuar4");
@@ -128,6 +145,13 @@ var views = {
     }, 
     
     mostrarResultado : function (){
+        if(model.a_w1 === 1){
+            model.a_w1 = "";
+        }
+        if(model.b_w2 === 1){
+            model.b_w2 = "";
+        }
+        
         if(model.factor_comun === 1){
             var res = "R = (" + model.a_w1.toString() + "x " + model.j + " " + Math.abs(model.c_w1).toString() + ")(" + model.b_w2.toString() + "x " + model.h + " " + Math.abs(model.d_w2).toString() + ")";
         }else{
@@ -155,10 +179,37 @@ var controller = {
         return "NaN";
     },
     
+    getCookie : function(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0; i<ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0)===' ') c = c.substring(1);
+            if (c.indexOf(name) === 0) return c.substring(name.length, c.length);
+        }
+        return "";
+    },
+    
+    setCookie : function(cname, cvalue) {
+        document.cookie = cname + "=" + cvalue + ";";
+    },
+    
     inicializarVariables : function() {
-        //Obtener de localStorage
-        model.nivel = parseInt(localStorage.getItem("nivel"));
+        //Obtener cookie nivel
+        var nivel = this.getCookie("nivel");
+        if (nivel !== "") {
+            model.nivel = parseInt(nivel);
+        } 
+        
         console.log("nivel", model.nivel);
+        
+        //Obtener cookie puntos
+        var puntos = this.getCookie("puntos");
+        if (puntos !== "") {
+            model.puntos = parseInt(puntos);
+        } 
+        
+        views.reemplazarHTML("#puntos", model.puntos);
         
         //Segun nivel asignar a, n, m
         switch(model.nivel) {
@@ -415,6 +466,23 @@ var controller = {
         }
     },
     
+    actualizarPuntaje : function(val){
+        if(val === "-"){
+            model.puntos -= 1;
+        }else{
+            model.puntos += 1;
+        }
+        
+        model.puntos = model.puntos * model.nivel;
+        
+        views.reemplazarHTML("#puntos", model.puntos);
+    },
+    
+    guardarPuntaje : function(){
+        //Almacenar en cookie
+        this.setCookie("puntos", model.puntos);
+    },
+    
     validarExistenciaFC : function (valor){
         views.deshabilitarRadio();
         
@@ -427,19 +495,28 @@ var controller = {
         
         if(valor === "si"){
             if(model.factor_comun === 1){
-                views.mostrarMensaje("No amigo, debiste verificar. No hay factor común");
+                views.mostrarMensaje("No amigo, debiste verificar. No hay factor común", "warning");
+                
+                //Actualizar puntaje
+                this.actualizarPuntaje("-");
+                
                 views.mostrar("#continuar");
+                
             }
             if(model.factor_comun !== 1){
                 views.mostrarIngresaFC();
             }
         }else{
             if(model.factor_comun === 1){
-                views.mostrarMensaje("¡Correcto!");
+                views.mostrarMensaje("¡Correcto!", "success");
+                
+                //Actualizar puntaje
+                this.actualizarPuntaje("+");
+                
                 views.mostrar("#continuar");
             }
             if(model.factor_comun !== 1){
-                views.mostrarMensaje("No amigo. Sí hay factor común. Revisa y ubícalo");
+                views.mostrarMensaje("No amigo. Sí hay factor común. Revisa y ubícalo", "warning");
                 views.mostrarIngresaFC();
             }
         }
@@ -450,10 +527,17 @@ var controller = {
         
         if(fc === model.factor_comun){
             views.esconder("#ingresa_fc");
-            views.mostrarMensaje("¡Correcto!");
+            views.mostrarMensaje("¡Correcto!", "success");
+            
+            //Actualizar puntaje
+            this.actualizarPuntaje("+");
+                
             views.mostrar("#continuar2");
         }else{
-            views.mostrarMensaje("Error. Ingrese nuevamente el factor común");
+            views.mostrarMensaje("Ingresa nuevamente el factor común", "warning");
+            
+            //Actualizar puntaje
+            this.actualizarPuntaje("-");
         }
     },
     
@@ -494,16 +578,17 @@ var controller = {
             if(model.factor_comun === 1){
                 /*Caso 1*/
                 if(valor_a === model.a && valor_b === model.pot_cc * model.c && valor_c === model.b && valor_d === model.pot_dd * model.d){
-                    views.mostrarMensaje("Correcto");
+                    views.mostrarMensaje("Correcto", "success");
                     $("input[type=number].valid").css("border-bottom", "2px solid #5C97A0").css("x-shadow ", "0 2px 0 0 #5C97A0");
                     flag = 1;
                 } /*Caso 2*/
                 else if(valor_a === model.b && valor_b === model.pot_dd * model.d && valor_c === model.a && valor_d === model.pot_cc * model.cc){
-                    views.mostrarMensaje("Correcto");
+                    views.mostrarMensaje("Correcto", "success");
                     $("input[type=number].valid").css("border-bottom", "2px solid #5C97A0").css("x-shadow ", "0 2px 0 0 #5C97A0");
                     flag = 1;
                 } /*Errores*/
                 else{
+                    views.mostrarMensaje("Verifica los valores", "warning");
                     $("input[type=number].valid").css("border-bottom", "2px solid red").css("x-shadow ", "0 2px 0 0 red");
                 }
             }
@@ -511,22 +596,22 @@ var controller = {
             else{
                 /*Caso 1*/
                 if(valor_a === model.a_w1 && valor_b === model.pot_cc * model.c_w1 && valor_c === model.b_w2 && valor_d === model.pot_dd * model.d_w2){
-                    views.mostrarMensaje("Correcto");
+                    views.mostrarMensaje("Correcto", "success");
                     $("input[type=number].valid").css("border-bottom", "2px solid #5C97A0").css("x-shadow ", "0 2px 0 0 #5C97A0");
                     flag = 1;
                 } /*Caso 2*/
                 else if(valor_a === model.b_w2 && valor_b === model.pot_dd * model.d_w2 && valor_c === model.a_w1 && valor_d === model.pot_cc * model.c_w1){
-                    views.mostrarMensaje("Correcto");
+                    views.mostrarMensaje("Correcto", "success");
                     $("input[type=number].valid").css("border-bottom", "2px solid #5C97A0").css("x-shadow ", "0 2px 0 0 #5C97A0");
                     flag = 1;
                 } /*Errores*/
                 else{
-                    views.mostrarMensaje("Error. Verifica valores");
+                    views.mostrarMensaje("Verifica los valores", "warning");
                     $("input[type=number].valid").css("border-bottom", "2px solid red").css("x-shadow ", "0 2px 0 0 red");
                 }
             }
         }else{
-            views.mostrarMensaje("Error. Completa los campos vacíos");
+            views.mostrarMensaje("Completa los campos vacíos", "warning");
         }
         
         if(flag === 1){
@@ -537,17 +622,22 @@ var controller = {
                 valor_c = "";
             }
             
+            //Actualizar puntaje
+            this.actualizarPuntaje("+");
+            
             model.str_trinomio = "(" + valor_a.toString() + "x " + signo + " " + Math.abs(valor_b).toString() + ")(" + valor_c.toString() + "x " + signo2 + " " + Math.abs(valor_d).toString() + ")";
             
             views.mostrar("#fact");
             views.reemplazarHTML("#valor_factores", model.str_trinomio);
             views.esconder("#botones");
             views.mostrar("#continuar4");
+        }else{
+            //Actualizar puntaje
+            this.actualizarPuntaje("-");
         }
     }
 
 };
-
 
 //Document ready
 $(document).ready(function() {
@@ -556,6 +646,5 @@ $(document).ready(function() {
     
     //Modal
     $('.modal-trigger').leanModal();
-    
-    
+        
 });

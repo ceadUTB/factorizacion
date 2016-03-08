@@ -99,9 +99,14 @@ var views = {
         
     }, 
     
-    mostrarMensaje : function (valor){
-        // Materialize.toast(message, displayLength, className, completeCallback);
-        Materialize.toast(valor, 3000); // 4000 is the duration of the toast
+    mostrarMensaje : function (valor, tipo){
+        swal({   
+            title: "",   
+            text: valor,   
+            type: tipo,
+            timer: 3000, //4 segundos   
+            showConfirmButton: false 
+        });
     },
     
     deshabilitarRadio : function (valor){
@@ -177,12 +182,25 @@ var controller = {
     calcularPow : function (a, b) {
         return Math.pow(a, b);
     },
-
+    
+    getCookie : function(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0; i<ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0)===' ') c = c.substring(1);
+            if (c.indexOf(name) === 0) return c.substring(name.length, c.length);
+        }
+        return "";
+    },
+    
     inicializarVariables : function() {
-        //Obtener de localStorage
-        model.nivel = parseInt(localStorage.getItem("nivel"));
-        console.log("nivel");
-        console.log(model.nivel);
+        //Obtener cookie
+        var nivel = this.getCookie("nivel");
+        if (nivel !== "") {
+            model.nivel = parseInt(nivel);
+        } 
+        console.log("nivel", model.nivel);
         
         //Segun nivel asignar a, n, m
         switch(model.nivel) {
@@ -579,7 +597,7 @@ var controller = {
         views.deshabilitarRadio('fc');
         if(valor === "si"){
             if(model.a === 1 ){
-                views.mostrarMensaje("No amigo, debiste verificar. No hay factor común");
+                views.mostrarMensaje("No amigo, debiste verificar. No hay factor común", "warning");
                 views.mostrar("#continuar");
             }
             if(model.a !== 1 ){
@@ -587,11 +605,11 @@ var controller = {
             }
         }else{
             if(model.a === 1 ){
-                views.mostrarMensaje("¡Correcto!");
+                views.mostrarMensaje("¡Correcto!", "success");
                 views.mostrar("#continuar");
             }
             if(model.a !== 1 ){
-                views.mostrarMensaje("No amigo. Sí hay factor común. Revisa y ubícalo");
+                views.mostrarMensaje("No amigo. Sí hay factor común. Revisa y ubícalo", "warning");
                 views.mostrarIngresaFC();
             }
         }
@@ -603,10 +621,10 @@ var controller = {
         
         if(factor_comun === model.a){
             views.esconder("#ingresa_fc");
-            views.mostrarMensaje("¡Correcto!");
+            views.mostrarMensaje("¡Correcto!", "success");
             views.mostrar("#continuar2");
         }else{
-            views.mostrarMensaje("Error. Ingrese nuevamente el factor común");
+            views.mostrarMensaje("Ingresa nuevamente el factor común" , "warning");
         }
     },
     
@@ -624,9 +642,9 @@ var controller = {
             views.mostrarMensaje("¡Correcto!");
         }else{
             if(model.tipo === 2){
-                views.mostrarMensaje("Error. El binomio es cúbico");
+                views.mostrarMensaje("El binomio es cúbico",  "warning");
             }else{
-                views.mostrarMensaje("Error. El binomio es cuadrático");
+                views.mostrarMensaje("El binomio es cuadrático", "warning");
             }
         }
         
@@ -657,18 +675,18 @@ var controller = {
         console.log("model.s_factor" + s_factor);*/
         
         if(p_factor === model.primer_factor && s_factor !== model.segundo_factor){
-            views.mostrarMensaje("Error. Verifique segundo factor");
+            views.mostrarMensaje("Verifica el segundo factor", "warning");
             //$("#primer").css("border-bottom", "2px solid red").css("x-shadow ", "0 2px 0 0 red");
             
         }else if(p_factor !== model.primer_factor && s_factor === model.segundo_factor){
-            views.mostrarMensaje("Error. Verifique primer factor");
+            views.mostrarMensaje("Verifica el primer factor", "warning");
             
         }else if(p_factor !== model.primer_factor && s_factor !== model.segundo_factor){
-            views.mostrarMensaje("Error. Verifique ambos factores");
+            views.mostrarMensaje("Verifica ambos factores", "warning");
             
         }else if(p_factor === model.primer_factor && s_factor === model.segundo_factor){
             views.esconder("#ingresa_factores");
-            views.mostrarMensaje("¡Correcto!");
+            views.mostrarMensaje("¡Correcto!", "success");
             views.mostrar("#continuar4");
         }
     }

@@ -24,9 +24,9 @@ function mostrarNiveles(t){
 
 }
 
-function almacenarNivel(nivel){
-    //Almacenar en localStorage
-    localStorage.setItem("nivel", nivel);
+function almacenarNivel(niv){
+    //Almacenar en cookie
+    setCookie("nivel", niv);
 
     if(tipo === 'binomios'){
         location.href = "binomios.html";
@@ -34,4 +34,8 @@ function almacenarNivel(nivel){
         location.href = "trinomios.html";
     }
     
+}
+
+function setCookie(cname, cvalue) {
+    document.cookie = cname + "=" + cvalue + ";";
 }
