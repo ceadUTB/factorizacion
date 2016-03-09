@@ -1,0 +1,371 @@
+<!--https://css-tricks.com/snippets/jquery/jquery-sticky-footer/-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+        <title>Factorizando Trinomios</title>
+
+        <!-- CSS  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="css/general.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="css/trinomios.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="css/sweetalert.css" type="text/css" rel="stylesheet" >
+    </head>
+
+    <body onload="controller.inicializarVariables();">
+        <!--<div  class="navbar-fixed">-->
+            <nav role="navigation">
+                <div class="nav-wrapper container">
+                    <a class="brand-logo left" id="logo-container" href="http://www.unitecnologica.edu.co/">
+                        <img src="img/logo_utb.png" alt="logo">
+                    </a>
+                    <div class="right hide-on-small-only" id="factorizando">
+                        <h6>Factorizando</h6>
+                        <h4>Pedro Cabarcas</h4>
+                    </div>
+
+                    <div class="center hide-on-med-and-up right" id="mobile_nav">
+                        <h6>Factorizando</h6>
+                        <h4>Pedro Cabarcas</h4>
+                    </div>
+                </div>
+            </nav>
+        <!--</div>-->
+        
+        <!-- === SIDENAV === -->
+        <div id="slide-out" class="side-nav">
+            <div id="sidenav_header" class="row">
+                <img src="img/ayuda.png" alt="ayuda">
+            </div>
+            <br>
+            <ul class="collapsible">
+                <li>
+                    <a class="collapsible-header">
+                        <div class="row">
+                            <span class="col s2 m2 l2">1</span>
+                            <h6 class="col s9 m9 l9">Factor Común</h6>
+                        </div>
+                    </a>
+                    <div class="collapsible-body">
+                        <p>
+                            Debes descomponer los coeficientes de la ecuación en sus factores primos y obtener el máximo 
+                            entero que los divide a todos, ese resultado será el <b>FACTOR COMÚN</b>, el cual debe estar acompañado con la 
+                            variable común en todos los términos (en caso de que se tenga), elevada al mínimo exponente presente en 
+                            la ecuación.
+                            <br>
+                            <b>Ej: </b> si tenemos 8x<sup>4</sup> - 18y<sup>6</sup>  se factorizan 
+                            <br><br>
+                            <img src="img/factor_comun.png" alt="fc" style="width: 80%; height: 80%;">
+                            <br><br>
+                            8=2<sup>3</sup> = 2*2<sup>2</sup> y 18 = 2*3<sup>2</sup> entonces el FC = 2
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <a class="collapsible-header">
+                        <div class="row">
+                            <span class="col s2 m2 l2">2</span>
+                            <h6 class="col s9 m9 l9">Diferencia de cuadrados</h6>
+                        </div>
+                    </a>
+                    <div class="collapsible-body">
+                        <p>
+                            Una diferencia de cuadrados es igual a una suma por diferencia.
+                            <br>
+                            Lo importante es identificar a y b, las raíces de a<sup>2</sup> y b<sup>2</sup> respectivamente
+                            <br>
+                            <b>a<sup>2</sup> − b<sup>2</sup> = (a + b) · (a − b)</b>
+                            <br><br>
+                            <b>Ej: </b> 4x<sup>2</sup> - 25
+                            <br>
+                            En este caso <b>a</b> es &#8730;4x<sup>2</sup> = 2x y <b>b</b> es &#8730;25 = 5
+                            <br>
+                            Entonces tenemos como factores 
+                            <br>
+                            <b>(2x + 5) y (2x - 5)</b>
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <a class="collapsible-header">
+                        <div class="row">
+                            <span class="col s2 m2 l2">3</span>
+                            <h6 class="col s9 m9 l9">Ley de los signos</h6>
+                        </div>
+                    </a>
+                    <div class="collapsible-body">
+                        <p>
+                            La ley de los signos es utilizada para el conjunto de los números enteros.
+                        </p> 
+                        <img src="img/signos.jpg" alt="signos" style="width: 60%; margin-left: 20%">
+                        <br><br><br><br>
+                    </div>
+                    
+                </li>
+                <li>
+                    <a class="collapsible-header">
+                        <div class="row">
+                            <span class="col s2 m2 l2">4</span>
+                            <h6 class="col s9 m9 l9">Descomposición factores primos</h6>
+                        </div>
+                    </a>
+                    <div class="collapsible-body">
+                        <p> Para descomponer un número natural en sus factores primos debemos dividirlo sucesivamente entre los números primos
+                            comenzando por el menor y repitiéndolo si es necesario.
+                        </p> 
+                        <p>Ej: La descomposición en factores primos del número 30 es </p>
+                        <img src="img/factores_primos.png" alt="signos" style="width: 40%; margin-left: 20%">
+                        <p>siendo los factores primos <b>2</b>, <b>3</b> y <b>5</b></p>
+                    </div>
+                </li>
+                <!--<li>
+                    <a class="collapsible-header">
+                        <div class="row">
+                            <span class="col s2 m2 l2">5</span>
+                            <h6 class="col s9 m9 l9">Agrupación de términos</h6>
+                        </div>
+                    </a>
+                    <div class="collapsible-body">
+                        <p>
+                            Se llama factor común por agrupación de términos, si los términos de un polinomio pueden 
+                            reunirse en grupos de términos con un factor común diferente en cada grupo.
+                        </p> 
+                        <img src="img/signos.jpg" alt="signos" style="width: 60%; margin-left: 20%">
+                    </div>
+                </li>-->
+            </ul>
+            <br><br>
+        </div>
+        <!-- === SIDENAV === -->
+        
+        <!--Chips-->
+        <div class="chip amber darken-4 white-text right">
+            Puntos: <span id="puntos">0</span>
+        </div>
+        
+        <!--Fixed button-->
+        <div id="fixed_button">
+            <div class="fixed-action-btn horizontal click-to-toggle">
+                <a class="btn-floating btn-large orange">
+                  <i class="large material-icons">toc</i>
+                </a>
+                <ul>
+                    <li><a href="" class="btn-floating" style="background-color: #8CC63F;" ><i class="material-icons">replay</i></a></li>
+                    <li><a href="index.html" class="btn-floating" style="background-color: #ED1C24;"><i class="material-icons">keyboard_backspace</i></a></li>
+                </ul>
+            </div>
+        </div>
+        
+        
+        <div class="content">
+            <div class="section no-pad-bot" id="content">
+                <div class="container center">
+                    <h4>Factorizando</h4>
+                    <div class="row">
+                        <div class="col s3 m3 l3">
+                            <!--Trigger sidenav-->
+                            <a href="#" data-activates="slide-out" class="button-collapse">
+                                <img id="ayuda" src="img/ayuda.png" alt="ayuda">
+                            </a>
+                        </div>
+                        <div class="col s8 pull-s1 m8 pull-m1 l8 pull-l1">
+                            <img src="img/pedro_cabarcas.png" alt="ayuda" id="titulo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="container" class="container center">
+                <div id="card" class="card-panel z-depth-5">
+                    <div id="header">
+                        <h4>Resuelve el siguiente trinomio</h4>
+                    </div>
+
+                    <div id="resuelve" class="center">
+                        <div id="mensaje" class="center"></div>
+                        
+                        <a class="right" id="abrir_factorizar" onclick="window.open('factorizartrinomios.pdf')"><i class="material-icons">picture_as_pdf</i></a>
+                        
+                        <div id="trinomio_resolver"></div>
+                        
+                        <div class="col s12 m6 l6">
+                            <a id="resolver" class="btn waves-effect waves-light orange" onclick="views.mostrarPasos()">Resolver</a>
+                        </div>
+                    </div>
+
+                    <div id="pasos" class="center" style="display: none;">   
+                        <div class="row">
+                            <div class="col s12" id="tabs">
+                                <ul class="tabs">
+                                    <li id="li_fc" class="tab col s4"><a href="#factor_comun">Factor común</a></li>
+                                    <li id="li_factores" class="tab col s4"><a href="#factores">Factores</a></li>
+                                    <li id="li_resultado" class="tab col s4"><a href="#resultado">Resultado</a></li>
+                                </ul>
+                            </div>
+
+                            <!--Tab 1-->
+                            <div id="factor_comun" class="center">
+                                <div id="existe_fc">
+                                    <h5>¿Existe factor común?</h5>
+
+                                    <input type="radio" id="fc_si" name="fc" onclick="controller.validarExistenciaFC('si');">
+                                    <label for="fc_si">Sí</label>
+                                    <input type="radio" id="fc_no" name="fc" onclick="controller.validarExistenciaFC('no');">
+                                    <label for="fc_no">No</label> 
+                                </div>
+                                <a id="continuar" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('factores');" style="display: none;">Continuar</a>
+
+
+                                <div id="ingresa_fc" class="row" style="display: none;">
+                                    <h5>Ingrese factor común</h5>
+                                    <div class="row">
+                                        <div class="col s8 offset-s2 m4 offset-m4 l4 offset-l4">
+                                            <input id="fc" class="center" type="number" min="2" value="2"> 
+                                        </div>
+                                    </div>
+
+                                    <div class="row center">
+                                        <div class="col offset-s2 s3 offset-m3 m3  offset-l3 l2">
+                                            <a id="verificar" class="btn waves-effect waves-light orange" onclick="controller.validarFC();">Verificar</a>
+                                        </div>
+                                        <div class="col offset-s1 s4 m3 offset-l2 l2">
+                                            <a class="btn waves-effect waves-light orange" onclick="views.mostrarFC();">Me rindo</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p id="valor_fc"></p>
+
+                                <a id="continuar2" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('factores');" style="display: none;">Continuar</a>
+                            </div>
+
+                            <!--Tab 2-->
+                            <div id="factores" class="col s12">
+                                <br>
+                                <div id="explicaciones" class="center">
+                                    <p class="bold">RESPONDE TODO CORRIDO, SIN ESPACIOS Y SIN PARÉNTESIS</p> 
+                                    <hr>
+                                    <div id="explicacion">
+                                        <p>Luego de hallar el factor común, tienes una expresión de la forma <b>FC(ax² + bx + c)</b>.</p>
+                                        <p>Lo siguiente que debes hacer es
+                                            encontrar los valores de A, B, C y D de tal manera que <b>R = FC(Ax + B)(Cx + D)</b>.
+                                        </p>
+                                        <p>Si quieres validar como factores (3x - 1) y (x + 4) de tu trinomio debes reemplazar los coeficientes A, B, C y D en los siguientes 
+                                            espacios, suponiendo que A = 3, B = -1, C = 1 y D = 4.</p>
+                                    </div>
+                                </div>
+
+                                <div id="ingresa_variables">
+                                    <h5><b>Ingrese factores</b></h5>
+                                    <br>
+                                    <div class="row center">
+                                        <div class="col s12 m3 l2 offset-l1">
+                                            <h5>Primer factor</h5>
+                                        </div>
+                                        
+                                        <!--Primer factor-->
+                                        <div class="col s3 offset-s3 m1 l1">
+                                            <input type="number" class="validate" id="a" name="a">
+                                            <br>
+                                            <label for="a">A</label>
+                                        </div>
+                                        <div class="col s3 m1 l1">
+                                            <input type="number" class="validate" id="b" name="b">
+                                            <br>
+                                            <label for="b">B</label>
+                                        </div>
+                                        <div class="col s12 m3 l3">
+                                            <h5>Segundo factor</h5>
+                                        </div>
+                                        
+                                        <!--Segundo factor-->
+                                        <div class="col s3 offset-s3 m1 l1">
+                                            <input type="number" class="validate" id="c" name="c">
+                                            <br>
+                                            <label for="c">C</label>
+                                        </div>
+                                        <div class="col s3 m1 l1">
+                                            <input type="number" class="validate" id="d" name="d">
+                                            <br>
+                                            <label for="d">D</label>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row center" id="botones">
+                                        <div class="col s2 offset-s2 m3 offset-m3 l2 offset-l3">
+                                            <a id="verificar2" class="btn waves-effect waves-light orange" onclick="controller.validarFactores();">Verificar</a>
+                                        </div>
+                                        <div class="col s5 offset-s1 m3 offset-l2 l2">
+                                            <a class="btn waves-effect waves-light orange" onclick="views.mostrarFactores();">Me rindo</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h5 style="display: none;" id="fact"><b>Factores</b></h5>
+                                <p id="valor_factores"></p>
+
+                                <a id="continuar4" class="btn waves-effect waves-light orange" onclick="views.actualizarTabs('resultado'); views.mostrarResultado(); controller.guardarPuntaje();" style="display: none;">Continuar</a>
+                            </div>
+
+                            <!--Tab 3-->
+                            <div id="resultado" class="col s12">
+                                <br>
+                                <h5>Finalmente el resultado se escribe R = Fc (1er factor)(2do factor), así tenemos </h5>
+                                <h3 id="valor_resultado" ></h3>
+                                <br>
+                                <a class="btn waves-effect waves-light orange" href="index.html">Volver a intentar</a>
+                            </div>
+                      </div>
+                    </div>
+                    </div><!--card-->
+                </div><!--container--> 
+        </div>
+        
+        <footer class="page-footer hide-on-small-only">
+            <div class="top_footer"></div>
+            <div class="bottom_footer"> 
+                <div class="row grey-text text-lighten-3">
+                    <div class="col m8 l8">
+                        <ul>
+                            <li>Aplicación de factorización profesor Pedro Cabarcas</li>
+                            <li>Desarrollada por Laura Schiatti y Diseñada por Jose Gelvis 
+                            <li>de la <a href="http://www.unitecnologica.edu.co/educacionadistancia/">Coordinación de Educación a Distancia.</a></li>
+                        </ul>
+                        <ul>
+                            <li>Parque Industrial y Tecnológico Carlos Vélez Pombo, Km 1 Vía Turbaco. - Pbx: 57-5-6535200 - Fax: 57-5- 6619240</li>
+                            <li>Campus Casa Lemaitre: Calle del Bouquet cra.21 #25-92, barrio Manga - Tels.: (5) 6606041-42-4</li>
+                        </ul>
+                        <p>Copyright © 2016 - Cartagena - Bolívar - Colombia</p>
+                    </div>
+                    <div class="col m4 l4">
+                        <img src="img/logo_utb.png" alt="logo">
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+        <footer class="page-footer hide-on-med-and-up">
+            <div class="top_footer"></div>
+            <div class="bottom_footer"> 
+                <div class="row grey-text text-lighten-3 center">
+                    <div id="mobile_bottom_footer" class="white-text">
+                        <ul>
+                            <li>Aplicación de factorización profesor Pedro Cabarcas</li>
+                            <li>Desarrollada por Laura Schiatti y Diseñada por Jose Gelvis 
+                            <li>de la <a href="http://www.unitecnologica.edu.co/educacionadistancia/">Coordinación de Educación a Distancia.</a></li>
+                        </ul>
+                        <p>Copyright © 2016 - Cartagena - Bolívar - Colombia</p>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+        <!--  Scripts-->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/trinomios.js"></script>
+        <script src="js/sweetalert.min.js"></script>
+    </body>    
+</html>
