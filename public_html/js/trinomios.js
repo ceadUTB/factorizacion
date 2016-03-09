@@ -91,16 +91,14 @@ var views = {
                 title: "Error",   
                 text: valor,   
                 type: tipo,
-                timer: 3000, //4 segundos   
-                showConfirmButton: false 
+                timer: 5000 //4 segundos 
             });
         }else{
             swal({   
                 title: "",   
                 text: valor,   
                 type: tipo,
-                timer: 3000, //4 segundos   
-                showConfirmButton: false 
+                timer: 5000 //4 segundos 
             });
         }
     },
@@ -117,10 +115,6 @@ var views = {
         this.esconder("#mensaje2");
         this.reemplazarHTML("#valor_fc", "El factor común es " + model.factor_comun);
         this.mostrar("#continuar2");
-    },
-    
-    mostrarExplicaciones : function (){
-        this.mostrar("#explicacion");
     },
     
     mostrarFactores : function (){
@@ -473,7 +467,7 @@ var controller = {
             model.puntos += 1;
         }
         
-        model.puntos = model.puntos * model.nivel;
+        //model.puntos = model.puntos * model.nivel;
         
         views.reemplazarHTML("#puntos", model.puntos);
     },
