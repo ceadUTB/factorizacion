@@ -132,6 +132,11 @@ body{
     font-size: 1.3em;
 }
 
+input[type=number].valid{
+    border-bottom: 1px solid #5C97A0; 
+    box-shadow: 0 1px 0 0 #5C97A0; 
+} 
+
 /*Sidenav*/
 .side-nav, .side-nav .collapsible-body{
     background-color: #e0e0e0;
