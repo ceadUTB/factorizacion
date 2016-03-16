@@ -135,7 +135,7 @@ var views = {
         var primer_factor = "(" + model.a_w1.toString() + "x " + model.j + " " + Math.abs(model.c_w1).toString() + ")";
         var segundo_factor = "(" + model.b_w2.toString() + "x " + model.h + " " + Math.abs(model.d_w2).toString() + ")";
 
-        this.reemplazarHTML("#valor_factores", "Los factores son <br>" + primer_factor + " y " + segundo_factor);
+        this.reemplazarHTML("#valor_factores", "Los factores son: <br>" + primer_factor + " y " + segundo_factor);
     }, 
     
     mostrarResultado : function (){
@@ -543,7 +543,6 @@ var controller = {
         var signo; //Primer signo
         var signo2; //Segundo signo
         var flag = 0;
-        
         
         if(this.filterInt(valor_a) !== "NaN" && this.filterInt(valor_b) !== "NaN" 
             && this.filterInt(valor_c) !== "NaN" && this.filterInt(valor_d) !== "NaN"){
