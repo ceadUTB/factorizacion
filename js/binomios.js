@@ -100,13 +100,21 @@ var views = {
     }, 
     
     mostrarMensaje : function (valor, tipo){
-        swal({   
-            title: "",   
-            text: valor,   
-            type: tipo,
-            timer: 3000, //4 segundos   
-            showConfirmButton: false 
-        });
+        if(tipo === "warning"){
+            swal({   
+                title: "Error",   
+                text: valor,   
+                type: tipo,
+                timer: 5000 //4 segundos 
+            });
+        }else{
+            swal({   
+                title: "",   
+                text: valor,   
+                type: tipo,
+                timer: 5000 //4 segundos 
+            });
+        }
     },
     
     deshabilitarRadio : function (valor){
@@ -138,7 +146,7 @@ var views = {
             model.str_segundo_factor = model.str_segundo_factor_cubos;
         }
         
-        this.reemplazarHTML("#valor_factores", "Los factores son <br>" + model.str_primer_factor + " y " + model.str_segundo_factor);
+        this.reemplazarHTML("#valor_factores", "Los factores son: <br>" + model.str_primer_factor + " y " + model.str_segundo_factor);
     }, 
     
     mostrarResultado : function (){
@@ -677,6 +685,8 @@ var controller = {
         if(p_factor === model.primer_factor && s_factor !== model.segundo_factor){
             views.mostrarMensaje("Verifica el segundo factor", "warning");
             //$("#primer").css("border-bottom", "2px solid red").css("x-shadow ", "0 2px 0 0 red");
+            $("#primer.valid").css("border-bottom", "2px solid #5C97A0").css("x-shadow ", "0 2px 0 0 #5C97A0");
+            $("#primer.valid").css("border-bottom", "2px solid red").css("x-shadow ", "0 2px 0 0 red");
             
         }else if(p_factor !== model.primer_factor && s_factor === model.segundo_factor){
             views.mostrarMensaje("Verifica el primer factor", "warning");
