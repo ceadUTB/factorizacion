@@ -119,22 +119,6 @@ footer img{
 }
 
 
-/*Modal*/
-.modal{
-    color: #3c3c3c;
-    width: 100%; 
-    font-family: 'champagne Limousines';
-    height: auto;
-}
-
-.modal .modal-content {
-    padding: 0;
-}
-
-.modal h5{
-    font-weight: bold;
-}
-
 @media (max-width:459px) {
     #mobile_nav{
         display: none;
@@ -166,22 +150,6 @@ footer img{
         padding-top: 20px;
     }
     
-    /*Modal*/
-    .modal{
-        padding-top: 20px;
-        min-height: 50%;
-    }
-    
-    .modal p{
-        font-size: 1em;
-        padding: 5px 10px;
-        line-height: 30px;
-    }
-    
-    .modal .btn{
-        padding: 5px;
-        font-size: 1.2em;
-    }
 }
 
 @media (min-width: 460px) and (max-width : 767px){
@@ -211,23 +179,6 @@ footer img{
     footer img{
         padding-top: 11px;
     }
-    
-    /*Modal*/
-    .modal{
-        padding: 15px 4px;
-        min-height: 45%;
-    }
-    
-    .modal p{
-        font-size: 1.2em;
-        padding: 5px 10px;
-        line-height: 30px;
-    }
-    
-    .modal .btn{
-        padding: 5px;
-        font-size: 1.2em;
-    }
 }    
 
 @media (min-width :768px) and (max-width : 992px) {
@@ -253,22 +204,6 @@ footer img{
         padding-top: 16px;
     }
 
-    /*Modal*/
-    .modal{
-        padding: 10px 15px;
-        min-height: 35%;
-    }
-    
-    .modal p{
-        font-size: 1.4em;
-        line-height: 35px;
-    }
-    
-    .modal .btn{
-        margin: 0;
-        padding: 8px;
-        font-size: 1.4em;
-    }
 }
 
 @media (min-width:993px) {
@@ -296,23 +231,5 @@ footer img{
     
     footer img{
         padding-top: 11px;
-    }
-    
-    /*Modal*/
-    .modal{
-        padding: 40px 30px;
-        min-height: 35%;
-    }
-    
-    .modal p{
-        font-size: 1.5em;
-        display: inline;
-        line-height: 40px;
-    }
-    
-    .modal .btn{
-        padding: 10px;
-        font-size: 1.4em;
-        margin-bottom: 5px;
     }
 }
