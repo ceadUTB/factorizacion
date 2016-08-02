@@ -16,24 +16,24 @@
 
     <body onload="controller.inicializarVariables();">
         <!--<div  class="navbar-fixed">-->
-            <nav role="navigation">
-                <div class="nav-wrapper container">
-                    <a class="brand-logo left" id="logo-container" href="http://www.unitecnologica.edu.co/">
-                        <img src="img/logo_utb.png" alt="logo">
-                    </a>
-                    <div class="right hide-on-small-only" id="factorizando">
-                        <h6>Factorizando</h6>
-                        <h4>Pedro Cabarcas</h4>
-                    </div>
-
-                    <div class="center hide-on-med-and-up right" id="mobile_nav">
-                        <h6>Factorizando</h6>
-                        <h4>Pedro Cabarcas</h4>
-                    </div>
+        <nav role="navigation">
+            <div class="nav-wrapper container">
+                <a class="brand-logo left" id="logo-container" href="index.html">
+                    <img src="img/logo_utb.png" alt="logo">
+                </a>
+                <div class="right hide-on-small-only" id="factorizando">
+                    <h6>Factorizando</h6>
+                    <h4>Pedro Cabarcas</h4>
                 </div>
-            </nav>
+
+                <div class="center hide-on-med-and-up right" id="mobile_nav">
+                    <h6>Factorizando</h6>
+                    <h4>Pedro Cabarcas</h4>
+                </div>
+            </div>
+        </nav>
         <!--</div>-->
-        
+
         <!-- === SIDENAV === -->
         <div id="slide-out" class="side-nav">
             <div id="sidenav_header" class="row">
@@ -73,14 +73,14 @@
                     <div class="collapsible-body">
                         <p>
                             Para poder determinar si un binomio es cuadrático o cúbico, debe verificar dos aspectos: 
-                            
+
                             <br><br>
                             <b>1. </b>Si luego de hallar el factor común (si lo hay), los factores que quedan en los coeficientes  
                             son cuadráticos o cúbicos.
                             <br>
                             <b>Ej: </b> Sean 8 = 2<sup>3</sup> y 18 = 2*3<sup>2</sup> los coeficientes, dónde el fc es 2, quedando 2<sup>2</sup> 
                             y 3<sup>2</sup>, lo que indica que el binomio es cuadrático.
-                            
+
                             <br><br>
                             <b>2. </b>Si los exponentes de las variables son divisibles entre 2 (cuadráticos) o entre 3 (cúbicos).
                             <br>
@@ -93,11 +93,11 @@
             <br><br>
         </div>
         <!-- === SIDENAV === -->
-        
+
         <div id="fixed_button">
             <div class="fixed-action-btn horizontal click-to-toggle">
                 <a class="btn-floating btn-large orange">
-                  <i class="large material-icons">toc</i>
+                    <i class="large material-icons">toc</i>
                 </a>
                 <ul>
                     <li><a href="" class="btn-floating" style="background-color: #8CC63F;" ><i class="material-icons">replay</i></a></li>
@@ -105,8 +105,8 @@
                 </ul>
             </div>
         </div>
-        
-        <div class="content">
+
+        <main class="content">
             <div class="section no-pad-bot" id="content">
                 <div class="container center">
                     <h4>Factorizando</h4>
@@ -209,7 +209,7 @@
                                     <div id="explicacion_cuadrado" style="display: none">
                                         <p class="bold">Coloca como primer factor el que tenga el mismo signo del ejercicio</p>
                                         <p>Ej1:  Sea x<sup>4</sup> - 9y<sup>2</sup>
-                                        el primer factor se coloca: x2-3y y no: x2+3y ni tampoco 3y+x2</p>
+                                            el primer factor se coloca: x2-3y y no: x2+3y ni tampoco 3y+x2</p>
                                         <hr>
                                         <p class="bold">Si el coeficiente o el componente es 1 omítalo</p> 
                                         <p>Ej2:  Sea (5x<sup>3</sup>  + 1 y<sup>1</sup> )  ponga: 5x3+y </p>
@@ -221,7 +221,7 @@
                                         <hr>
                                         <p class="bold">Si el coeficiente o el componente es 1 omítalo</p> 
                                         <p>Ej3: Para expresar (1x<sup>6</sup>+30x<sup>1</sup>+36)
-                                        debe escribirse: x6+30x+36</p>
+                                            debe escribirse: x6+30x+36</p>
                                     </div>
                                 </div>
 
@@ -261,57 +261,40 @@
                                 <br>
                                 <a class="btn waves-effect waves-light orange" href="index.html">Volver a intentar</a>
                             </div>
-                      </div>
+                        </div>
                     </div>
-                    </div><!--card-->
-                </div><!--container--> 
+                </div><!--card-->
+        </div><!--container--> 
+    </main>
+
+    <footer>
+        <div class="top_footer"></div>
+        <div class="bottom_footer">
+            <div class="row">
+                <div class="col l8 s12">
+                    <ul>
+                        <li>Aplicación de factorización profesor Pedro Cabarcas</li>
+                        <li>Desarrollada por Laura Schiatti y Diseñada por Jose Gelvis de la <a href="http://www.unitecnologica.edu.co/educacionadistancia/">Coordinación de Educación a Distancia.</a></li>
+                        <li>Parque Industrial y Tecnológico Carlos Vélez Pombo, Km 1 Vía Turbaco. - Pbx: 57-5-6535200 - Fax: 57-5- 6619240</li>
+                        <li>Campus Casa Lemaitre: Calle del Bouquet cra.21 #25-92, barrio Manga - Tels.: (5) 6606041-42-4</li>
+                    </ul>
+                    <ul class="footer-copyright">
+                        <li>Copyright © 2016 - Cartagena - Bolívar - Colombia</li>
+                    </ul>
+
+                </div>
+                <div class="col l4 s12 center">
+                    <img src="img/logo_utb.png" alt="logo">
+                </div>
+            </div>
         </div>
-        
-        <footer class="page-footer hide-on-small-only">
-            <div class="top_footer"></div>
-            <div class="bottom_footer"> 
-                <div class="row grey-text text-lighten-3">
-                    <div class="col m8 l8">
-                        <ul>
-                            <li>Aplicación de factorización profesor Pedro Cabarcas</li>
-                            <li>Desarrollada por Laura Schiatti y Diseñada por Jose Gelvis 
-                            <li>de la <a href="http://www.unitecnologica.edu.co/educacionadistancia/">Coordinación de Educación a Distancia.</a></li>
-                        </ul>
-                        <ul>
-                            <li>Parque Industrial y Tecnológico Carlos Vélez Pombo, Km 1 Vía Turbaco. - Pbx: 57-5-6535200 - Fax: 57-5- 6619240</li>
-                            <li>Campus Casa Lemaitre: Calle del Bouquet cra.21 #25-92, barrio Manga - Tels.: (5) 6606041-42-4</li>
-                        </ul>
-                        <p>Copyright © 2016 - Cartagena - Bolívar - Colombia</p>
-                    </div>
-                    <div class="col m4 l4">
-                        <img src="img/logo_utb.png" alt="logo">
-                    </div>
-                </div>
-            </div>
-        </footer>
-        
-        <footer class="page-footer hide-on-med-and-up">
-            <div class="top_footer"></div>
-            <div class="bottom_footer"> 
-                <div class="row grey-text text-lighten-3 center">
-                    <div id="mobile_bottom_footer" class="white-text">
-                        <ul>
-                            <li>Aplicación de factorización profesor Pedro Cabarcas</li>
-                            <li>Desarrollada por Laura Schiatti y Diseñada por Jose Gelvis 
-                            <li>de la <a href="http://www.unitecnologica.edu.co/educacionadistancia/">Coordinación de Educación a Distancia.</a></li>
-                        </ul>
-                        <p>Copyright © 2016 - Cartagena - Bolívar - Colombia</p>
-                        <br>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        
-        <!--  Scripts-->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/jquery-ui.min.js"></script>
-        <script src="js/materialize.js"></script>
-        <script src="js/binomios.js"></script>
-        <script src="js/sweetalert.min.js"></script>
-    </body>    
+    </footer>
+
+    <!--  Scripts-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/binomios.js"></script>
+    <script src="js/sweetalert.min.js"></script>
+</body>    
 </html>

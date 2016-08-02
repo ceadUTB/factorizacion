@@ -31,27 +31,17 @@ body{
 }   
 
 /*Sticky footer*/
-/*Tomado de http://codeconvey.com/make-css-sticky-footer/*/
-html {
-    position: relative;
-    min-height: 100%;
-}
-
 body {
-    margin: 0 0 230px; 
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
-.content {  
-    box-sizing: border-box;
+main {
+    flex: 1 0 auto;
 }
+/*Sticky footer*/    
 
-footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 165px;
-    width: 100%;
-}
 
 /*Navbar*/
 nav .container{
@@ -99,12 +89,16 @@ footer{
     height: 25px;
 }
 
-.bottom_footer, #mobile_bottom_footer{
+.bottom_footer{
     background-color: #467A7F;
+    padding: 15px 5px 10px;
+    color: white;
+    letter-spacing: 0.4px;
 }
 
-#mobile_bottom_footer{
-    padding-top: 10px;
+.footer-copyright{
+    font-size: 1em;
+    font-weight: 500;
 }
 
 li{
@@ -119,19 +113,11 @@ li a{
 }
 
 footer img{
-    max-width: 290px;
+    max-width: 300px;
     width: 100%;
     height: auto;
-    padding-bottom: 6%;
-    padding-top: 6%;
-    padding-right: 4%;
 }
 
-footer.page-footer {
-    margin-top: 0; 
-    background-color: transparent;
-        
-}
 
 /*Modal*/
 .modal{
@@ -170,6 +156,16 @@ footer.page-footer {
         font-size: 11px;
     }
     
+    .bottom_footer{
+        text-align: center;
+        font-size: 1em;
+        line-height: 1.8em;
+    }
+    
+    footer img{
+        padding-top: 20px;
+    }
+    
     /*Modal*/
     .modal{
         padding-top: 20px;
@@ -203,7 +199,17 @@ footer.page-footer {
     }
     
     footer{
-        font-size: 11px;
+        font-size: 18px;
+    }
+    
+    .bottom_footer{
+        text-align: center;
+        font-size: 1.2em;
+        line-height: 0.8em;
+    }
+    
+    footer img{
+        padding-top: 11px;
     }
     
     /*Modal*/
@@ -239,6 +245,12 @@ footer.page-footer {
     
     .bottom_footer{
         padding-left: 40px;
+        font-size: 1.6em;
+        line-height: 1.4em;
+    }
+    
+    footer img{
+        padding-top: 16px;
     }
 
     /*Modal*/
@@ -276,8 +288,14 @@ footer.page-footer {
         font-size: 11px;
     }
     
-    .bottom_footer, #mobile_bottom_footer{
+    .bottom_footer{
         padding-left: 5%;
+        font-size: 1.6em;
+        line-height: 1.2em;
+    }
+    
+    footer img{
+        padding-top: 11px;
     }
     
     /*Modal*/
