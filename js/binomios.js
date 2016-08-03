@@ -108,12 +108,7 @@ var views = {
                 timer: 5000 //4 segundos 
             });
         }else{
-            swal({   
-                title: "",   
-                text: valor,   
-                type: tipo,
-                timer: 5000 //4 segundos 
-            });
+            swal("Bien hecho!", valor, tipo);
         }
     },
     
@@ -361,13 +356,13 @@ var controller = {
             model.ab = "";
         }
         
-        console.log("ab");
-        console.log("a " + model.a);
-        console.log("b " + model.b);
-        console.log("t " + model.t);
-        console.log("pow(model.b, model.t) " + this.calcularPow(model.b, model.t));
-        console.log("pow*a " + model.ab);
-        console.log(" ");
+//        console.log("ab");
+//        console.log("a " + model.a);
+//        console.log("b " + model.b);
+//        console.log("t " + model.t);
+//        console.log("pow(model.b, model.t) " + this.calcularPow(model.b, model.t));
+//        console.log("pow*a " + model.ab);
+//        console.log(" ");
         
         //Calcular ac
         model.ac = model.a * this.calcularPow(model.c, model.t);
@@ -377,12 +372,12 @@ var controller = {
             model.ac = "";
         }
         
-        console.log("ac");
-        console.log("a " + model.a);
-        console.log("c " + model.c);
-        console.log("t " + model.t);
-        console.log("pow(model.c, model.t) " + this.calcularPow(model.c, model.t));
-        console.log("pow*a " + model.ac);
+//        console.log("ac");
+//        console.log("a " + model.a);
+//        console.log("c " + model.c);
+//        console.log("t " + model.t);
+//        console.log("pow(model.c, model.t) " + this.calcularPow(model.c, model.t));
+//        console.log("pow*a " + model.ac);
 
       this.convertiraString();
     },
@@ -457,15 +452,15 @@ var controller = {
         model.primer_factor = model.str_b_i1.concat(model.str_d_j1, model.str_f, model.h1.toString(), model.str_c_i1, model.str_e_k1, model.str_g);
         model.str_primer_factor = model.str_b_i1 + model.str_d_j1 + "<sup>" + model.str_f + "</sup>"
                                   + " " + model.h1 + " " + model.str_c_i1 + model.str_e_k1 + "<sup>" + model.str_g + "</sup>";
-        console.log("Primer factor");
-        console.log(model.str_b_i1);
-        console.log(model.str_d_j1);
-        console.log(model.str_f);
-        console.log(model.h1);
-        console.log(model.str_c_i1);
-        console.log(model.str_e_k1);
-        console.log(model.str_g);
-        console.log(model.primer_factor);
+//        console.log("Primer factor");
+//        console.log(model.str_b_i1);
+//        console.log(model.str_d_j1);
+//        console.log(model.str_f);
+//        console.log(model.h1);
+//        console.log(model.str_c_i1);
+//        console.log(model.str_e_k1);
+//        console.log(model.str_g);
+//        console.log(model.primer_factor);
         //$('#binomio_resolver').html(model.str_primer_factor);
 
         if(model.t === 2){
@@ -481,15 +476,15 @@ var controller = {
         model.segundo_factor_cuadrados = model.str_b_i1.concat(model.str_d_j1, model.str_f, model.h2.toString(), model.str_c_i1, model.str_e_k1, model.str_g);
         model.str_segundo_factor_cuadrados = model.str_b_i1 + model.str_d_j1 + "<sup>" + model.str_f + "</sup>" + " " + model.h2 + " " + model.str_c_i1 +
                                               model.str_e_k1 + "<sup>" + model.str_g + "</sup>";
-        console.log("Segundo factor cuadrados");
-        console.log(model.str_b_i1);
-        console.log(model.str_d_j1);
-        console.log(model.str_f);
-        console.log(model.h2);
-        console.log(model.str_c_i1);
-        console.log(model.str_e_k1);
-        console.log(model.str_g);
-        console.log(model.segundo_factor_cuadrados);
+//        console.log("Segundo factor cuadrados");
+//        console.log(model.str_b_i1);
+//        console.log(model.str_d_j1);
+//        console.log(model.str_f);
+//        console.log(model.h2);
+//        console.log(model.str_c_i1);
+//        console.log(model.str_e_k1);
+//        console.log(model.str_g);
+//        console.log(model.segundo_factor_cuadrados);
         //$('#binomio_resolver').html(model.str_segundo_factor_cuadrados);
         
         this.mostrarBinomio();
@@ -564,21 +559,21 @@ var controller = {
         model.str_segundo_factor_cubos = model.b2 + model.str_d_j1 + "<sup>" + model.expo1 + "</sup>" + model.h2.toString()+ 
                                          model.bc + model.str_d_j1 + "<sup>"+ model.str_f + "</sup>" + model.str_e_k1 + "<sup>" 
                                          + model.str_g + "</sup>" + "+" + model.c2 + model.str_e_k1 + "<sup>"+ model.expo2 + "</sup>";
-        console.log("Segundo factor cubos");
-        console.log(model.b2);
-        console.log(model.str_d_j1);
-        console.log(model.f2);
-        console.log(model.h2);
-        console.log(model.bc);
-        console.log(model.str_d_j1);
-        console.log(model.f);
-        console.log(model.str_e_k1);
-        console.log(model.g);
-        console.log("+");
-        console.log(model.c2);
-        console.log(model.str_e_k1);
-        console.log(model.expo2);
-        console.log(model.segundo_factor_cubos);
+//        console.log("Segundo factor cubos");
+//        console.log(model.b2);
+//        console.log(model.str_d_j1);
+//        console.log(model.f2);
+//        console.log(model.h2);
+//        console.log(model.bc);
+//        console.log(model.str_d_j1);
+//        console.log(model.f);
+//        console.log(model.str_e_k1);
+//        console.log(model.g);
+//        console.log("+");
+//        console.log(model.c2);
+//        console.log(model.str_e_k1);
+//        console.log(model.expo2);
+//        console.log(model.segundo_factor_cubos);
         //$('#binomio_resolver').html(model.str_segundo_factor_cubos);
         
         this.mostrarBinomio();
@@ -647,7 +642,7 @@ var controller = {
         
         views.esconder("#ingresa_tipo a");
         if(model.tipo === model.t){
-            views.mostrarMensaje("¡Correcto!");
+            views.mostrarMensaje("¡Correcto!", "success");
         }else{
             if(model.tipo === 2){
                 views.mostrarMensaje("El binomio es cúbico",  "warning");
