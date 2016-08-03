@@ -94,13 +94,9 @@ var views = {
                 timer: 5000 //4 segundos 
             });
         }else{
-            swal({   
-                title: "",   
-                text: valor,   
-                type: tipo,
-                timer: 5000 //4 segundos 
-            });
+            swal("Bien hecho!", valor, tipo);
         }
+        
     },
      
     deshabilitarRadio : function (){
@@ -237,9 +233,9 @@ var controller = {
             model.str_a = model.a.toString();
         }
         
-        console.log("a", model.a);
-        console.log("n", model.n);
-        console.log("m", model.m);
+//        console.log("a", model.a);
+//        console.log("n", model.n);
+//        console.log("m", model.m);
         
         this.calcularb();
     },
@@ -306,8 +302,8 @@ var controller = {
             w1 += 1;
         }
         
-        console.log("a_w1", model.a_w1);
-        console.log("pot_cc*c_w1", model.pot_cc * model.c_w1);
+//        console.log("a_w1", model.a_w1);
+//        console.log("pot_cc*c_w1", model.pot_cc * model.c_w1);
         
         this.calcularw2();
     },
@@ -324,8 +320,8 @@ var controller = {
             w2 += 1;
         }
         
-        console.log("b_w2", model.b_w2);
-        console.log("pot_dd*d_w2", model.pot_dd* model.d_w2);
+//        console.log("b_w2", model.b_w2);
+//        console.log("pot_dd*d_w2", model.pot_dd* model.d_w2);
         
         this.calculare();
     },
@@ -437,8 +433,7 @@ var controller = {
         }
         
         model.str_g = Math.abs(model.g).toString();
-        
-        
+           
         this.construirBinomio_trinomio();
     },
     
@@ -446,16 +441,16 @@ var controller = {
         //CASO ESPECIAL: BINOMIO
         if(model.f === 0){
             model.str_binomio =  model.str_e + "x<sup>2</sup> " + model.gg + model.str_g;
-            console.log("Binomio");
-            console.log(model.str_binomio);
+//            console.log("Binomio");
+//            console.log(model.str_binomio);
             views.reemplazarHTML("#trinomio_resolver", model.str_binomio);
             views.reemplazarHTML("#mensaje", "<p><b>Caso especial:</b>  dadas ciertas condiciones un trinomio se puede reducir a una <b>diferencia de cuadrados</b>, un tipo de binomio</p>");
         
         //CASO TRINOMIO
         }else if(model.f !== 0){
             model.str_trinomio = model.str_e + "x<sup>2</sup> " + model.ff + model.str_f + "x" + model.gg + model.str_g;
-            console.log("Trinomio");
-            console.log(model.str_trinomio);
+//            console.log("Trinomio");
+//            console.log(model.str_trinomio);
             views.reemplazarHTML("#trinomio_resolver", model.str_trinomio);
         }
     },
@@ -483,10 +478,10 @@ var controller = {
         //El factor comun es ac*bd
         model.factor_comun = model.ac * model.bd;
         
-        /*console.log("ac", model.ac);
-        console.log("bd", model.bd);
-        console.log("factor_comun", model.factor_comun);*/
-        
+//        console.log("ac", model.ac);
+//        console.log("bd", model.bd);
+//        console.log("factor_comun", model.factor_comun);
+//        
         if(valor === "si"){
             if(model.factor_comun === 1){
                 views.mostrarMensaje("No amigo, debiste verificar. No hay factor común", "warning");
