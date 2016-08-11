@@ -3,20 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+$(".dropdown-button").dropdown();
 
 var tipo;
 
 function abrirModal(){
-    var style = 'line-height: 1.5em; font-weight: 200; letter-spacing: 1px; font-size: 1em; padding: 0 15px;';
+    var style = 'line-height: 1.5em; font-weight: 200; letter-spacing: 1px; font-size: 0.9em; padding: 0 15px;';
     
     swal({   
         title: "<small>¡ Importante !</small> ",   
         text: "<p style='"+ style +"'> A continuación encontrará ejercicios propuestos de factorización de binomios y trinomios, \n\
-            los cuales usted deberá resolver con la ayuda de papel y lápiz, para luego escribir la respuesta\n\
-            obtenida en el campo correspondiente y de esta manera verificar los resultados y obtener las correcciones\n\
+            los cuales usted deberá resolver, para luego escribir la respuesta\n\
+            obtenida y de esta manera verificar los resultados y obtener las correcciones\n\
             necesarias </p>",  
-        imageUrl: "img/ayuda.png",
-        html: true 
+        html: true, 
+        imageUrl: "img/ayuda.png"    
     });
 }    
 

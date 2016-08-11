@@ -23,11 +23,19 @@ and open the template in the editor.
     src: url('../fonts/CarlySue.ttf'); 
 }
 
+.orange-text{
+    color: orange;
+}
+
+.red{
+    color: red;
+}
+
 body{
     background-image: url('../img/fondo.png');
     background-repeat: repeat;
     color: #4E4E4E;
-    overflow-x: hidden;
+    overflow-x: scroll;
 }   
 
 /*Sticky footer*/
@@ -39,7 +47,7 @@ body {
 
 main {
     flex: 1 0 auto;
-    margin-bottom: 30px;
+    margin-bottom: 55px;
 }
 /*Sticky footer*/    
 
@@ -70,6 +78,19 @@ nav h4{
     margin: 0;
     font-size: 2.2em;
 }
+
+#mobile_nav{
+    font-size: 130%;
+}
+
+/* Navbar dropdown*/
+.dropdown-content li a .material-icons{
+    font-size: 150%;
+}
+.dropdown-content li a span{
+    font-weight: 400;
+}
+
 
 /*container and titles*/
 
@@ -123,10 +144,10 @@ footer img{
 
 
 @media (max-width:459px) {
-    #mobile_nav{
-        display: none;
+   .dropdown-content li a span{
+        font-size: 90%;
     }
-
+    
     #content h4{
         font-size: 1.2em;  
     }
@@ -152,9 +173,8 @@ footer img{
 }
 
 @media (min-width: 460px) and (max-width : 767px){
-    #mobile_nav{
-        padding-right: 20px;
-        padding-top: 10px;
+    .dropdown-content li a span{
+        font-size: 90%;
     }
     
     #content h4{
@@ -177,7 +197,6 @@ footer img{
 }    
 
 @media (min-width :768px) and (max-width : 992px) {
-    
     #content h4{
         font-size: 1.8em;
     }

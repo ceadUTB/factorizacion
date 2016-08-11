@@ -14,23 +14,29 @@
     </head>
 
     <body onload="controller.inicializarVariables();">
-        <nav role="navigation">
+        <nav>
             <div class="nav-wrapper container">
-                <a class="brand-logo left" href="index.html">
+                <a href="index.html" class="brand-logo left">
                     <img src="img/logo_utb.png" alt="logo">
                 </a>
-                <div class="right hide-on-small-only" id="factorizando">
-                    <h6>Factorizando</h6>
-                    <h4>Pedro Cabarcas</h4>
-                </div>
 
-                <div class="center hide-on-med-and-up right" id="mobile_nav">
-                    <h6>Factorizando</h6>
-                    <h4>Pedro Cabarcas</h4>
+                <div class="right">
+                    <!-- Dropdown Trigger -->
+                    <a class="dropdown-button right" href="#!" data-activates="dropdown1"> 
+                        <i class="material-icons left">more_vert</i> <span>Opciones</span><i class="material-icons right">arrow_drop_down</i>
+                    </a>
                 </div>
             </div>
         </nav>
-        
+
+        <!-- Dropdown Structure -->
+        <ul id="dropdown1" class="dropdown-content">
+            <li><a href=""><i class="material-icons left orange-text">replay</i><span>Reintentar</span></a></li>
+            <li><a href="index.html"><i class="material-icons left orange-text">keyboard_backspace</i><span>Atrás</span></a></li>
+            <li><a onclick="window.open('factorizartrinomios.pdf')"><i class="material-icons left red-text">picture_as_pdf</i><span>Ayuda</span></a></li>
+                                    
+        </ul>
+
         <!-- === SIDENAV === -->
         <div id="slide-out" class="side-nav">
             <div id="sidenav_header" class="row">
@@ -99,7 +105,7 @@
                         <img src="img/signos.jpg" alt="signos" style="width: 60%; margin-left: 20%">
                         <br><br><br><br>
                     </div>
-                    
+
                 </li>
                 <li>
                     <a class="collapsible-header">
@@ -117,61 +123,37 @@
                         <p>siendo los factores primos <b>2</b>, <b>3</b> y <b>5</b></p>
                     </div>
                 </li>
-                <!--<li>
-                    <a class="collapsible-header">
-                        <div class="row">
-                            <span class="col s2 m2 l2">5</span>
-                            <h6 class="col s9 m9 l9">Agrupación de términos</h6>
-                        </div>
-                    </a>
-                    <div class="collapsible-body">
-                        <p>
-                            Se llama factor común por agrupación de términos, si los términos de un polinomio pueden 
-                            reunirse en grupos de términos con un factor común diferente en cada grupo.
-                        </p> 
-                        <img src="img/signos.jpg" alt="signos" style="width: 60%; margin-left: 20%">
-                    </div>
-                </li>-->
             </ul>
             <br><br>
         </div>
         <!-- === SIDENAV === -->
-        
-        <!--Chips-->
-        <div class="chip amber darken-4 white-text right">
-            Puntos: <span id="puntos">0</span>
-        </div>
-        
-        <!--Fixed button-->
-        <div id="fixed_button">
-            <div class="fixed-action-btn horizontal click-to-toggle">
-                <a class="btn-floating btn-large orange">
-                  <i class="large material-icons">toc</i>
-                </a>
-                <ul>
-                    <li><a href="" class="btn-floating" style="background-color: #8CC63F;" ><i class="material-icons">replay</i></a></li>
-                    <li><a href="index.html" class="btn-floating" style="background-color: #ED1C24;"><i class="material-icons">keyboard_backspace</i></a></li>
-                </ul>
-            </div>
-        </div>
-        
+
         <main class="content">
             <div class="section no-pad-bot" id="content">
                 <div class="container center">
                     <h4>Factorizando</h4>
                     <div class="row">
-                        <div class="col s3 m3 l3">
+                        <div class="col s3">
                             <!--Trigger sidenav-->
                             <a href="#" data-activates="slide-out" class="button-collapse">
                                 <img id="ayuda" src="img/ayuda.png" alt="ayuda">
                             </a>
                         </div>
-                        <div class="col s8 pull-s1 m8 pull-m1 l8 pull-l1">
+                        <div class="col s6 center">
                             <img src="img/pedro_cabarcas.png" alt="ayuda" id="titulo">
+                        </div>
+                        <div class="col s3">
+                            <!--Chip-->
+                            <div class="chip amber darken-4 white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Puntaje">
+                                <i class="material-icons left">star</i><span>0</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
+            <br>
+            <br>
 
             <div id="container" class="container center">
                 <div id="card" class="card-panel z-depth-5">
@@ -181,11 +163,9 @@
 
                     <div id="resuelve" class="center">
                         <div id="mensaje" class="center"></div>
-                        
-                        <a class="right" id="abrir_factorizar" onclick="window.open('factorizartrinomios.pdf')"><i class="material-icons">picture_as_pdf</i></a>
-                        
+
                         <div id="trinomio_resolver"></div>
-                        
+
                         <div class="col s12 m6 l6">
                             <a id="resolver" class="btn waves-effect waves-light orange" onclick="views.mostrarPasos()">Resolver</a>
                         </div>
@@ -259,7 +239,7 @@
                                         <div class="col s12 m3 l2 offset-l1">
                                             <h5>Primer factor</h5>
                                         </div>
-                                        
+
                                         <!--Primer factor-->
                                         <div class="col s3 offset-s3 m1 l1">
                                             <input type="number" class="validate" id="a" name="a">
@@ -274,7 +254,7 @@
                                         <div class="col s12 m3 l3">
                                             <h5>Segundo factor</h5>
                                         </div>
-                                        
+
                                         <!--Segundo factor-->
                                         <div class="col s3 offset-s3 m1 l1">
                                             <input type="number" class="validate" id="c" name="c">
@@ -311,13 +291,13 @@
                                 <br>
                                 <a class="btn waves-effect waves-light orange" href="index.html">Volver a intentar</a>
                             </div>
-                      </div>
+                        </div>
                     </div>
-                    </div><!--card-->
-                </div><!--container--> 
+                </div><!--card-->
+            </div><!--container--> 
         </main>
-        
-       <footer>
+
+        <footer>
             <div class="top_footer"></div>
             <div class="bottom_footer">
                 <div class="row">
@@ -339,7 +319,7 @@
                 </div>
             </div>
         </footer>
-        
+
         <!--  Scripts-->
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery-ui.min.js"></script>

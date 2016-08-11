@@ -15,22 +15,26 @@
     </head>
 
     <body onload="controller.inicializarVariables();">
-        <nav role="navigation">
+        <nav>
             <div class="nav-wrapper container">
-                <a class="brand-logo left" href="index.html">
+                <a href="index.html" class="brand-logo left">
                     <img src="img/logo_utb.png" alt="logo">
                 </a>
-                <div class="right hide-on-small-only" id="factorizando">
-                    <h6>Factorizando</h6>
-                    <h4>Pedro Cabarcas</h4>
-                </div>
 
-                <div class="center hide-on-med-and-up right" id="mobile_nav">
-                    <h6>Factorizando</h6>
-                    <h4>Pedro Cabarcas</h4>
+                <div class="right">
+                    <!-- Dropdown Trigger -->
+                    <a class="dropdown-button right" href="#!" data-activates="dropdown1"> 
+                        <i class="material-icons left">more_vert</i> <span>Opciones</span><i class="material-icons right">arrow_drop_down</i>
+                    </a>
                 </div>
             </div>
         </nav>
+
+        <!-- Dropdown Structure -->
+        <ul id="dropdown1" class="dropdown-content">
+            <li><a href=""><i class="material-icons left orange-text">replay</i><span>Reintentar</span></a></li>
+            <li><a href="index.html"><i class="material-icons left orange-text">keyboard_backspace</i><span>Atrás</span></a></li>
+        </ul>
 
         <!-- === SIDENAV === -->
         <div id="slide-out" class="side-nav">
@@ -92,18 +96,6 @@
         </div>
         <!-- === SIDENAV === -->
 
-        <div id="fixed_button">
-            <div class="fixed-action-btn horizontal click-to-toggle">
-                <a class="btn-floating btn-large orange">
-                    <i class="large material-icons">toc</i>
-                </a>
-                <ul>
-                    <li><a href="" class="btn-floating" style="background-color: #8CC63F;" ><i class="material-icons">replay</i></a></li>
-                    <li><a href="index.html" class="btn-floating" style="background-color: #ED1C24;"><i class="material-icons">keyboard_backspace</i></a></li>
-                </ul>
-            </div>
-        </div>
-
         <main class="content">
             <div class="section no-pad-bot" id="content">
                 <div class="container center">
@@ -115,12 +107,14 @@
                                 <img id="ayuda" src="img/ayuda.png" alt="ayuda">
                             </a>
                         </div>
-                        <div class="col s8 pull-s1 m8 pull-m1 l8 pull-l1">
+                        <div class="col s6 center">
                             <img src="img/pedro_cabarcas.png" alt="ayuda" id="titulo">
                         </div>
                     </div>
                 </div>
             </div>
+
+            <br>
 
             <div id="container" class="container center">
                 <div id="card" class="card-panel z-depth-5">
@@ -262,37 +256,37 @@
                         </div>
                     </div>
                 </div><!--card-->
-        </div><!--container--> 
-    </main>
+            </div><!--container--> 
+        </main>
 
-    <footer>
-        <div class="top_footer"></div>
-        <div class="bottom_footer">
-            <div class="row">
-                <div class="col l8 s12">
-                    <ul>
-                        <li>Aplicación de factorización profesor Pedro Cabarcas</li>
-                        <li>Desarrollada por Laura Schiatti y Diseñada por Jose Gelvis de la <a href="http://www.unitecnologica.edu.co/educacionadistancia/">Coordinación de Educación a Distancia.</a></li>
-                        <li>Parque Industrial y Tecnológico Carlos Vélez Pombo, Km 1 Vía Turbaco. - Pbx: 57-5-6535200 - Fax: 57-5- 6619240</li>
-                        <li>Campus Casa Lemaitre: Calle del Bouquet cra.21 #25-92, barrio Manga - Tels.: (5) 6606041-42-4</li>
-                    </ul>
-                    <ul class="footer-copyright">
-                        <li>Copyright © 2016 - Cartagena - Bolívar - Colombia</li>
-                    </ul>
+        <footer>
+            <div class="top_footer"></div>
+            <div class="bottom_footer">
+                <div class="row">
+                    <div class="col l8 s12">
+                        <ul>
+                            <li>Aplicación de factorización profesor Pedro Cabarcas</li>
+                            <li>Desarrollada por Laura Schiatti y Diseñada por Jose Gelvis de la <a href="http://www.unitecnologica.edu.co/educacionadistancia/">Coordinación de Educación a Distancia.</a></li>
+                            <li>Parque Industrial y Tecnológico Carlos Vélez Pombo, Km 1 Vía Turbaco. - Pbx: 57-5-6535200 - Fax: 57-5- 6619240</li>
+                            <li>Campus Casa Lemaitre: Calle del Bouquet cra.21 #25-92, barrio Manga - Tels.: (5) 6606041-42-4</li>
+                        </ul>
+                        <ul class="footer-copyright">
+                            <li>Copyright © 2016 - Cartagena - Bolívar - Colombia</li>
+                        </ul>
 
-                </div>
-                <div class="col l4 s12 center">
-                    <img src="img/logo_utb.png" alt="logo">
+                    </div>
+                    <div class="col l4 s12 center">
+                        <img src="img/logo_utb.png" alt="logo">
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
-    <!--  Scripts-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/materialize.js"></script>
-    <script src="js/binomios.js"></script>
-    <script src="js/sweetalert.min.js"></script>
-</body>    
+        <!--  Scripts-->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/binomios.js"></script>
+        <script src="js/sweetalert.min.js"></script>
+    </body>    
 </html>
