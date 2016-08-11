@@ -93,7 +93,6 @@ nav h4{
 
 
 /*container and titles*/
-
 #content h4{
     font-family: 'champagne Limousines';
     margin-bottom: 0;
@@ -101,6 +100,20 @@ nav h4{
 
 #factorizando{
     margin-right: 50px;
+}
+
+#ayuda{
+    opacity: 0.9;
+    margin-top: 0;
+}
+
+#ayuda:hover{
+    opacity: 1;
+}
+
+
+.material-tooltip {
+    padding: 2px 6px 0; 
 }
 
 /*Footer*/
@@ -156,6 +169,11 @@ footer img{
         padding: 0;
     }
     
+    #ayuda{
+        width:86%;
+        margin-left: 2px;
+    }
+    
     footer{
         font-size: 11px;
     }
@@ -181,6 +199,10 @@ footer img{
         font-size: 1.7em;  
     }
     
+    #ayuda{
+        width: 60%;
+    }
+    
     footer{
         font-size: 18px;
     }
@@ -199,6 +221,10 @@ footer img{
 @media (min-width :768px) and (max-width : 992px) {
     #content h4{
         font-size: 1.8em;
+    }
+    
+    #ayuda{
+        width: 50%;
     }
     
     footer{
@@ -220,6 +246,10 @@ footer img{
 @media (min-width:993px) {
     #content h4{
         font-size: 1.9em;
+    }
+    
+    #ayuda{
+        width: 40%;
     }
   
     .top_footer{

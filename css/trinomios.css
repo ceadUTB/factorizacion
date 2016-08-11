@@ -34,10 +34,6 @@ body{
     font-weight: lighter;
 }
 
-#ayuda{
-    margin-top: 0;
-}
-
 /*Card panel*/
 .card-panel{
     background-color: #E6E6E6;
@@ -222,10 +218,6 @@ input[type=number].valid{
     cursor: default;
 }
 
-.material-tooltip {
-    padding: 2px 6px 0; 
-}
-
 /*Boton flotante*/
 #fixed_button{
     position: relative;
@@ -269,11 +261,6 @@ input[type=number].valid{
     .side-nav .collapsible-header{
         font-size: 1.4em;
     }
-    
-    #ayuda{
-        width:86%;
-        margin-left: 2px;
-    }
 }
 
 @media (min-width: 460px) and (max-width : 767px){
@@ -316,10 +303,6 @@ input[type=number].valid{
     .side-nav .collapsible-header{
         font-size: 2.1em;
     }
-    
-    #ayuda{
-        width: 60%;
-    }
 }
 
 @media (min-width :768px) and (max-width : 992px) { 
@@ -353,10 +336,6 @@ input[type=number].valid{
     
     .side-nav .collapsible-header{
         font-size: 2.5em;
-    }
-    
-    #ayuda{
-        width: 50%;
     }
 }
 
@@ -395,10 +374,6 @@ input[type=number].valid{
     
     .side-nav .collapsible-header{
         font-size: 2.4em;
-    }
-    
-    #ayuda{
-        width: 40%;
     }
     
     #fixed_button .fixed-action-btn{
