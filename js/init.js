@@ -11,13 +11,15 @@ function abrirModal(){
     var style = 'line-height: 1.5em; font-weight: 200; letter-spacing: 1px; font-size: 0.9em; padding: 0 15px;';
     
     swal({   
-        title: "<small>¡ Importante !</small> ",   
+        title: "",   
         text: "<p style='"+ style +"'> A continuación encontrará ejercicios propuestos de factorización de binomios y trinomios, \n\
             los cuales usted deberá resolver, para luego escribir la respuesta\n\
             obtenida y de esta manera verificar los resultados y obtener las correcciones\n\
             necesarias </p>",  
         html: true, 
-        imageUrl: "img/ayuda.png"    
+        confirmButtonColor: "#FC9400",
+        imageUrl: "img/ayuda.png",
+        imageSize: "70x70"
     });
 }    
 

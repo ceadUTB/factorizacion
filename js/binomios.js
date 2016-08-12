@@ -105,7 +105,8 @@ var views = {
                 title: "Error",   
                 text: valor,   
                 type: tipo,
-                timer: 5000 //4 segundos 
+                timer: 5000, //5 segundos
+                confirmButtonColor: "#FC9400"
             });
         }else{
             swal("Bien hecho!", valor, tipo);
