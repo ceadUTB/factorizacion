@@ -86,17 +86,19 @@ var views = {
     },
     
     mostrarMensaje : function (valor, tipo){
+        var title;
         if(tipo === "warning"){
-            swal({   
-                title: "Error",   
-                text: valor,   
-                type: tipo,
-                timer: 5000 //4 segundos 
-            });
+            title = "Error";
         }else{
-            swal("Bien hecho!", valor, tipo);
+            title ="Bien hecho!";
         }
         
+        swal({   
+            title: title,   
+            text: valor,   
+            type: tipo,
+            confirmButtonColor: "#FC9400"
+        });
     },
      
     deshabilitarRadio : function (){
