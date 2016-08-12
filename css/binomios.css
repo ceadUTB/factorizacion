@@ -133,62 +133,6 @@ input[type=number].valid{
     box-shadow: 0 1px 0 0 #5C97A0; 
 } 
 
-/*Sidenav*/
-.side-nav, .side-nav .collapsible-body{
-    background-color: #e0e0e0;
-}
-
-.side-nav .collapsible-header{
-    background-color: #878787;
-    padding: 10px 10px 0;
-    height: 10px;
-    width: 240px;
-    color: white;
-}
-
-#sidenav_header img{
-    width: 35%;
-    margin-left: 10px;
-    margin-bottom: 0;
-    float:left;
-}
-
-.collapsible {
-    margin-bottom: 30px;
-}
-
-.collapsible-header h6{
-    font-family: 'carly Sue';
-    font-weight: lighter;
-    text-align: left;
-    font-size: 0.5em;
-    margin: 12px;
-}
-
-.collapsible-header span{
-    height: 30px;
-    width: 30px;
-    line-height: 30px;
-    -moz-border-radius: 100%;
-    border-radius: 100%;
-    background-color: #eb7b00;
-    text-align: center;
-    font-size: 0.5em;
-    color: white;
-    font-family: 'champagne Limousines';
-}
-
-.collapsible-body p {
-    margin-right: 0;
-    color: #595959;
-    font-family: 'champagne Limousines';
-    line-height: 25px;
-    font-size: 15px;
-    padding: 0 0 20px 20px;
-    text-align: left;
-    color: black;
-}
-
 /*Boton flotante*/
 #fixed_button{
     position: relative;

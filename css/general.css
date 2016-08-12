@@ -18,11 +18,6 @@ and open the template in the editor.
     src: url('../fonts/JennaSue.ttf'); 
 }
 
-@font-face { 
-    font-family: 'carly Sue'; 
-    src: url('../fonts/CarlySue.ttf'); 
-}
-
 .orange-text{
     color: orange;
 }
@@ -91,6 +86,74 @@ nav h4{
     font-weight: 400;
 }
 
+/*Sidenav*/
+.side-nav, .side-nav .collapsible-body{
+    background-color: #e0e0e0;
+}
+
+.side-nav .collapsible-header{
+    background-color: #878787;
+    padding: 10px 10px 0;
+    height: 10px;
+    width: 240px;
+    color: white;
+}
+
+.side-nav .collapsible-header:hover{
+    /*background-color: #417A80;*/
+    opacity: 0.9;
+    border-left-width: 5px;
+    border-left-style: solid;
+    border-left-color: #F07C00;
+}
+
+#sidenav_header img{
+    width: 35%;
+    margin-left: 10px;
+    margin-bottom: 0;
+    float:left;
+}
+
+.collapsible {
+    margin-bottom: 30px;
+}
+
+.collapsible-header h6{
+    font-size: 55%;
+    margin: 6px;
+    letter-spacing: 0.6px;
+}
+
+.collapsible-header span{
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    background-color: #eb7b00;
+    text-align: center;
+    font-size: 0.5em;
+    color: white;
+    font-family: 'champagne Limousines';
+}
+
+.collapsible-body p {
+    margin-right: 0;
+    color: #595959;
+    font-family: 'champagne Limousines';
+    line-height: 25px;
+    font-size: 15px;
+    padding: 0 0 20px 20px;
+    text-align: left;
+    color: black;
+}
+
+.collapsible-body a{
+    padding: 0;
+    margin: 0;
+    color: orangered;
+    height: 29px;
+}
 
 /*container and titles*/
 #content h4{
