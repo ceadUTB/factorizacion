@@ -231,6 +231,12 @@ var controller = {
                 break;
         }
         
+        console.log("VARIABLES");
+        
+        console.log("a", model.a);
+        console.log("n", model.n);
+        console.log("m", model.m);
+        
         /*REVISAR
         if(model.a === 1){
             model.str_a = "";
@@ -252,8 +258,10 @@ var controller = {
         if (model.b !== 1 && model.b !== 6) {
             //REVISAR: QUITE PARSEINT
             model.b = parseInt(model.b_i1);
-            console.log("b" + model.b);
         }
+        
+        console.log("b" + model.b);
+        console.log("b_i1" + model.b_i1);
 
         this.calcularc();
     },
@@ -269,7 +277,7 @@ var controller = {
         //console.log("c en calcularc" + model.c + typeof model.c);
         
         model.c_i1 = model.i1[model.c - 1];
-
+        
         //Validar que b_i1 y c_i1 sean diferentes
         if (model.c_i1 === model.b_i1) {
             model.c_i1 = model.i1[model.c - 2];
@@ -277,23 +285,30 @@ var controller = {
 
         if (model.c !== 1 && model.c !== 6) {
             model.c = parseInt(model.c_i1);
-            console.log("c" + model.c);
         }
         //console.log("c_i1 en calcularc" + model.c_i1 + typeof model.c);
         //console.log("c en calcularc luego del parse " + model.c);
+
+        console.log("c", model.c);
+        console.log("c_i1", model.c_i1);
 
         this.calculard();
     },
 
     calculard : function () {
         model.d = this.calcularRandom(model.n, model.m);
+
         model.d_j1 = model.j1[model.d - 1];
         model.e_k1 = model.k1[model.d - 1];
 
         if(model.e_k1 === " " &&  model.c === 1){
             model.c_i1 = 1;
         }
-
+        
+        console.log("d", model.d);
+        console.log("d_j1", model.d_j1);
+        console.log("e_k1", model.e_k1);
+        
         this.calcularf();
     },
 
@@ -304,6 +319,8 @@ var controller = {
         if (model.d_j1 === " ") {
             model.f = "";
         }
+        
+        console.log("f", model.f);
 
         this.calcularg();
     },
@@ -315,6 +332,8 @@ var controller = {
         if (model.e_k1 === " ") {
             model.g = "";
         }
+        
+        console.log("g", model.g);
         
         this.calculart();
     },
@@ -340,6 +359,12 @@ var controller = {
                 model.h2 ="+";
             }
         }
+        
+        console.log("t", model.t);
+        console.log("h", model.h);
+        console.log("hh", model.hh);
+        console.log("h1", model.h1);
+        console.log("h2", model.h2);
 
         this.calcularMultiplicaciones();
     },
@@ -359,13 +384,13 @@ var controller = {
             model.ab = "";
         }
         
-//        console.log("ab");
-//        console.log("a " + model.a);
-//        console.log("b " + model.b);
-//        console.log("t " + model.t);
-//        console.log("pow(model.b, model.t) " + this.calcularPow(model.b, model.t));
-//        console.log("pow*a " + model.ab);
-//        console.log(" ");
+    //        console.log("ab");
+    //        console.log("a " + model.a);
+    //        console.log("b " + model.b);
+    //        console.log("t " + model.t);
+    //        console.log("pow(model.b, model.t) " + this.calcularPow(model.b, model.t));
+    //        console.log("pow*a " + model.ab);
+    //        console.log(" ");
         
         //Calcular ac
         model.ac = model.a * this.calcularPow(model.c, model.t);
@@ -381,8 +406,13 @@ var controller = {
 //        console.log("t " + model.t);
 //        console.log("pow(model.c, model.t) " + this.calcularPow(model.c, model.t));
 //        console.log("pow*a " + model.ac);
-
-      this.convertiraString();
+        
+        console.log("ft", model.ft);
+        console.log("gt", model.gt);
+        console.log("ab", model.ab);
+        console.log("ac", model.ac);
+        
+        this.convertiraString();
     },
 
     convertiraString : function () {
@@ -455,15 +485,15 @@ var controller = {
         model.primer_factor = model.str_b_i1.concat(model.str_d_j1, model.str_f, model.h1.toString(), model.str_c_i1, model.str_e_k1, model.str_g);
         model.str_primer_factor = model.str_b_i1 + model.str_d_j1 + "<sup>" + model.str_f + "</sup>"
                                   + " " + model.h1 + " " + model.str_c_i1 + model.str_e_k1 + "<sup>" + model.str_g + "</sup>";
-//        console.log("Primer factor");
-//        console.log(model.str_b_i1);
-//        console.log(model.str_d_j1);
-//        console.log(model.str_f);
-//        console.log(model.h1);
-//        console.log(model.str_c_i1);
-//        console.log(model.str_e_k1);
-//        console.log(model.str_g);
-//        console.log(model.primer_factor);
+        
+        console.log("PRIMER FACTOR", model.primer_factor);
+        console.log("b_i1", model.str_b_i1);
+        console.log("d_j1", model.str_d_j1);
+        console.log("f", model.str_f);
+        console.log("h1", model.h1);
+        console.log("c_i1", model.str_c_i1);
+        console.log("e_k1", model.str_e_k1);
+        console.log("g" ,model.str_g);
         //$('#binomio_resolver').html(model.str_primer_factor);
 
         if(model.t === 2){
@@ -479,15 +509,15 @@ var controller = {
         model.segundo_factor_cuadrados = model.str_b_i1.concat(model.str_d_j1, model.str_f, model.h2.toString(), model.str_c_i1, model.str_e_k1, model.str_g);
         model.str_segundo_factor_cuadrados = model.str_b_i1 + model.str_d_j1 + "<sup>" + model.str_f + "</sup>" + " " + model.h2 + " " + model.str_c_i1 +
                                               model.str_e_k1 + "<sup>" + model.str_g + "</sup>";
-//        console.log("Segundo factor cuadrados");
-//        console.log(model.str_b_i1);
-//        console.log(model.str_d_j1);
-//        console.log(model.str_f);
-//        console.log(model.h2);
-//        console.log(model.str_c_i1);
-//        console.log(model.str_e_k1);
-//        console.log(model.str_g);
-//        console.log(model.segundo_factor_cuadrados);
+        
+        console.log("SEGUNDO FACTOR", model.segundo_factor_cuadrados);
+        console.log("b_i1", model.str_b_i1);
+        console.log("g_j1", model.str_d_j1);
+        console.log("f", model.str_f);
+        console.log("h2", model.h2);
+        console.log("c_i1", model.str_c_i1);
+        console.log("e_k1", model.str_e_k1);
+        console.log("g", model.str_g);
         //$('#binomio_resolver').html(model.str_segundo_factor_cuadrados);
         
         this.mostrarBinomio();
@@ -562,21 +592,21 @@ var controller = {
         model.str_segundo_factor_cubos = model.b2 + model.str_d_j1 + "<sup>" + model.expo1 + "</sup>" + model.h2.toString()+ 
                                          model.bc + model.str_d_j1 + "<sup>"+ model.str_f + "</sup>" + model.str_e_k1 + "<sup>" 
                                          + model.str_g + "</sup>" + "+" + model.c2 + model.str_e_k1 + "<sup>"+ model.expo2 + "</sup>";
-//        console.log("Segundo factor cubos");
-//        console.log(model.b2);
-//        console.log(model.str_d_j1);
-//        console.log(model.f2);
-//        console.log(model.h2);
-//        console.log(model.bc);
-//        console.log(model.str_d_j1);
-//        console.log(model.f);
-//        console.log(model.str_e_k1);
-//        console.log(model.g);
-//        console.log("+");
-//        console.log(model.c2);
-//        console.log(model.str_e_k1);
-//        console.log(model.expo2);
-//        console.log(model.segundo_factor_cubos);
+        
+        console.log("SEGUNDO FACTOR", model.segundo_factor_cubos);
+        console.log("b2", model.b2);
+        console.log("d_j1", model.str_d_j1);
+        console.log("f2", model.f2);
+        console.log("h2", model.h2);
+        console.log("bc", model.bc);
+        console.log("d_j1", model.str_d_j1);
+        console.log("f", model.f);
+        console.log("e_k1", model.str_e_k1);
+        console.log("g", model.g);
+        console.log("+");
+        console.log("c2", model.c2);
+        console.log("e_k1", model.str_e_k1);
+        console.log("expo2", model.expo2);
         //$('#binomio_resolver').html(model.str_segundo_factor_cubos);
         
         this.mostrarBinomio();
@@ -592,8 +622,7 @@ var controller = {
                                 + model.gt.toString() + "</sup>";
         }
         
-        console.log("Binomio");
-        console.log(model.binomio);
+        console.log("BINOMIO", model.binomio);
         
         views.reemplazarHTML("#binomio_resolver", model.str_binomio);
         
