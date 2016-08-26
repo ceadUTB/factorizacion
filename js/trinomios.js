@@ -235,9 +235,10 @@ var controller = {
             model.str_a = model.a.toString();
         }
         
-//        console.log("a", model.a);
-//        console.log("n", model.n);
-//        console.log("m", model.m);
+        console.log("VARIABLES");
+        console.log("a", model.a);
+        console.log("n", model.n);
+        console.log("m", model.m);
         
         this.calcularb();
     },
@@ -269,7 +270,10 @@ var controller = {
             model.j = "-"; 
         }
         
-        console.log("pot_cc*c", model.pot_cc * model.c);
+        console.log("c", model.c); 
+        console.log("cc", model.cc);
+        
+//        console.log("pot_cc*c", model.pot_cc * model.c);
         
         this.calculard();
     },
@@ -287,7 +291,11 @@ var controller = {
             model.h = "-"; 
         }
         
-        console.log("pot_dd*d", model.pot_dd* model.d);
+        console.log("d", model.d); 
+        console.log("dd", model.cc);
+        console.log("h", model.h); 
+        
+//        console.log("pot_dd*d", model.pot_dd* model.d);
 
         this.calcularw1();
     },
@@ -304,7 +312,7 @@ var controller = {
             w1 += 1;
         }
         
-//        console.log("a_w1", model.a_w1);
+        console.log("a_w1", model.a_w1);
 //        console.log("pot_cc*c_w1", model.pot_cc * model.c_w1);
         
         this.calcularw2();
@@ -322,7 +330,7 @@ var controller = {
             w2 += 1;
         }
         
-//        console.log("b_w2", model.b_w2);
+        console.log("b_w2", model.b_w2);
 //        console.log("pot_dd*d_w2", model.pot_dd* model.d_w2);
         
         this.calculare();
@@ -336,6 +344,8 @@ var controller = {
         }else{
             model.str_e = model.e.toString();
         }
+        
+        console.log("e", model.e); 
         
         this.calcularf();
     },
@@ -351,12 +361,17 @@ var controller = {
             model.nf = -1;
         } 
         
+        console.log("f", model.f);
         console.log("ff", model.ff);
+        console.log("nf", model.nf);
+        
         this.calcularf_g();
     },
     
     calcularf_g : function(){
         model.g = (model.c * model.pot_cc * model.d * model.pot_dd);
+        
+        console.log("g", model.g);
         
         this.validarf_g();
     },
@@ -405,6 +420,7 @@ var controller = {
         } 
         
         console.log("gg", model.gg);
+        console.log("ng", model.ng);
         
         this.calcularprd();
     },
@@ -417,6 +433,8 @@ var controller = {
         }else if(prd === -1){
             model.prdo = "RESTADOS";
         }
+        
+        console.log("prd", prd);
         
         this.validaciones();
     },
@@ -435,6 +453,7 @@ var controller = {
         }
         
         model.str_g = Math.abs(model.g).toString();
+        
            
         this.construirBinomio_trinomio();
     },
@@ -442,17 +461,21 @@ var controller = {
     construirBinomio_trinomio : function(){
         //CASO ESPECIAL: BINOMIO
         if(model.f === 0){
+            model.binomio =  model.str_e + "x2" + model.gg + model.str_g;
             model.str_binomio =  model.str_e + "x<sup>2</sup> " + model.gg + model.str_g;
-//            console.log("Binomio");
-//            console.log(model.str_binomio);
+            
+            console.log("CASO ESPECIAL: BINOMIO", model.binomio);
+            
             views.reemplazarHTML("#trinomio_resolver", model.str_binomio);
             views.reemplazarHTML("#mensaje", "<p><b>Caso especial:</b>  dadas ciertas condiciones un trinomio se puede reducir a una <b>diferencia de cuadrados</b>, un tipo de binomio</p>");
         
         //CASO TRINOMIO
         }else if(model.f !== 0){
             model.str_trinomio = model.str_e + "x<sup>2</sup> " + model.ff + model.str_f + "x" + model.gg + model.str_g;
-//            console.log("Trinomio");
-//            console.log(model.str_trinomio);
+            model.trinomio = model.str_e + "x2" + model.ff + model.str_f + "x" + model.gg + model.str_g;
+            
+            console.log("TRINOMIO", model.trinomio);
+            
             views.reemplazarHTML("#trinomio_resolver", model.str_trinomio);
         }
     },
